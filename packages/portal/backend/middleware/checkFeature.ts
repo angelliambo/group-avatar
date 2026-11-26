@@ -13,7 +13,7 @@ export const checkFeature = (featureName: keyof typeof FEATURES) => {
       }
       next();
     } catch (err) {
-      console.error(`[FEATURE-MIDDLEWARE] Error al validar flag ${featureName}:`, err);
+      console.error(`[FEATURE-MIDDLEWARE] Error al validar flag ${String(featureName)}:`, err);
       next(err);
     }
   };
