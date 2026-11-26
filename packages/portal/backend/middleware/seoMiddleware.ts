@@ -6,8 +6,8 @@ import { BRAND_CONFIG } from "@factory/shared/config/brand";
 
 const PUBLIC_INDEXABLE_PATHS = new Set([
   "/",
-  "/pricing",
-  "/support",
+  "/logistica",
+  "/mudanzas",
   "/legal/terms",
   "/legal/privacy",
 ]);
