@@ -1,6 +1,6 @@
 import React from "react";
 import { ButtonProps } from "./Button.types";
-import { StyledButton, LoadingSpinner, ButtonIcon } from "./Button.styles";
+import { StyledButton, LoadingSpinner, ButtonIcon, ButtonContent } from "./Button.styles";
 import { usePersonalization } from '../../contexts/PersonalizationContext';
 import { useThemeColors } from '../../hooks/useThemeColors';
 import { mapButtonSize, mapButtonVariant } from "../shared";
@@ -142,7 +142,7 @@ export const Button: React.FC<ButtonProps> = ({
       {renderLoadingSpinner()}
 
       {/* Contenido del botón */}
-      <span style={{ opacity: loading ? 0.7 : 1 }}>{children}</span>
+      <ButtonContent $loading={loading}>{children}</ButtonContent>
 
       {/* Icono a la derecha */}
       {iconPosition === "right" && renderIcon()}
