@@ -1,4 +1,6 @@
-export const CONTACT_EMAIL = 'info@<domain>';
+import { BRAND_CONFIG } from './brand';
+
+export const CONTACT_EMAIL = BRAND_CONFIG.supportEmail;
 
 // MailSender templates
 export const MAILSENDER_TEMPLATE_BASE = '0p7kx4x5wk8g9yjr';

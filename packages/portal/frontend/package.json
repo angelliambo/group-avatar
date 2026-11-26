@@ -1,6 +1,6 @@
 {
   "name": "@factory/frontend",
-  "version": "2.1.1",
+  "version": "2.2.0",
   "proxy": "http://localhost:5000",
   "private": true,
   "dependencies": {
@@ -51,7 +51,7 @@
     "clean": "rm -rf build dist node_modules",
     "start": "vite --port 3000",
     "dev": "vite --port 3000",
-    "build": "vite build && npx tsx scripts/prerender.ts",
+    "build": "npx tsx scripts/update-seo.ts && vite build && npx tsx scripts/prerender.ts",
     "preview": "vite preview",
     "analyze": "ANALYZE=true vite build",
     "test": "jest --watch=false --runInBand",

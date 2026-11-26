@@ -1,8 +1,10 @@
+import { BRAND_CONFIG } from "@factory/shared/config/brand";
+
 export const ENV_CONFIG = {
   API_URL: process.env.VITE_API_URL || "http://localhost:5000/api",
   IS_PRODUCTION: process.env.NODE_ENV === "production",
   IS_DEVELOPMENT: process.env.NODE_ENV === "development",
-  PRODUCTION_API_URL: "https://api.yourdomain.com/api",
+  PRODUCTION_API_URL: `https://${BRAND_CONFIG.domain}/api`,
   DEVELOPMENT_API_URL: "http://localhost:5000/api",
 };
 
@@ -25,7 +27,7 @@ export const ENVIRONMENT_CONFIG = {
     logLevel: "debug",
   },
   production: {
-    apiUrl: "https://api.yourdomain.com/api",
+    apiUrl: `https://${BRAND_CONFIG.domain}/api`,
     debug: false,
     logLevel: "error",
   },

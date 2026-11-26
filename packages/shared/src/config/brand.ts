@@ -1,28 +1,31 @@
-const DOMAIN = '__DOMAIN_NAME__';
+const APP_NAME = 'avatar-group';
+const DOMAIN = 'avatar-group.fly.dev';
 
 export const BRAND_CONFIG = {
-  siteName: '__BRAND_NAME__',
+  appName: APP_NAME,
+  siteName: 'avatar-group',
   domain: DOMAIN,
   logoUrl: '/logo192.png',
-  supportEmail: `support@${DOMAIN}`,
-  whatsappUrl: 'https://wa.me/1234567890',
-  seoTitle: '__BRAND_NAME__ - Tu Plataforma Lista para Despegar',
-  seoDescription: 'La estructura modular de alto rendimiento para tu negocio o startup con paneles de administración, facturación y soporte.',
-  seoKeywords: 'portal saas, boilerplate, panel de control web, base para startup, desarrollo modular, login google, soporte integrado',
-  seoImageAlt: '__BRAND_NAME__ — Plataforma SaaS Modular',
+  supportEmail: 'info@avatargroup.com.ar',
+  whatsappUrl: 'https://wa.me/5491141932237',
+  seoTitle: 'avatar-group - Logística Empresarial, Transportes y Mudanzas',
+  seoDescription: 'Servicios integrales de logística empresarial, transportes programados, repartos asistidos y mudanzas bajo sistema Easy-Pack con cobertura nacional.',
+  seoKeywords: 'avatar group, logistica empresarial, mudanzas easy-pack, transportes programados, repartos asistidos, mudanzas corporativas, mudanzas particulares',
+  seoImageAlt: 'avatar-group — Logística y Mudanzas',
   socials: {
-    instagram: '',
+    instagram: 'avatargroup.ar',
     x: '',
-    facebook: '',
-    tiktok: '',
+    facebook: 'avatargroup.ar',
+    tiktok: 'avatargroup.ar',
   },
-  address: 'Obelisco, Av. 9 de Julio s/n, C1043 Buenos Aires, Argentina',
-  latitude: -34.6037389,
-  longitude: -58.3815704,
+  address: 'Araujo 1508, Mataderos, C1440 CABA, Buenos Aires, Argentina',
+  latitude: -34.6548,
+  longitude: -58.5028,
   mapZoom: 15,
   mapImageUrl: '/assets/images/map.webp',
   mapMobileImageUrl: '/assets/images/map-mobile.webp',
-  mapLinkUrl: 'https://www.google.com/maps/search/?api=1&query=-34.6037389,-58.3815704',
+  mapLinkUrl: 'https://www.google.com/maps/search/?api=1&query=-34.6548,-58.5028',
   showMapSection: true,
 };
+
 
