@@ -139,7 +139,7 @@ export async function serveReactWithSEO(req: Request, res: Response, next: NextF
         theme: {
           primaryColor: "#1890ff",
           secondaryColor: "#52c41a",
-          darkMode: false,
+          darkMode: true,
         }
       }
     };
