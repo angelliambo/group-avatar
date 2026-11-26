@@ -1,0 +1,24 @@
+# Plantilla .gitattributes para proyectos hijos de MERN SaaS Factory Framework
+# Copiar como .gitattributes en la raíz del proyecto hijo y ejecutar: bash scripts/setup-git-strategy.sh
+
+# Proteger archivos de identidad y SEO estático del proyecto hijo
+packages/portal/frontend/public/seo-templates/index.html merge=ours
+packages/portal/frontend/public/index.html merge=ours
+packages/portal/frontend/public/seo-templates/llms.txt merge=ours
+packages/portal/frontend/public/llms.txt merge=ours
+packages/portal/frontend/public/seo-templates/robots.txt merge=ours
+packages/portal/frontend/public/robots.txt merge=ours
+packages/portal/frontend/public/seo-templates/manifest.json merge=ours
+packages/portal/frontend/public/manifest.json merge=ours
+packages/portal/frontend/public/seo-templates/sitemap.xml merge=ours
+packages/portal/frontend/public/sitemap.xml merge=ours
+
+# Proteger configuración de marca, URLs y despliegue
+packages/shared/src/config/brand.ts merge=ours
+packages/shared/src/config/urls.ts merge=ours
+packages/shared/src/config/contact.ts merge=ours
+packages/portal/fly.toml merge=ours
+
+# Proteger activos específicos del cliente
+packages/portal/frontend/public/assets/images/map.webp merge=ours
+packages/portal/frontend/public/assets/images/map-mobile.webp merge=ours

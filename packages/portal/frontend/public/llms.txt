@@ -1,0 +1,38 @@
+# __BRAND_NAME__ - Tu Plataforma Lista para Despegar\n
+__BRAND_NAME__ is a high-performance MERN (MongoDB, Express, React, Node.js) web application boilerplate. It provides a modular foundation to quickly launch your startup or software-as-a-service application, with built-in modules for authentication, user dashboards, administration panels, support ticketing, and payment gateway integration.
+
+---
+
+## Key Product Offerings
+
+- **Unified Authentication**: Secured login flow using standard email/code validation or Google OAuth integration.
+- **Smart Control Panel**: Fully functional dashboard containing user administration, metrics graphs, role assignment, and customization capabilities.
+- **Lemon Squeezy Billing Integration**: Flexible pricing plan modules connected directly with Lemon Squeezy payment checkout links and automated backend status synchronization via secure webhooks.
+- **Support & Ticketing System**: Optional direct communication and help-desk ticket management system built natively into the app layout.
+- **Feature Flags / Config**: Dynamically toggle backend services and frontend components from unified configuration and environment variables.
+
+---
+
+## Technical Architecture & Design
+
+__BRAND_NAME__ is structured as a monorepo containing two core packages:
+- **`packages/portal`**: A MERN web application. The frontend uses Create React App (CRA) configured with `react-app-rewired` for style-system path mapping. The backend serves client authentication, license keys validation, support tickets, and account subscription state.
+- **`packages/shared`**: Shared styling system (`styled-components` design tokens, light/dark themes, Atoms/Organisms), pricing config (plans, limits), and TypeScript common types.
+
+### Backend Tech Stack
+1. **Express & Node.js**: Modular routers, custom middlewares for auth validation, plan limits, and global error handlers.
+2. **MongoDB & Mongoose**: Structured schemas for Users, Licenses, Tickets, and Configurations with automatic reconnection retries.
+3. **Email Notification Service**: MailSender provider implementation using styled email templates.
+
+### Frontend Tech Stack
+1. **React**: Single Page Application structure with Redux for state management, context providers, and customized hooks.
+2. **Design System**: Fully responsive mobile-first custom components using styled-components.
+3. **i18n & Translations**: Dynamic localization and multi-language support (English/Spanish base locales).
+
+---
+
+## Primary Resources & Links
+- [Official Website](https://__DOMAIN_NAME__)
+- [Pricing and License Plans](https://__DOMAIN_NAME__/pricing)
+- [Terms and Conditions](https://__DOMAIN_NAME__/legal/terms)
+- [Privacy Policy & Data Security](https://__DOMAIN_NAME__/legal/privacy)

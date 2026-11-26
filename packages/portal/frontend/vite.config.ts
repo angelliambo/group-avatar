@@ -1,0 +1,93 @@
+import { defineConfig, loadEnv } from 'vite';
+import react from '@vitejs/plugin-react';
+import { tanstackRouter } from '@tanstack/router-plugin/vite';
+import path from 'path';
+
+export default defineConfig(({ mode }) => {
+  const env = { ...process.env, ...loadEnv(mode, process.cwd(), '') };
+
+  // Map VITE_ variables and NODE_ENV to process.env for runtime compatibility
+  const processEnvDefine: Record<string, string> = {};
+  Object.keys(env).forEach((key) => {
+    if (key.startsWith('VITE_') || key === 'NODE_ENV') {
+      processEnvDefine[`process.env.${key}`] = JSON.stringify(env[key]);
+    }
+  });
+
+  return {
+    plugins: [
+      tanstackRouter({
+        autoCodeSplitting: true,
+      }),
+      react(),
+    ],
+    resolve: {
+      alias: {
+        '@': path.resolve(__dirname, './src'),
+        '@shared': path.resolve(__dirname, '../../shared/src'),
+        '@design-sys': path.resolve(__dirname, '../../shared/src/design-sys'),
+        '@factory/shared': path.resolve(__dirname, '../../shared/src'),
+      },
+    },
+    define: {
+      'process.env.NODE_ENV': JSON.stringify(mode || 'production'),
+      ...processEnvDefine,
+    },
+    server: {
+      port: 3000,
+      open: true,
+      proxy: {
+        '/api': {
+          target: 'http://localhost:5000',
+          changeOrigin: true,
+        },
+      },
+    },
+    build: {
+      outDir: 'dist',
+      emptyOutDir: true,
+      target: 'es2020',
+      cssTarget: 'es2020',
+      minify: 'esbuild',
+      cssMinify: true,
+      modulePreload: {
+        resolveDependencies: (_filename, deps) =>
+          deps.filter((d) => !d.includes('vendor-antd') && !d.includes('vendor-firebase') && !d.includes('i18n-en')),
+      },
+      sourcemap: mode === 'development',
+      rollupOptions: {
+        output: {
+          manualChunks(id) {
+            if (id.includes('node_modules/react/') || id.includes('node_modules/react-dom/')) {
+              return 'vendor-react';
+            }
+            if (id.includes('node_modules/@tanstack/')) {
+              return 'vendor-tanstack';
+            }
+            if (id.includes('node_modules/@ant-design/icons')) {
+              return 'vendor-icons';
+            }
+            if (id.includes('node_modules/antd/')) {
+              return 'vendor-antd';
+            }
+            if (id.includes('node_modules/styled-components/')) {
+              return 'vendor-styled';
+            }
+            if (id.includes('node_modules/firebase/')) {
+              return 'vendor-firebase';
+            }
+            if (id.includes('node_modules/@reduxjs/') || id.includes('node_modules/react-redux/')) {
+              return 'vendor-redux';
+            }
+            if (id.includes('i18n/pages/portal/es') || id.includes('i18n/locales/es')) {
+              return 'i18n-es';
+            }
+            if (id.includes('i18n/pages/portal/en') || id.includes('i18n/locales/en')) {
+              return 'i18n-en';
+            }
+          },
+        },
+      },
+    },
+  };
+});

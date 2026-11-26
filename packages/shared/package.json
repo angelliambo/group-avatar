@@ -1,0 +1,67 @@
+{
+  "name": "@factory/shared",
+  "version": "1.6.1",
+  "description": "MERN SaaS Factory Framework — shared core, white-label config and design system",
+  "exports": {
+    "./design-sys/theme/*": {
+      "types": "./dist/design-sys/theme/*.d.ts",
+      "default": "./dist/design-sys/theme/*.js"
+    },
+    "./design-sys/contexts/*": {
+      "types": "./dist/design-sys/contexts/*.d.ts",
+      "default": "./dist/design-sys/contexts/*.js"
+    },
+    "./design-sys/hooks/*": {
+      "types": "./dist/design-sys/hooks/*.d.ts",
+      "default": "./dist/design-sys/hooks/*.js"
+    },
+    "./design-sys/atoms/*": {
+      "types": "./dist/design-sys/atoms/*/index.d.ts",
+      "default": "./dist/design-sys/atoms/*/index.js"
+    },
+    "./design-sys/mixins/*": {
+      "types": "./dist/design-sys/mixins/*.d.ts",
+      "default": "./dist/design-sys/mixins/*.js"
+    },
+    "./config/*": {
+      "types": "./dist/config/*.d.ts",
+      "default": "./dist/config/*.js"
+    },
+    "./types/*": {
+      "types": "./dist/types/*.d.ts",
+      "default": "./dist/types/*.js"
+    }
+  },
+  "files": [
+    "dist/"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "clean": "rm -rf dist node_modules"
+  },
+  "peerDependencies": {
+    "react": ">=18.0.0 || ^19.0.0",
+    "react-dom": ">=18.0.0 || ^19.0.0",
+    "antd": ">=5.0.0",
+    "styled-components": ">=5.3.0 || ^6.0.0",
+    "@ant-design/icons": "^5.0.0"
+  },
+  "dependencies": {
+    "leaflet": "^1.9.4"
+  },
+  "devDependencies": {
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "antd": "^5.26.6",
+    "dayjs": "^1.11.10",
+    "styled-components": "^6.0.0",
+    "@ant-design/icons": "^5.6.1",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@types/styled-components": "^5.1.0",
+    "@types/leaflet": "^1.9.12",
+    "typescript": "^5.0.0"
+  },
+  "license": "MIT"
+}

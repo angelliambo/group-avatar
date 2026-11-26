@@ -1,0 +1,31 @@
+FROM node:20-alpine AS base-dependencies
+WORKDIR /app
+RUN npm install -g pnpm@latest
+COPY package.json pnpm-lock.yaml* pnpm-workspace.yaml* .npmrc* ./
+COPY packages/shared/package*.json ./packages/shared/
+COPY packages/portal/backend/package*.json ./packages/portal/backend/
+RUN pnpm install --frozen-lockfile
+
+FROM base-dependencies AS shared-builder
+WORKDIR /app
+COPY packages/shared ./packages/shared
+RUN pnpm --filter @factory/shared build
+
+FROM shared-builder AS backend-builder
+WORKDIR /app
+COPY packages/portal/backend ./packages/portal/backend
+RUN pnpm --filter @factory/backend build
+
+FROM node:20-alpine
+WORKDIR /app
+RUN npm install -g pnpm@latest
+COPY package.json pnpm-lock.yaml* pnpm-workspace.yaml* .npmrc* ./
+COPY packages/shared/package*.json ./packages/shared/
+COPY packages/portal/backend/package*.json ./packages/portal/backend/
+COPY --from=shared-builder /app/packages/shared /app/packages/shared
+RUN pnpm install --prod --frozen-lockfile
+COPY --from=backend-builder /app/packages/portal/backend/dist ./packages/portal/backend/dist
+
+EXPOSE 5000
+ENV NODE_ENV=production
+CMD ["node", "packages/portal/backend/dist/server.js"]
