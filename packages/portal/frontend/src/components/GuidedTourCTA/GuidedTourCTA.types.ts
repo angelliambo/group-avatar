@@ -6,4 +6,6 @@ export interface GuidedTourStep {
 
 export interface GuidedTourCTAProps {
   whatsappUrl?: string;
+  pageNamespace?: "home" | "logistica" | "mudanzas";
+  steps?: GuidedTourStep[];
 }

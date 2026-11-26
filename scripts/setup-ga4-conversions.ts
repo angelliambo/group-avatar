@@ -22,13 +22,13 @@ async function setupGA4Conversions() {
   console.log(`======================================================`);
   console.log(`• Propiedad GA4: ${propertyParent}`);
 
-  // Eventos estratégicos de conversión para el embudo de ventas
+  // Eventos estratégicos de conversión para el embudo de ventas de Avatar Group
   const keyEventsToCreate = [
-    { eventName: 'click_cta_install', description: 'Clic en Botón de Instalación' },
-    { eventName: 'welcome_funnel_view', description: 'Bienvenida / Apertura de Extensión' },
-    { eventName: 'plan_upgrade_click', description: 'Clic en Pasarela de Pago PRO / Upgrade' },
-    { eventName: 'tts_play', description: 'Uso Activo de Lectura de PDF (TTS)' },
-    { eventName: 'dictation_start', description: 'Uso Activo de Dictado por Voz (STT)' },
+    { eventName: 'click_whatsapp_floating', description: 'Clic en WhatsApp Flotante Permanente' },
+    { eventName: 'click_whatsapp_home_hero', description: 'Clic en Cotizar WhatsApp desde Home Hero' },
+    { eventName: 'click_whatsapp_logistica_hero', description: 'Clic en Cotizar Logística por WhatsApp' },
+    { eventName: 'click_whatsapp_mudanzas_hero', description: 'Clic en Presupuesto Mudanzas Easy-Pack por WhatsApp' },
+    { eventName: 'click_guided_tour_button', description: 'Inicio de Visita Guiada del Portal' },
   ];
 
   try {

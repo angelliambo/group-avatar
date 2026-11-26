@@ -75,33 +75,24 @@
         }
 
         const savedConfig = localStorage.getItem('portal_user_theme');
-        let theme = 'light';
+        let theme = 'dark';
 
         if (savedConfig) {
           try {
             const parsed = JSON.parse(savedConfig);
-            if (parsed.autoDetect !== false) {
-              const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-              theme = prefersDark ? 'dark' : 'light';
-            } else {
-              theme = parsed.theme || 'light';
-            }
+            theme = parsed.theme === 'light' ? 'light' : 'dark';
           } catch (e) {
-            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-            theme = prefersDark ? 'dark' : 'light';
+            theme = 'dark';
           }
-        } else {
-          const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-          theme = prefersDark ? 'dark' : 'light';
         }
 
         document.documentElement.setAttribute('data-theme', theme);
         document.documentElement.setAttribute('data-accessibility', 'default');
 
         if (theme === 'dark') {
-          document.documentElement.style.backgroundColor = '#1a1a1a';
+          document.documentElement.style.backgroundColor = '#0b0f19';
         } else {
-          document.documentElement.style.backgroundColor = '#ffffff';
+          document.documentElement.style.backgroundColor = '#f1f5f9';
         }
 
         if (document.body) {

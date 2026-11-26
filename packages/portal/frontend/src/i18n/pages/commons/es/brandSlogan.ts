@@ -1,5 +1,6 @@
 export const brandSlogan = {
-  slogan: 'Comunicación en su punto máximo.',
+  slogan: 'Logística empresarial, transportes programados y mudanzas Easy-Pack.',
 };
 
 export default brandSlogan;
+

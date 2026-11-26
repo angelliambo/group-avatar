@@ -100,6 +100,17 @@ export const ButtonIcon = styled.span.withConfig({
     `}
 `;
 
+export const ButtonContent = styled.span.withConfig({
+  shouldForwardProp: createShouldForwardProp(["$loading"]),
+})<{ $loading?: boolean }>`
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  line-height: 1.2;
+  opacity: ${({ $loading }) => ($loading ? 0.7 : 1)};
+`;
+
 // Styled Button principal (mejorado de atoms/Button.tsx)
 export const StyledButton = styled.button.withConfig({
   shouldForwardProp: createShouldForwardProp([

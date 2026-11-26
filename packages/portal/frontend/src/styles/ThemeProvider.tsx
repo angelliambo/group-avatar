@@ -43,7 +43,7 @@ const STORAGE_KEY = "portal_user_theme";
 const THEMES_KEY = "portal_custom_themes";
 
 function loadConfig(): ThemeConfig {
-  let initialTheme: Theme = "light";
+  let initialTheme: Theme = "dark";
   let customColors: CustomColors | undefined = undefined;
 
   // Cargar configuración de Tenant inyectada
@@ -100,11 +100,11 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
     try {
       const theme = getCombinedTheme(themeConfig.theme, themeConfig.accessibility, themeConfig.customColors);
       if (!theme || !theme.colors || !theme.typography) {
-        return getCombinedTheme("light", "default");
+        return getCombinedTheme("dark", "default");
       }
       return theme;
     } catch {
-      return getCombinedTheme("light", "default");
+      return getCombinedTheme("dark", "default");
     }
   }, [themeConfig.theme, themeConfig.accessibility, themeConfig.customColors]);
 

@@ -1,13 +1,12 @@
 export const navigation = {
-  labelDashboard: 'Dashboard',
-  labelActivities: 'Actividades',
-  labelGames: 'Juegos',
-  labelProgress: 'Progreso',
-  labelCommunication: 'Comunicación',
-  labelSettings: 'Configuración',
-  appTitle: '{{siteName}} Portal',
+  labelHome: 'Inicio',
+  labelLogistics: 'Logística',
+  labelMoving: 'Mudanzas',
+  labelTheme: 'Tema',
+  appTitle: '{{siteName}}',
   ariaClose: 'Cerrar navegación',
   ariaOpen: 'Abrir navegación',
 };
 
 export default navigation;
+

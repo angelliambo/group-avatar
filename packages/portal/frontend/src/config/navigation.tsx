@@ -1,4 +1,4 @@
-import { HomeOutlined } from "@ant-design/icons";
+import { HomeOutlined, CarOutlined, InboxOutlined } from "@ant-design/icons";
 import { ZnIcon } from "@shared/design-sys/atoms/ZnIcon";
 
 export interface NavigationSubItem {
@@ -6,7 +6,6 @@ export interface NavigationSubItem {
   label: string;
   path: string;
   icon?: React.ReactNode;
-  emoji?: string;
 }
 
 export interface NavigationItem {
@@ -14,7 +13,6 @@ export interface NavigationItem {
   label: string;
   path?: string;
   icon: React.ReactNode;
-  emoji?: string;
   children?: NavigationSubItem[];
 }
 
@@ -25,6 +23,18 @@ export const getNavigationItems = (): NavigationItem[] => {
       label: "Inicio",
       path: "/",
       icon: <ZnIcon icon={HomeOutlined} />,
+    },
+    {
+      key: "logistica",
+      label: "Logística",
+      path: "/logistica",
+      icon: <ZnIcon icon={CarOutlined} />,
+    },
+    {
+      key: "mudanzas",
+      label: "Mudanzas",
+      path: "/mudanzas",
+      icon: <ZnIcon icon={InboxOutlined} />,
     },
   ];
 };

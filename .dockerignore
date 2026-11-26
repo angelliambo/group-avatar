@@ -1,0 +1,28 @@
+# Dependencias locales (se instalan limpias dentro del contenedor Alpine)
+node_modules
+**/node_modules
+.pnpm-store
+
+# Compilados y cachés locales (se generan en cada stage del Dockerfile)
+dist
+**/dist
+build
+**/build
+**/.vite
+*.tsbuildinfo
+
+# Git y secretos locales
+.git
+.gitignore
+.env
+.env.*
+!**/.env.example
+credentials
+
+# Logs y documentación
+*.log
+npm-debug.log*
+pnpm-debug.log*
+coverage
+.DS_Store
+*.md

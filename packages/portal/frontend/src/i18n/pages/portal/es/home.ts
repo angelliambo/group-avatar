@@ -1,109 +1,122 @@
 export const home = {
   // SEO Metadata
-  seoTitle: 'Portal Web SaaS Boilerplate | {{siteName}}',
-  seoDescription: 'Base modular de alto rendimiento para tu negocio o startup con paneles de administración, facturación y soporte.',
-  seoKeywords: 'portal saas boilerplate, panel de control web, base para startup, desarrollo modular, login google, soporte integrado',
+  seoTitle: 'Logística Empresarial, Transportes y Mudanzas Easy-Pack | {{siteName}}',
+  seoDescription: 'Más de 55 años liderando logística empresarial, transportes programados, repartos asistidos y mudanzas bajo normas Easy-Pack en CABA, GBA y radio de 1.600 km.',
+  seoKeywords: 'avatar group, grupo abatar, logistica empresarial, transportes programados, repartos asistidos, mudanzas easy-pack, mudanzas corporativas, mudanzas caba',
 
-  // Hero Section
-  heroTitle: 'Tu Plataforma SaaS Lista para Despegar',
-  heroSubtitle: 'La estructura modular definitiva para tu próximo proyecto web. Activa autenticación, soporte o facturación de Lemon Squeezy en segundos con Feature Flags.',
-  loginButton: 'Iniciar Sesión',
-  pricingButton: 'Planes Premium',
-  licenseButton: 'Mi Licencia',
-  ctaButton: 'Comenzar Gratis',
+  // Scroll Navigation Labels (Bullets laterales)
+  scrollHero: 'Inicio',
+  scrollUnidades: 'Unidades',
+  scrollFeatures: 'Empresa',
+  scrollStats: 'Trayectoria',
+  scrollTestimonials: 'Respaldo',
+  scrollLocation: 'Ubicación',
+  scrollCta: 'Contacto',
 
-  // Core Features - H2 Titles
-  ttsCoreTitle: 'Módulos Listos: Todo lo que necesitas para tu negocio',
-  sttCoreTitle: 'Fácil Configuración: Configura y despliega al instante',
+  // Hero Section (Carta de presentación institucional)
+  heroBadge: 'Más de 55 Años en Movimiento',
+  heroTitle: 'Avatar Group',
+  heroTitleAccent: 'Infraestructura en Logística y Mudanzas',
+  heroSubtitle: 'Somos una organización argentina especializada en operaciones de transporte, logística corporativa y mudanzas de alta complejidad. Desde nuestra base en Buenos Aires articulamos flotas monitoreadas en CABA, Gran Buenos Aires y un radio nacional de hasta 1.600 km.',
+  heroExploreButton: 'Explorar Unidades de Negocio',
+  whatsappContactButton: 'Hablar con un Asesor por WhatsApp',
+  whatsappFloatingBadge: 'WhatsApp Directo',
+  whatsappDefaultMessage: '¡Hola! Me contacto desde el portal institucional de Avatar Group para realizar una consulta general.',
+  whatsappLogisticsMessage: '¡Hola Avatar Group! Me contacto desde la División Logística para consultar por Transportes Programados / Repartos Asistidos.',
+  whatsappMovingMessage: '¡Hola Avatar Group! Me contacto desde la División Mudanzas para solicitar presupuesto del sistema Easy-Pack.',
 
-  // Feature Items
-  features: 'Características principales',
-  
-  dictadoTitle: 'Autenticación Unificada',
-  dictadoDesc: 'Login por correo o Google integrado y seguro para tus usuarios, listo para usar con variables de entorno.',
-  
-  ttsTitle: 'Panel de Control Inteligente',
-  ttsDesc: 'Dashboard interactivo de administración y métricas para tus usuarios y administradores.',
-  
-  pdfTitle: 'Pasarela de Pagos Flexible',
-  pdfDesc: 'Facturación nativa y suscripciones integradas mediante webhooks de Lemon Squeezy.',
-  
-  pipTitle: 'Soporte y Ticketing',
-  pipDesc: 'Sistema opcional de mensajería y tickets de ayuda integrado directamente en el portal.',
-  
-  subsTitle: 'Diseño Premium Sensible',
-  subsDesc: 'Interfaz premium optimizada para dispositivos móviles con transiciones fluidas y temas personalizables.',
-  
-  shortcutsTitle: 'Arquitectura Escalable',
-  shortcutsDesc: 'Monorepo limpio y ordenado con separación estricta de responsabilidades entre el frontend, el backend y el config compartido.',
+  // Unidades de Negocio (#unidades)
+  verticalsTitle: 'Dos Divisiones Especializadas, Un Mismo Estándar',
+  verticalsSubtitle: 'Selecciona el área que necesitas para conocer en detalle sus protocolos, modalidades y alcance técnico.',
+  verticalLogisticsBadge: 'División B2B Corporativa',
+  verticalLogisticsTitle: 'Logística y Transportes',
+  verticalLogisticsDesc: 'Integramos tu cadena de suministro con Transportes Programados de cargas generales, dotación de operarios propios y Repartos Asistidos puerta a puerta con rendición documental.',
+  verticalLogisticsCta: 'Ingresar a División Logística',
+  verticalMovingBadge: 'Sistema Certificado Easy-Pack',
+  verticalMovingTitle: 'Mudanzas Integrales',
+  verticalMovingDesc: 'Traslados residenciales, corporativos, industriales y de organismos oficiales bajo normas Easy-Pack en categorías Mini, Estándar, Clásica y Premium.',
+  verticalMovingCta: 'Ingresar a División Mudanzas',
 
-  // Stats Section
-  statsIdiomas: 'Despliegue Global',
-  statsIdiomasOthers: 'Múltiples Locales e i18n listos',
-  statsLocal: 'Base de Datos Segura',
-  statsPrivacidadItem1: 'Persistencia en MongoDB',
-  statsPrivacidadItem2: 'Conexión dinámica modular',
-  statsPrivacidadItem3: 'Validación estricta de esquemas',
-  statsCompatibilidad: 'Compatibilidad Total',
+  // Pilares Institucionales de la Empresa (#features)
+  features: 'Respaldo Corporativo y Estándares de Operación',
+  dictadoTitle: 'Más de 55 Años de Historia',
+  dictadoDesc: 'Trayectoria ininterrumpida resolviendo operativas logísticas y traslados críticos para empresas, instituciones y familias.',
+  ttsTitle: 'Radio Operativo de 1.600 km',
+  ttsDesc: 'Capacidad de despliegue diario en CABA y conurbano bonaerense junto con viajes programados de media y larga distancia.',
+  pipTitle: 'Habilitaciones de Alta Seguridad',
+  pipDesc: 'Requisitos legales, seguros y ART en regla para operar en parques industriales, bancos, hospitales, consorcios y entes oficiales.',
+  pdfTitle: 'Flota con Monitoreo Satelital',
+  pdfDesc: 'Unidades carrozadas de distintos portes equipadas con rastreo satelital en tiempo real para garantizar trazabilidad.',
+  subsTitle: 'Supervisores y Personal Propio',
+  subsDesc: 'Equipos de operarios y encargados capacitados en manipulación de cargas delicadas, izajes y gestión documental.',
+  shortcutsTitle: 'Relevamiento y Planificación',
+  shortcutsDesc: 'Evaluación técnica previa de cada operación para dimensionar unidades, tiempos de corte y equipamiento necesario.',
 
-  // Location Section
-  locationTitle: 'Nuestra Ubicación',
-  locationSubtitle: 'Visítanos o ponte en contacto con nosotros en nuestras oficinas principales.',
+  // Stats Section (#stats)
+  statsTrayectoriaValue: '+55',
+  statsTrayectoriaLabel: 'Años de Trayectoria',
+  statsTrayectoriaItem1: 'Continuidad operativa comprobada',
+  statsTrayectoriaItem2: 'Supervisores y dotación propia',
+  statsTrayectoriaItem3: 'Protocolos auditados bajo normas',
 
-  // Social Proof & Trust
-  testimonialsTitle: 'Optimizado para acelerar tu desarrollo',
-  testimonialsSubtitle: 'Miles de horas de configuración básica de proyectos SaaS solucionadas en un solo template.',
+  statsCoberturaValue: '1.600 km',
+  statsCoberturaLabel: 'Radio de Cobertura',
+  statsCoberturaItem1: 'Operación diaria en CABA y GBA',
+  statsCoberturaItem2: 'Corredores nacionales programados',
+  statsCoberturaItem3: 'Trazabilidad satelital permanente',
 
-  // Testimonials
-  testimonial1: 'Este boilerplate nos ahorró al menos 3 semanas de configuración de pasarelas de pago y autenticación. El sistema de Feature Flags es súper intuitivo.',
-  testimonialName1: 'Carlos Mendoza',
-  testimonialRole1: 'CTO en Startup X',
-  
-  testimonial2: 'La arquitectura en monorepo de este template es increíblemente limpia. El diseño responde al tema al instante y es facilísimo de personalizar.',
-  testimonialName2: 'Sofia Rossi',
-  testimonialRole2: 'Desarrolladora Fullstack',
-  
-  testimonial3: 'Suscripciones integradas con Lemon Squeezy funcionando el primer día. Excelente soporte y estructura modular impecable.',
-  testimonialName3: 'Javier Domínguez',
-  testimonialRole3: 'Fundador de SaaS Flow',
+  statsHabilitacionesValue: '100%',
+  statsHabilitacionesLabel: 'Ingresos Habilitados',
+  statsHabilitacionesItem1: 'Parques industriales y plantas',
+  statsHabilitacionesItem2: 'Entidades bancarias y hospitales',
+  statsHabilitacionesItem3: 'Consorcios y organismos públicos',
 
-  // CTA Section
-  ctaTitle: 'Comienza Hoy',
-  ctaTitleLogged: 'Bienvenido de vuelta',
-  ctaSubtitle: 'Regístrate ahora para comenzar a utilizar todos nuestros servicios web.',
-  ctaSubtitleLogged: 'Ya eres parte de {{siteName}}. Accede a tu panel de control.',
-  ctaSubtitleDefault: 'Descubre cómo nuestro servicio puede optimizar el rendimiento de tu negocio.',
+  // Location Section (#location)
+  locationTitle: 'Centro Operativo en Buenos Aires',
+  locationSubtitle: 'Desde nuestra base en Mataderos (CABA) coordinamos la salida de unidades, acopio de materiales y despacho de flotas.',
 
-  // Action Buttons
-  heroDashboardButton: 'Ir al Dashboard',
-  heroEmailLoginButton: 'Ingresar con Correo',
-  whatsappContactButton: 'Contacto por WhatsApp',
-  whatsappFloatingBadge: 'Consúltanos',
-  whatsappDefaultMessage: '¡Hola! Te contacto desde la web, me interesan tus productos.',
-  seeFeaturesButton: 'Ver Funciones',
+  // Testimonials Section (#testimonials)
+  testimonialsTitle: 'La Confianza de Nuestros Clientes',
+  testimonialsSubtitle: 'Organizaciones e instituciones que respaldan el estándar de servicio de Avatar Group.',
+  testimonial1: 'Trabajamos con Avatar Group como extensión de nuestra logística diaria. Su cumplimiento horario y prolijidad en la rendición de documentación es ejemplar.',
+  testimonialName1: 'Martín Echeverría',
+  testimonialRole1: 'Jefe de Operaciones Industriales',
+  testimonial2: 'Coordinaron la mudanza integral de nuestras oficinas con toda la documentación de seguros para el edificio corporativo lista desde el primer día.',
+  testimonialName2: 'Lucía Fernández',
+  testimonialRole2: 'Gerente de Administración',
+  testimonial3: 'Ingresaron al parque industrial cumpliendo cada protocolo de seguridad e higiene. Gran equipo de supervisores y operarios.',
+  testimonialName3: 'Ricardo Gómez',
+  testimonialRole3: 'Director de Planta',
+
+  // Bottom CTA Section (#cta)
+  ctaTitle: '¿Listo para coordinar tu próxima operación?',
+  ctaSubtitleDefault: 'Comunícate directamente con nuestra mesa operativa por WhatsApp para recibir atención personalizada inmediata.',
 
   // Footer Links & Labels
-  footerCommands: 'Comandos de Voz',
+  footerInicio: 'Inicio',
+  footerLogistica: 'Logística',
+  footerMudanzas: 'Mudanzas',
+  footerContacto: 'Contáctenos',
   footerTerminos: 'Términos y Condiciones',
   footerPrivacidad: 'Política de Privacidad',
   footerRights: 'Todos los derechos reservados.',
   versionLabel: 'Versión',
 
-  // Guided Tour
-  guidedTourBadge: 'Tour Guiado',
-  guidedTourClose: 'Cerrar tour',
+  // Guided Tour (Home — Presentación institucional)
+  guidedTourBadge: 'Visita Guiada',
+  guidedTourClose: 'Cerrar visita guiada',
   guidedTourStepCount: 'Paso {{current}} de {{total}}',
   guidedTourPrev: 'Anterior',
-  guidedTourPlay: 'Reproducir',
+  guidedTourPlay: 'Escuchar',
   guidedTourPause: 'Pausar',
   guidedTourNext: 'Siguiente',
-  guidedTourMute: 'Silenciar',
-  guidedTourUnmute: 'Activar sonido',
-  guidedTourStep1Text: 'Te damos la bienvenida. Esta plataforma modular te permite lanzar tu SaaS en tiempo récord.',
-  guidedTourStep2Text: 'Aquí encontrarás las características principales: Autenticación, Dashboard, Pagos y Soporte.',
-  guidedTourStep3Text: 'Contamos con alta disponibilidad, i18n y compatibilidad total en dispositivos móviles.',
-  guidedTourStep4Text: 'Lee las opiniones de desarrolladores que ya han lanzado sus plataformas usando nuestra base.',
-  guidedTourStep5Text: '¿Listo para empezar? Registrate gratis o ingresa a tu panel de control inmediatamente.',
+  guidedTourMute: 'Silenciar voz',
+  guidedTourUnmute: 'Activar voz',
+  guidedTourStep1Text: 'Bienvenido a Avatar Group. Somos una organización con más de 55 años de trayectoria en transporte, logística corporativa y mudanzas en Buenos Aires y un radio de 1.600 kilómetros.',
+  guidedTourStep2Text: 'Aquí puedes acceder a nuestras dos divisiones especializadas: la División Logística para empresas y la División Mudanzas bajo normas certificadas Easy-Pack.',
+  guidedTourStep3Text: 'Nuestra estructura corporativa garantiza unidades con monitoreo satelital, personal propio asegurado y habilitaciones para parques industriales, bancos, hospitales y organismos oficiales.',
+  guidedTourStep4Text: 'Nuestros números nos respaldan: más de cinco décadas en el mercado, cobertura de media y larga distancia, y cumplimiento normativo total en cada ingreso.',
+  guidedTourStep5Text: 'Desde nuestra base operativa en Mataderos coordinamos cada flota. Puedes contactarnos en cualquier momento desde el botón de WhatsApp para recibir atención inmediata.',
 };
 
 export default home;

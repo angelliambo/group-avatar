@@ -36,6 +36,12 @@ export default defineConfig(({ mode }) => {
     server: {
       port: 3000,
       open: true,
+      fs: {
+        allow: [path.resolve(__dirname, '../..')],
+      },
+      watch: {
+        ignored: ['!**/packages/shared/src/**'],
+      },
       proxy: {
         '/api': {
           target: 'http://localhost:5000',
@@ -52,7 +58,7 @@ export default defineConfig(({ mode }) => {
       cssMinify: true,
       modulePreload: {
         resolveDependencies: (_filename, deps) =>
-          deps.filter((d) => !d.includes('vendor-antd') && !d.includes('vendor-firebase') && !d.includes('i18n-en')),
+          deps.filter((d) => !d.includes('vendor-antd') && !d.includes('vendor-firebase')),
       },
       sourcemap: mode === 'development',
       rollupOptions: {
@@ -81,9 +87,6 @@ export default defineConfig(({ mode }) => {
             }
             if (id.includes('i18n/pages/portal/es') || id.includes('i18n/locales/es')) {
               return 'i18n-es';
-            }
-            if (id.includes('i18n/pages/portal/en') || id.includes('i18n/locales/en')) {
-              return 'i18n-en';
             }
           },
         },
