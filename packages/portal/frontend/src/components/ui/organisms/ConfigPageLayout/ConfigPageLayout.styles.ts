@@ -104,43 +104,51 @@ export const SectionTitle = styled.h2<{ $colors: any; $isMobile: boolean; $margi
 `;
 
 export const CardWrapper = styled.div<{ $variant?: string; $hasClick: boolean }>`
-  border: 1px solid ${({ theme }) => theme.colors.border.normal};
-  border-radius: ${({ theme }) => theme.borderRadius.sm};
+  background: ${({ theme }) => theme.colors.background.card};
+  border: 1px solid ${({ theme }) => theme.colors.primary[400]};
+  border-radius: ${({ theme }) => theme.borderRadius.xl};
+  box-shadow: ${({ theme }) => theme.effects.glow.primary};
   cursor: ${({ $hasClick }) => ($hasClick ? "pointer" : "default")};
   display: flex;
   box-sizing: border-box;
   width: 100%;
-  
   flex-direction: row;
-  align-items: center;
+  align-items: flex-start;
   justify-content: flex-start;
-  gap: 16px;
-  padding: 16px;
+  gap: ${({ theme }) => theme.spacing.md};
+  padding: ${({ theme }) => theme.spacing.xl};
+  transition: transform ${({ theme }) => theme.transitions.normal},
+    box-shadow ${({ theme }) => theme.transitions.normal},
+    border-color ${({ theme }) => theme.transitions.normal};
+
+  &:hover {
+    transform: translateY(-4px);
+    border-color: ${({ theme }) => theme.colors.primary[500]};
+    box-shadow: ${({ theme }) => theme.effects.glow.premium};
+  }
 
   @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
-    border-radius: ${({ theme }) => theme.borderRadius.md};
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     text-align: center;
-    gap: 0px;
-  }
-
-  @media (max-height: 800px) {
-    padding: 12px 14px;
-  }
-  @media (max-height: 700px) {
-    padding: 8px 10px;
+    gap: ${({ theme }) => theme.spacing.sm};
   }
 `;
 export const IconWrapper = styled.div<{ $marginBottom: string }>`
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   flex-shrink: 0;
+  width: 56px;
+  height: 56px;
+  border-radius: ${({ theme }) => theme.borderRadius.lg};
+  background: ${({ theme }) => theme.colors.background.secondary};
+  border: 1px solid ${({ theme }) => theme.colors.primary[400]};
+  color: ${({ theme }) => theme.colors.primary[500]};
+  box-shadow: ${({ theme }) => theme.effects.glow.primary};
 
   @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
-    justify-content: center;
     margin-bottom: ${({ $marginBottom }) => $marginBottom};
   }
 `;

@@ -28,8 +28,8 @@ const SEO: React.FC<SEOProps> = ({
   ogImage = "/og-image.jpg",
   ogType = "website",
   twitterCard = "summary_large_image",
-  twitterSite = "@factory",
-  twitterCreator = "@factory",
+  twitterSite = "@avatargroup",
+  twitterCreator = "@avatargroup",
   structuredData,
   noIndex = false,
   noFollow = false,
@@ -58,15 +58,15 @@ const SEO: React.FC<SEOProps> = ({
 
   const defaultStructuredData = {
     "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
+    "@type": "MovingCompany",
     "name": BRAND_CONFIG.siteName,
-    "operatingSystem": "Windows, macOS, Linux, ChromeOS",
-    "applicationCategory": "AccessibilityApplication, ProductivityApplication",
     "description": finalDescription,
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "USD"
+    "url": `https://${BRAND_CONFIG.domain}`,
+    "email": BRAND_CONFIG.supportEmail,
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": BRAND_CONFIG.address,
+      "addressCountry": "AR"
     }
   };
 

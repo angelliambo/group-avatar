@@ -23,80 +23,62 @@ const LANDING_ROUTES: PrerenderRoute[] = [
     description: `${BRAND_CONFIG.seoDescription}`,
     keywords: `${BRAND_CONFIG.seoKeywords}`,
     canonicalUrl: `https://${BRAND_CONFIG.domain}`,
-    heading: `${BRAND_CONFIG.siteName} — Solución SaaS de Alto Rendimiento`,
-    subheading: "Plataforma modular con soporte multi-tenant, autenticación y diseño responsivo.",
+    heading: `${BRAND_CONFIG.siteName} — Logística de Precisión y Mudanzas sin Estrés`,
+    subheading: "Más de 55 años operando en CABA, GBA y un radio nacional de hasta 1.600 km.",
     bodyHtml: `
       <section>
         <h1>${BRAND_CONFIG.siteName}</h1>
         <p>${BRAND_CONFIG.seoDescription}</p>
         <ul>
-          <li>Panel de control y dashboard administrativo.</li>
-          <li>Soporte multi-idioma (i18n) e integración con Google Auth.</li>
-          <li>Arquitectura desacoplada y escalable.</li>
+          <li>Transportes Programados y Repartos Asistidos puerta a puerta con monitoreo satelital.</li>
+          <li>Mudanzas residenciales, corporativas e industriales bajo normas Easy-Pack.</li>
+          <li>Habilitaciones para parques industriales, entidades bancarias, hospitales y entes oficiales.</li>
         </ul>
       </section>
     `,
   },
   {
-    path: "servicios",
-    title: `Servicios y Soluciones | ${BRAND_CONFIG.siteName}`,
-    description: "Explora todos los módulos y características avanzadas que ofrece nuestra plataforma.",
-    keywords: "servicios saas, modulos saas, caracteristicas plataforma, soluciones web",
-    canonicalUrl: `https://${BRAND_CONFIG.domain}/servicios`,
-    heading: "Nuestros Servicios y Características",
-    subheading: "Herramientas diseñadas para potenciar tu productividad y escalabilidad.",
+    path: "logistica",
+    title: `Logística Empresarial, Transportes Programados y Repartos Asistidos | ${BRAND_CONFIG.siteName}`,
+    description: "Funcionamos como el apéndice logístico de tu empresa: transportes programados de cargas generales, dotación de operarios y repartos asistidos con monitoreo satelital.",
+    keywords: "logistica empresarial, transportes programados, repartos asistidos, distribucion puerta a puerta, parques industriales",
+    canonicalUrl: `https://${BRAND_CONFIG.domain}/logistica`,
+    heading: "El Apéndice Logístico de tu Empresa",
+    subheading: "Transportes Programados, Cargas Generales y Repartos Asistidos en CABA, GBA y hasta 1.600 km.",
     bodyHtml: `
       <article>
-        <h2>Gestión de Usuarios y Roles</h2>
-        <p>Autenticación segura mediante JWT, Google OAuth y panel de administración completo.</p>
+        <h2>Transportes Programados</h2>
+        <p>Unidades adaptadas a diversos volúmenes y provisión de operarios y supervisores habilitados.</p>
       </article>
       <article>
-        <h2>Diseño Adaptativo y Accesible</h2>
-        <p>Sistema de diseño totalmente configurable con soporte para modo oscuro y temas personalizados.</p>
+        <h2>Repartos Asistidos Puerta a Puerta</h2>
+        <p>Monitoreo satelital, control de documentación, gestión integral de carga/descarga y rendiciones en tiempo y forma.</p>
       </article>
     `,
   },
   {
-    path: "preguntas-frecuentes",
-    title: `Preguntas Frecuentes | ${BRAND_CONFIG.siteName}`,
-    description: "Respuestas a las preguntas más habituales sobre nuestra plataforma y servicios.",
-    keywords: "preguntas frecuentes, soporte, ayuda saas, FAQ",
-    canonicalUrl: `https://${BRAND_CONFIG.domain}/preguntas-frecuentes`,
-    heading: "Preguntas Frecuentes",
-    subheading: "Resolvemos tus dudas principales de forma clara y rápida.",
-    bodyHtml: `
-      <dl>
-        <dt>¿Cómo inicio sesión en la plataforma?</dt>
-        <dd>Puedes acceder utilizando tu correo electrónico o tu cuenta de Google.</dd>
-        <dt>¿Tiene soporte multi-idioma?</dt>
-        <dd>Sí, la plataforma cuenta con internacionalización (i18n) nativa en varios idiomas.</dd>
-      </dl>
-    `,
-  },
-  {
-    path: "contacto",
-    title: `Contacto | ${BRAND_CONFIG.siteName}`,
-    description: `Ponte en contacto con el equipo de ${BRAND_CONFIG.siteName}. Estamos para ayudarte.`,
-    keywords: "contacto, soporte email, ayuda, formulario contacto",
-    canonicalUrl: `https://${BRAND_CONFIG.domain}/contacto`,
-    heading: "Contacto Directo",
-    subheading: "Envíanos tu consulta y te responderemos a la brevedad.",
+    path: "mudanzas",
+    title: `Mudanzas Sistema Easy-Pack — Particulares, Oficinas e Industrias | ${BRAND_CONFIG.siteName}`,
+    description: "Mudanzas sin estrés bajo normas certificadas Easy-Pack. Modalidades Mini, Estándar, Clásica y Premium con visita técnica sin cargo, embalaje ecológico y placares portátiles.",
+    keywords: "mudanzas easy-pack, mudanzas caba, mudanzas corporativas, mudanzas oficinas, mudanzas particulares, embalaje mudanzas",
+    canonicalUrl: `https://${BRAND_CONFIG.domain}/mudanzas`,
+    heading: "Mudanzas Bajo Normas «Easy-Pack»",
+    subheading: "Modalidades Mini, Estándar, Clásica y Premium con visita técnica sin cargo.",
     bodyHtml: `
       <section>
-        <h2>Canales de Atención</h2>
-        <p><strong>Email:</strong> ${BRAND_CONFIG.supportEmail}</p>
-        <p><strong>Dirección:</strong> ${BRAND_CONFIG.address}</p>
+        <h2>Sistema Easy-Pack</h2>
+        <p>Entrega previa de material descartable ecológico, embalaje fino y grueso, placares portátiles, izajes y desembalaje asistido.</p>
       </section>
     `,
   },
   {
     path: "legal/terms",
     title: `Términos y Condiciones | ${BRAND_CONFIG.siteName}`,
-    description: "Términos y condiciones de uso de la plataforma.",
+    description: `Términos y condiciones de uso de los servicios de ${BRAND_CONFIG.siteName}.`,
     keywords: "terminos y condiciones, legal, contrato de uso",
     canonicalUrl: `https://${BRAND_CONFIG.domain}/legal/terms`,
     heading: "Términos y Condiciones del Servicio",
-    subheading: "Condiciones y normas de uso de nuestra plataforma.",
+    subheading: "Condiciones y normas generales de servicio.",
     bodyHtml: `
       <section>
         <h2>Condiciones Generales</h2>

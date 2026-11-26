@@ -2,13 +2,13 @@ import styled, { keyframes, css } from "styled-components";
 
 const pulseGlow = keyframes`
   0% {
-    box-shadow: 0 0 0 0 rgba(20, 184, 166, 0.4);
+    box-shadow: 0 0 0 0 rgba(56, 189, 248, 0.45), 0 0 18px rgba(56, 189, 248, 0.35);
   }
   70% {
-    box-shadow: 0 0 0 14px rgba(20, 184, 166, 0);
+    box-shadow: 0 0 0 12px rgba(56, 189, 248, 0), 0 0 22px rgba(56, 189, 248, 0.45);
   }
   100% {
-    box-shadow: 0 0 0 0 rgba(20, 184, 166, 0);
+    box-shadow: 0 0 0 0 rgba(56, 189, 248, 0), 0 0 18px rgba(56, 189, 248, 0.35);
   }
 `;
 
@@ -24,39 +24,43 @@ const waveAnimation = keyframes`
 export const FloatingTourContainer = styled.div`
   position: fixed;
   z-index: ${({ theme }) => theme.zIndex.sticky};
-  top: 75px;
+  top: 72px;
   right: ${({ theme }) => theme.spacing.md};
 
   @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
-    top: 80px;
+    top: 76px;
     right: ${({ theme }) => theme.spacing.lg};
   }
 `;
 
 export const FloatingTourButton = styled.button<{ $isActive?: boolean }>`
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: ${({ theme }) => theme.spacing.sm};
-  padding: ${({ theme }) => theme.spacing.xs} ${({ theme }) => theme.spacing.md};
+  padding: ${({ theme }) => `${theme.spacing.sm} ${theme.spacing.md}`};
   background: ${({ $isActive, theme }) =>
-    $isActive ? theme.colors.primary[500] : theme.colors.background.surface};
+    $isActive ? theme.colors.primary[500] : theme.colors.background.card};
   color: ${({ $isActive, theme }) =>
     $isActive ? theme.colors.text.inverse : theme.colors.text.primary};
-  border: 1px solid ${({ theme }) => theme.colors.border.light};
+  border: 1px solid ${({ theme }) => theme.colors.primary[400]};
   border-radius: ${({ theme }) => theme.borderRadius.xl};
   font-weight: ${({ theme }) => theme.typography.fontWeight.semibold};
   font-size: ${({ theme }) => theme.typography.fontSize.sm};
   cursor: pointer;
-  box-shadow: ${({ theme }) => theme.shadows.medium};
-  backdrop-filter: blur(10px);
+  box-shadow: ${({ theme }) => theme.effects.glow.primary};
+  backdrop-filter: blur(12px);
   transition: all ${({ theme }) => theme.transitions.normal};
-  animation: ${({ $isActive }) => ($isActive ? "none" : css`${pulseGlow} 2.5s infinite`)};
+  animation: ${({ $isActive }) =>
+    $isActive
+      ? "none"
+      : css`
+          ${pulseGlow} 2.5s infinite
+        `};
 
   &:hover {
     transform: translateY(-2px);
-    box-shadow: ${({ theme }) => theme.shadows.heavy};
-    background: ${({ $isActive, theme }) =>
-      $isActive ? theme.colors.primary[600] : theme.colors.background.tertiary};
+    box-shadow: ${({ theme }) => theme.effects.glow.premium};
+    border-color: ${({ theme }) => theme.colors.primary[500]};
   }
 
   &:active {
@@ -64,16 +68,17 @@ export const FloatingTourButton = styled.button<{ $isActive?: boolean }>`
   }
 `;
 
-export const TourIconWrapper = styled.div`
-  display: flex;
+export const TourIconWrapper = styled.div<{ $isActive?: boolean }>`
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   font-size: ${({ theme }) => theme.typography.fontSize.md};
-  color: ${({ theme }) => theme.colors.primary[500]};
+  color: ${({ $isActive, theme }) =>
+    $isActive ? theme.colors.text.inverse : theme.colors.primary[500]};
 `;
 
 export const TourBadgeLabel = styled.span`
-  letter-spacing: 0.2px;
+  letter-spacing: 0.3px;
   white-space: nowrap;
 `;
 
@@ -87,33 +92,39 @@ export const AudioWavesContainer = styled.div`
 export const AudioWaveBar = styled.div<{ $delay: number }>`
   width: 3px;
   height: 100%;
-  background-color: ${({ theme }) => theme.colors.primary[500]};
+  background-color: currentColor;
   border-radius: 2px;
-  animation: ${waveAnimation} 0.8s ease-in-out infinite;
+  animation: ${waveAnimation} 0.6s ease-in-out infinite;
   animation-delay: ${({ $delay }) => $delay}s;
 `;
 
 export const FloatingSpeechCard = styled.div<{ $isOpen: boolean }>`
   position: fixed;
   z-index: ${({ theme }) => theme.zIndex.modal};
-  top: 130px;
-  right: 68px;
+  top: 126px;
+  right: ${({ theme }) => theme.spacing.lg};
   width: 380px;
   max-width: calc(100vw - 32px);
-  background: ${({ theme }) => theme.colors.background.surface};
+  background: ${({ theme }) => theme.colors.background.card};
   color: ${({ theme }) => theme.colors.text.primary};
-  border: 1px solid ${({ theme }) => theme.colors.border.light};
-  border-radius: ${({ theme }) => theme.borderRadius.lg};
-  padding: ${({ theme }) => theme.spacing.md};
-  box-shadow: ${({ theme }) => theme.shadows.heavy};
+  border: 1px solid ${({ theme }) => theme.colors.primary[400]};
+  border-radius: ${({ theme }) => theme.borderRadius.xl};
+  padding: ${({ theme }) => theme.spacing.lg};
+  box-shadow: ${({ theme }) => theme.effects.glow.primary},
+    ${({ theme }) => theme.shadows.heavy};
   backdrop-filter: blur(16px);
   opacity: ${({ $isOpen }) => ($isOpen ? 1 : 0)};
   visibility: ${({ $isOpen }) => ($isOpen ? "visible" : "hidden")};
-  transform: ${({ $isOpen }) => ($isOpen ? "translateY(0) scale(1)" : "translateY(-10px) scale(0.95)")};
-  transition: opacity ${({ theme }) => theme.transitions.normal}, transform ${({ theme }) => theme.transitions.normal}, visibility ${({ theme }) => theme.transitions.normal};
+  pointer-events: ${({ $isOpen }) => ($isOpen ? "auto" : "none")};
+  transform: ${({ $isOpen }) =>
+    $isOpen ? "translateY(0) scale(1)" : "translateY(-10px) scale(0.95)"};
+  transition: opacity ${({ theme }) => theme.transitions.normal},
+    transform ${({ theme }) => theme.transitions.normal},
+    visibility ${({ theme }) => theme.transitions.normal};
 
   @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
-    display: none;
+    right: ${({ theme }) => theme.spacing.md};
+    top: 122px;
   }
 `;
 
@@ -122,9 +133,9 @@ export const CardHeader = styled.div`
   align-items: center;
   justify-content: space-between;
   gap: ${({ theme }) => theme.spacing.xs};
-  margin-bottom: ${({ theme }) => theme.spacing.xs};
+  margin-bottom: ${({ theme }) => theme.spacing.sm};
   border-bottom: 1px solid ${({ theme }) => theme.colors.border.light};
-  padding-bottom: ${({ theme }) => theme.spacing.xs};
+  padding-bottom: ${({ theme }) => theme.spacing.sm};
 `;
 
 export const CardTitleGroup = styled.div`
@@ -134,6 +145,7 @@ export const CardTitleGroup = styled.div`
   white-space: nowrap;
   flex-shrink: 1;
   min-width: 0;
+  color: ${({ theme }) => theme.colors.primary[500]};
 `;
 
 export const CardTitle = styled.h4`
@@ -151,9 +163,9 @@ export const StepCounterBadge = styled.span`
   font-weight: ${({ theme }) => theme.typography.fontWeight.semibold};
   background: ${({ theme }) => theme.colors.background.secondary};
   color: ${({ theme }) => theme.colors.text.secondary};
-  padding: 2px 8px;
+  padding: 2px 10px;
   border-radius: ${({ theme }) => theme.borderRadius.md};
-  border: 1px solid ${({ theme }) => theme.colors.border.light};
+  border: 1px solid ${({ theme }) => theme.colors.primary[400]};
   white-space: nowrap;
   flex-shrink: 0;
 `;
@@ -179,21 +191,17 @@ export const CloseIconButton = styled.button`
 `;
 
 export const CardBody = styled.div`
-  margin-bottom: ${({ theme }) => theme.spacing.sm};
+  margin-bottom: ${({ theme }) => theme.spacing.md};
 `;
 
 export const SpeechTextContainer = styled.p`
-  margin: ${({ theme }) => theme.spacing.xs} 0 0 0;
+  margin: 0;
   font-size: ${({ theme }) => theme.typography.fontSize.sm};
-  line-height: 1.5;
+  line-height: 1.6;
   color: ${({ theme }) => theme.colors.text.primary};
-  min-height: 60px;
-  max-height: 120px;
+  min-height: 64px;
+  max-height: 140px;
   overflow-y: auto;
-
-  @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
-    font-size: ${({ theme }) => theme.typography.fontSize.md};
-  }
 `;
 
 export const ControlsRow = styled.div`
@@ -210,11 +218,11 @@ export const PlayControlsGroup = styled.div`
 `;
 
 export const ControlButton = styled.button<{ $primary?: boolean }>`
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 4px;
-  padding: 6px 12px;
+  gap: 6px;
+  padding: 6px 14px;
   font-size: ${({ theme }) => theme.typography.fontSize.xs};
   font-weight: ${({ theme }) => theme.typography.fontWeight.semibold};
   border-radius: ${({ theme }) => theme.borderRadius.sm};
@@ -224,11 +232,12 @@ export const ControlButton = styled.button<{ $primary?: boolean }>`
     $primary ? theme.colors.primary[500] : theme.colors.background.secondary};
   color: ${({ $primary, theme }) =>
     $primary ? theme.colors.text.inverse : theme.colors.text.primary};
-  border: 1px solid ${({ $primary, theme }) =>
-    $primary ? theme.colors.primary[500] : theme.colors.border.light};
+  border: 1px solid
+    ${({ $primary, theme }) =>
+      $primary ? theme.colors.primary[400] : theme.colors.border.light};
 
   &:hover {
-    opacity: 0.9;
+    opacity: 0.92;
     transform: translateY(-1px);
   }
 

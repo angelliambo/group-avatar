@@ -6,7 +6,6 @@ export type { TranslationValue, TranslationObject } from './t';
 
 export const SUPPORTED_LOCALES = [
   'es',
-  'en',
 ] as const;
 
 export type LocaleCode = (typeof SUPPORTED_LOCALES)[number];

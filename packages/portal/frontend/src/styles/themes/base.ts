@@ -8,7 +8,10 @@ import { DefaultTheme } from "styled-components";
  *
  * Los colores específicos se definen en cada tema individual.
  */
-export const baseTheme: Partial<DefaultTheme> = {
+export const baseTheme: Pick<
+  DefaultTheme,
+  "spacing" | "borderRadius" | "shadows" | "breakpoints" | "typography" | "zIndex"
+> = {
   spacing: {
     xs: "8px",
     sm: "13px",

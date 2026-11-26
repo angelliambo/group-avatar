@@ -4,7 +4,12 @@ import { SUPPORTED_LOCALES } from "../../i18n";
 import { LanguageSelector } from "../../i18n/LanguageSelector";
 import { ThemeToggle } from "../ThemeToggle";
 import { ZnIcon } from "@design-sys/atoms/ZnIcon";
-import { InstagramOutlined, FacebookOutlined, TikTokOutlined, XOutlined } from "@ant-design/icons";
+import {
+  InstagramOutlined,
+  FacebookOutlined,
+  TikTokOutlined,
+  XOutlined,
+} from "@ant-design/icons";
 import { CONTACT_EMAIL } from "@shared/config/contact";
 import {
   PORTAL_URL,
@@ -36,20 +41,20 @@ const AppFooter: React.FC = () => {
     <FooterContainer>
       <FooterContent>
         <FooterNav>
-          <FooterLink to="/commands">
-            {t('pages.home.footerCommands')}
-          </FooterLink>
+          <FooterLink to="/">{t("pages.home.footerInicio")}</FooterLink>
+          <Separator>•</Separator>
+          <FooterLink to="/logistica">{t("pages.home.footerLogistica")}</FooterLink>
+          <Separator>•</Separator>
+          <FooterLink to="/mudanzas">{t("pages.home.footerMudanzas")}</FooterLink>
           <Separator>•</Separator>
           <ExternalLink href={`mailto:${CONTACT_EMAIL}`}>
-            Contáctenos
+            {t("pages.home.footerContacto")}
           </ExternalLink>
           <Separator>•</Separator>
-          <FooterLink to="/legal/terms">
-            {t('pages.home.footerTerminos')}
-          </FooterLink>
+          <FooterLink to="/legal/terms">{t("pages.home.footerTerminos")}</FooterLink>
           <Separator>•</Separator>
           <FooterLink to="/legal/privacy">
-            {t('pages.home.footerPrivacidad')}
+            {t("pages.home.footerPrivacidad")}
           </FooterLink>
         </FooterNav>
 
@@ -100,15 +105,14 @@ const AppFooter: React.FC = () => {
 
         <FooterLangSelectorWrapper>
           <ThemeToggle variant="icon" />
-          {SUPPORTED_LOCALES.length > 1 && (
-            <LanguageSelector dropUp={true} />
-          )}
+          {SUPPORTED_LOCALES.length > 1 && <LanguageSelector dropUp={true} />}
         </FooterLangSelectorWrapper>
 
         <CopyRightParagraph>
           &copy; {new Date().getFullYear()}{" "}
           <ExternalLink href={PORTAL_URL}>{BRAND_CONFIG.siteName}</ExternalLink>.{" "}
-          {t('pages.home.footerRights')} &mdash; {t('pages.home.versionLabel')} {pkg.version}
+          {t("pages.home.footerRights")} &mdash; {t("pages.home.versionLabel")}{" "}
+          {pkg.version}
         </CopyRightParagraph>
       </FooterContent>
     </FooterContainer>

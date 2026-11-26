@@ -17,7 +17,6 @@ interface Language {
 
 const LANGUAGES: Language[] = [
   { code: 'es', name: 'Español', flag: '🇪🇸' },
-  { code: 'en', name: 'English', flag: '🇺🇸' },
 ];
 
 const TRANSLATIONS = allLocales as unknown as Record<string, TranslationObject>;

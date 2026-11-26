@@ -108,30 +108,17 @@
           return;
         }
 
-        // Leer tema del localStorage
+        // Leer tema del localStorage (Dark por defecto)
         const savedConfig = localStorage.getItem('portal_user_theme');
-        let theme = 'light';
+        let theme = 'dark';
 
         if (savedConfig) {
           try {
             const parsed = JSON.parse(savedConfig);
-            // Verificar si tiene autoDetect habilitado
-            if (parsed.autoDetect !== false) {
-              // Detectar preferencia del sistema
-              const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-              theme = prefersDark ? 'dark' : 'light';
-            } else {
-              theme = parsed.theme || 'light';
-            }
+            theme = parsed.theme === 'light' ? 'light' : 'dark';
           } catch (e) {
-            // Si hay error, detectar preferencia del sistema
-            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-            theme = prefersDark ? 'dark' : 'light';
+            theme = 'dark';
           }
-        } else {
-          // Si no hay configuración guardada, detectar preferencia del sistema
-          const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-          theme = prefersDark ? 'dark' : 'light';
         }
 
         // Aplicar tema inmediatamente al HTML
@@ -140,9 +127,9 @@
 
         // Aplicar color de fondo según tema para evitar parpadeo
         if (theme === 'dark') {
-          document.documentElement.style.backgroundColor = '#1a1a1a';
+          document.documentElement.style.backgroundColor = '#0b0f19';
         } else {
-          document.documentElement.style.backgroundColor = '#ffffff';
+          document.documentElement.style.backgroundColor = '#f1f5f9';
         }
 
         // Aplicar al body solo si existe (puede no existir aún en el head)
