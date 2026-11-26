@@ -36,7 +36,7 @@ const TenantSchema: Schema = new Schema(
     theme: {
       primaryColor: { type: String, default: "#1890ff" },
       secondaryColor: { type: String, default: "#52c41a" },
-      darkMode: { type: Boolean, default: false },
+      darkMode: { type: Boolean, default: true },
     },
     features: { type: [String], default: [] },
   },
