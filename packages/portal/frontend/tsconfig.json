@@ -6,14 +6,10 @@
       "dom.iterable",
       "esnext"
     ],
-    "baseUrl": ".",
     "allowJs": true,
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "types": [
-      "vite/client",
-      "react",
-      "react-dom",
       "node",
       "jest"
     ],
@@ -44,7 +40,6 @@
     }
   },
   "include": [
-    "src",
-    "../../shared/src/design-sys/theme/types.ts"
+    "src"
   ]
 }

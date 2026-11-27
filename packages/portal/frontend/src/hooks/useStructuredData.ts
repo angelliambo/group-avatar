@@ -90,7 +90,7 @@ export const useStructuredData = (config: StructuredDataConfig) => {
           "name": config.name || `${BRAND_CONFIG.siteName} Portal`,
           "description": config.description || BRAND_CONFIG.seoDescription || "Estructura modular de alto rendimiento para tu negocio o startup con paneles de administración, facturación y soporte.",
           "url": currentUrl,
-          "image": config.image || `${baseUrl}/og-image.png`,
+          "image": config.image || `${baseUrl}/og-image.jpg?v=3`,
           "applicationCategory": config.appData?.applicationCategory || "BusinessApplication",
           "operatingSystem": config.appData?.operatingSystem || "All",
           "offers": {
@@ -112,7 +112,7 @@ export const useStructuredData = (config: StructuredDataConfig) => {
           "description": BRAND_CONFIG.seoDescription || "Plataforma SaaS premium modular con paneles de administración, facturación y soporte.",
           "url": baseUrl,
           "logo": `${baseUrl}/logo.png`,
-          "image": `${baseUrl}/og-image.png`,
+          "image": `${baseUrl}/og-image.jpg?v=3`,
           "address": {
             "@type": "PostalAddress",
             "streetAddress": BRAND_CONFIG.address,
