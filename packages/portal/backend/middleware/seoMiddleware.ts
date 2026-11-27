@@ -85,7 +85,7 @@ export async function serveReactWithSEO(req: Request, res: Response, next: NextF
     const seoKeywords = tenant?.seo?.keywords || BRAND_CONFIG.seoKeywords;
     const protocol = req.secure || req.headers["x-forwarded-proto"] === "https" ? "https" : "http";
     const seoImage = tenant?.seo?.image || `${protocol}://${host}/og-image.jpg`;
-    const themeColor = tenant?.theme?.primaryColor || "#1890ff";
+    const themeColor = tenant?.theme?.primaryColor || "#09090b";
 
     // Determinar si es una ruta pública o privada/inexistente para indexación
     const isPublicRoute = PUBLIC_INDEXABLE_PATHS.has(req.path);
@@ -137,8 +137,8 @@ export async function serveReactWithSEO(req: Request, res: Response, next: NextF
         domain: BRAND_CONFIG.domain,
         supportEmail: BRAND_CONFIG.supportEmail,
         theme: {
-          primaryColor: "#1890ff",
-          secondaryColor: "#52c41a",
+          primaryColor: "#dc2626",
+          secondaryColor: "#d4d4d8",
           darkMode: true,
         }
       }
