@@ -12,6 +12,8 @@ export const BRAND_CONFIG = {
   seoDescription: 'Servicios integrales de logística empresarial, transportes programados, repartos asistidos y mudanzas bajo sistema Easy-Pack con cobertura nacional.',
   seoKeywords: 'avatar group, logistica empresarial, mudanzas easy-pack, transportes programados, repartos asistidos, mudanzas corporativas, mudanzas particulares',
   seoImageAlt: 'avatar-group — Logística y Mudanzas',
+  // Versión del og-image.jpg: incrementar al cambiar la imagen para invalidar caché de WhatsApp/Facebook/X
+  ogImageVersion: '3',
   socials: {
     instagram: 'avatargroup.ar',
     x: '',
