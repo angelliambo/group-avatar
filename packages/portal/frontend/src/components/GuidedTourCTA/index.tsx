@@ -11,6 +11,7 @@ import {
   CompassOutlined,
 } from "@ant-design/icons";
 import { useTranslation } from "../../i18n";
+import { BRAND_CONFIG } from "@factory/shared/config/brand";
 import TrackedClick from "../TrackedClick";
 import { GuidedTourCTAProps, GuidedTourStep } from "./GuidedTourCTA.types";
 import {
@@ -38,7 +39,11 @@ const HOME_TOUR_STEPS: GuidedTourStep[] = [
   { id: "home-2", targetId: "unidades", speechKey: "guidedTourStep2Text" },
   { id: "home-3", targetId: "features", speechKey: "guidedTourStep3Text" },
   { id: "home-4", targetId: "stats", speechKey: "guidedTourStep4Text" },
-  { id: "home-5", targetId: "location", speechKey: "guidedTourStep5Text" },
+  { id: "home-5", targetId: "testimonials", speechKey: "guidedTourStep5Text" },
+  ...(BRAND_CONFIG.showMapSection
+    ? [{ id: "home-6", targetId: "location", speechKey: "guidedTourStep6Text" }]
+    : []),
+  { id: "home-7", targetId: "cta", speechKey: "guidedTourStep7Text" },
 ];
 
 const LOGISTICA_TOUR_STEPS: GuidedTourStep[] = [
@@ -114,6 +119,8 @@ const GuidedTourCTA: React.FC<GuidedTourCTAProps> = memo(
     const finishTour = useCallback(() => {
       setIsPlaying(false);
       isPlayingRef.current = false;
+      setCurrentStepIndex(0);
+      setIsOpen(false);
       if (typeof window !== "undefined") {
         window.scrollTo({ top: 0, behavior: "smooth" });
       }
@@ -290,7 +297,7 @@ const GuidedTourCTA: React.FC<GuidedTourCTAProps> = memo(
 
     return (
       <>
-        <FloatingTourContainer>
+        <FloatingTourContainer $isActive={isOpen}>
           <TrackedClick
             label={`Guided Tour Button - ${pageNamespace}`}
             action="click_guided_tour_button"

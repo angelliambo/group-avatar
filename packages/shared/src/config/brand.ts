@@ -5,7 +5,7 @@ export const BRAND_CONFIG = {
   appName: APP_NAME,
   siteName: 'avatar-group',
   domain: DOMAIN,
-  logoUrl: '/logo192.png',
+  logoUrl: '/assets/images/logo.webp',
   supportEmail: 'info@avatargroup.com.ar',
   whatsappUrl: 'https://wa.me/5491141932237',
   seoTitle: 'avatar-group - Logística Empresarial, Transportes y Mudanzas',

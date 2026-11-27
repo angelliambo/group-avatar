@@ -33,20 +33,20 @@ export const NeonBadge = styled.span<{ $tone?: "primary" | "secondary" | "tertia
   font-weight: ${({ theme }) => theme.typography.fontWeight.bold};
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  background: ${({ theme }) => theme.effects.glassBackground};
+  background: ${({ theme }) => theme.colors.background.card};
   color: ${({ $tone, theme }) => {
     if ($tone === "secondary") return theme.colors.secondary[500];
-    if ($tone === "tertiary") return theme.colors.tertiary[500];
-    return theme.colors.primary[500];
+    if ($tone === "tertiary") return theme.colors.tertiary[600];
+    return theme.colors.primary[700];
   }};
   border: 1px solid
     ${({ $tone, theme }) => {
-      if ($tone === "secondary") return theme.colors.secondary[400];
+      if ($tone === "secondary") return theme.colors.border.dark;
       if ($tone === "tertiary") return theme.colors.tertiary[400];
       return theme.colors.primary[400];
     }};
   box-shadow: ${({ $tone, theme }) =>
-    $tone === "secondary" ? theme.effects.glow.success : theme.effects.glow.primary};
+    $tone === "secondary" ? theme.shadows.light : theme.effects.glow.primary};
 `;
 
 export const HeroHeading = styled.h1`
@@ -55,7 +55,6 @@ export const HeroHeading = styled.h1`
   line-height: 1.15;
   margin: 0;
   color: ${({ theme }) => theme.colors.text.primary};
-  text-shadow: 0 0 22px ${({ theme }) => `${theme.colors.primary[500]}55`};
 
   @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
     font-size: 32px;
@@ -94,31 +93,35 @@ export const NeonPrimaryButton = styled(Button)`
   min-width: 240px;
   cursor: pointer;
   transition: transform ${({ theme }) => theme.transitions.normal},
-    box-shadow ${({ theme }) => theme.transitions.normal};
+    box-shadow ${({ theme }) => theme.transitions.normal},
+    background ${({ theme }) => theme.transitions.normal};
 
   &:hover {
+    background: ${({ theme }) => theme.colors.primary[600]};
     transform: translateY(-2px);
     box-shadow: ${({ theme }) => theme.effects.glow.premium};
   }
 `;
 
 export const NeonSecondaryButton = styled(Button)`
-  background: ${({ theme }) => theme.effects.glassBackground};
+  background: ${({ theme }) => theme.colors.background.surface};
   color: ${({ theme }) => theme.colors.text.primary};
-  border: 1px solid ${({ theme }) => theme.colors.secondary[400]};
+  border: 1px solid ${({ theme }) => theme.colors.border.dark};
   border-radius: ${({ theme }) => theme.borderRadius.lg};
   padding: ${({ theme }) => `${theme.spacing.md} ${theme.spacing.xl}`};
   font-size: ${({ theme }) => theme.typography.fontSize.md};
   font-weight: ${({ theme }) => theme.typography.fontWeight.semibold};
-  box-shadow: ${({ theme }) => theme.effects.glow.success};
+  box-shadow: ${({ theme }) => theme.shadows.light};
   display: inline-flex;
   align-items: center;
   gap: ${({ theme }) => theme.spacing.sm};
   cursor: pointer;
-  transition: transform ${({ theme }) => theme.transitions.normal};
+  transition: transform ${({ theme }) => theme.transitions.normal},
+    border-color ${({ theme }) => theme.transitions.normal};
 
   &:hover {
     transform: translateY(-2px);
+    border-color: ${({ theme }) => theme.colors.primary[400]};
   }
 `;
 
@@ -159,8 +162,8 @@ export const PillarCard = styled.article<{ $accent?: "primary" | "secondary" | "
   background: ${({ theme }) => theme.colors.background.card};
   border: 1px solid
     ${({ $accent, theme }) => {
-      if ($accent === "secondary") return theme.colors.secondary[400];
-      if ($accent === "tertiary") return theme.colors.tertiary[400];
+      if ($accent === "secondary") return theme.colors.border.normal;
+      if ($accent === "tertiary") return theme.colors.border.dark;
       return theme.colors.primary[400];
     }};
   border-radius: ${({ theme }) => theme.borderRadius.xl};
@@ -169,11 +172,13 @@ export const PillarCard = styled.article<{ $accent?: "primary" | "secondary" | "
   flex-direction: column;
   gap: ${({ theme }) => theme.spacing.md};
   box-shadow: ${({ $accent, theme }) =>
-    $accent === "secondary" ? theme.effects.glow.success : theme.effects.glow.primary};
-  transition: transform ${({ theme }) => theme.transitions.normal};
+    $accent === "primary" ? theme.effects.glow.primary : theme.shadows.medium};
+  transition: transform ${({ theme }) => theme.transitions.normal},
+    border-color ${({ theme }) => theme.transitions.normal};
 
   &:hover {
     transform: translateY(-4px);
+    border-color: ${({ theme }) => theme.colors.primary[500]};
   }
 `;
 
@@ -192,13 +197,11 @@ export const IconBadge = styled.div<{ $accent?: "primary" | "secondary" | "terti
   align-items: center;
   justify-content: center;
   background: ${({ theme }) => theme.colors.background.secondary};
+  border: 1px solid ${({ theme }) => theme.colors.border.normal};
   color: ${({ $accent, theme }) => {
     if ($accent === "secondary") return theme.colors.secondary[500];
-    if ($accent === "tertiary") return theme.colors.tertiary[500];
     return theme.colors.primary[500];
   }};
-  box-shadow: ${({ $accent, theme }) =>
-    $accent === "secondary" ? theme.effects.glow.success : theme.effects.glow.primary};
 `;
 
 export const CardTitle = styled.h3`
@@ -226,7 +229,7 @@ export const BulletList = styled.ul`
 
 export const BulletItem = styled.li`
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: ${({ theme }) => theme.spacing.sm};
   font-size: ${({ theme }) => theme.typography.fontSize.sm};
   color: ${({ theme }) => theme.colors.text.primary};
@@ -236,11 +239,10 @@ export const BulletItem = styled.li`
 export const BulletIconWrapper = styled.span<{ $accent?: "primary" | "secondary" | "tertiary" }>`
   color: ${({ $accent, theme }) => {
     if ($accent === "secondary") return theme.colors.secondary[500];
-    if ($accent === "tertiary") return theme.colors.tertiary[500];
     return theme.colors.primary[500];
   }};
   display: inline-flex;
-  margin-top: 2px;
+  flex-shrink: 0;
 `;
 
 export const WorkflowFlex = styled.div`
@@ -266,7 +268,7 @@ export const WorkflowCard = styled.div`
 export const WorkflowStepTitle = styled.h3`
   font-size: ${({ theme }) => theme.typography.fontSize.lg};
   font-weight: ${({ theme }) => theme.typography.fontWeight.bold};
-  color: ${({ theme }) => theme.colors.primary[500]};
+  color: ${({ theme }) => theme.colors.primary[600]};
   margin: 0;
 `;
 

@@ -1,7 +1,6 @@
 import React, { useState, useEffect, lazy, Suspense } from "react";
 import { Outlet, useLocation } from "@tanstack/react-router";
 import { LanguageSelector } from "../../i18n/LanguageSelector";
-import { ThemeToggle } from "../ThemeToggle";
 import { ZnIcon } from "@design-sys/atoms/ZnIcon";
 import { MenuOutlined, CloseOutlined } from "@ant-design/icons";
 import { BRAND_CONFIG } from "@factory/shared/config/brand";
@@ -21,6 +20,8 @@ import {
   SidebarNavLink,
   NavLink,
   LogoLink,
+  BrandLogoImg,
+  BrandLogoText,
   MainContent,
   InnerContentContainer,
   MobileActionsWrapper,
@@ -62,7 +63,15 @@ const Layout: React.FC = React.memo(() => {
   return (
     <LayoutRoot>
       <TopBar>
-        <LogoLink to="/">{BRAND_CONFIG.siteName}</LogoLink>
+        <LogoLink to="/">
+          <BrandLogoImg
+            src={BRAND_CONFIG.logoUrl}
+            alt={BRAND_CONFIG.siteName}
+            width={46}
+            height={34}
+          />
+          <BrandLogoText>{BRAND_CONFIG.siteName}</BrandLogoText>
+        </LogoLink>
 
         <NavLinks>
           <NavLink to="/" $active={location.pathname === "/"}>
@@ -82,13 +91,13 @@ const Layout: React.FC = React.memo(() => {
           </NavLink>
         </NavLinks>
 
-        <DesktopRight>
-          <ThemeToggle variant="icon" />
-          {SUPPORTED_LOCALES.length > 1 && <LanguageSelector />}
-        </DesktopRight>
+        {SUPPORTED_LOCALES.length > 1 && (
+          <DesktopRight>
+            <LanguageSelector />
+          </DesktopRight>
+        )}
 
         <MobileHeaderActions>
-          <ThemeToggle variant="icon" />
           <HamburgerButton
             onClick={() => setIsMobileMenuOpen(true)}
             aria-label={t("pages.navigation.ariaOpen")}
@@ -107,7 +116,13 @@ const Layout: React.FC = React.memo(() => {
           <MobileSidebar $open={isMobileMenuOpen}>
             <SidebarHeader>
               <LogoLink to="/" onClick={() => setIsMobileMenuOpen(false)}>
-                {BRAND_CONFIG.siteName}
+                <BrandLogoImg
+                  src={BRAND_CONFIG.logoUrl}
+                  alt={BRAND_CONFIG.siteName}
+                  width={42}
+                  height={31}
+                />
+                <BrandLogoText>{BRAND_CONFIG.siteName}</BrandLogoText>
               </LogoLink>
               <CloseButton
                 onClick={() => setIsMobileMenuOpen(false)}
@@ -141,20 +156,15 @@ const Layout: React.FC = React.memo(() => {
               </SidebarNavLink>
             </SidebarNav>
 
-            <MobileActionsWrapper>
-              <PreferencesSection>
-                <PreferenceRow>
-                  <span>{t("pages.navigation.labelTheme")}</span>
-                  <ThemeToggle variant="row" />
-                </PreferenceRow>
-
-                {SUPPORTED_LOCALES.length > 1 && (
+            {SUPPORTED_LOCALES.length > 1 && (
+              <MobileActionsWrapper>
+                <PreferencesSection>
                   <PreferenceRow>
                     <LanguageSelector dropUp={true} />
                   </PreferenceRow>
-                )}
-              </PreferencesSection>
-            </MobileActionsWrapper>
+                </PreferencesSection>
+              </MobileActionsWrapper>
+            )}
           </MobileSidebar>
         </>
       )}

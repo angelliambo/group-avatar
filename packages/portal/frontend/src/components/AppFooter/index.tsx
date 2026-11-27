@@ -2,7 +2,6 @@ import React from "react";
 import { useTranslation } from "../../i18n/I18nProvider";
 import { SUPPORTED_LOCALES } from "../../i18n";
 import { LanguageSelector } from "../../i18n/LanguageSelector";
-import { ThemeToggle } from "../ThemeToggle";
 import { ZnIcon } from "@design-sys/atoms/ZnIcon";
 import {
   InstagramOutlined,
@@ -103,10 +102,11 @@ const AppFooter: React.FC = () => {
           </SocialContainer>
         )}
 
-        <FooterLangSelectorWrapper>
-          <ThemeToggle variant="icon" />
-          {SUPPORTED_LOCALES.length > 1 && <LanguageSelector dropUp={true} />}
-        </FooterLangSelectorWrapper>
+        {SUPPORTED_LOCALES.length > 1 && (
+          <FooterLangSelectorWrapper>
+            <LanguageSelector dropUp={true} />
+          </FooterLangSelectorWrapper>
+        )}
 
         <CopyRightParagraph>
           &copy; {new Date().getFullYear()}{" "}

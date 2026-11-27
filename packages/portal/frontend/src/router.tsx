@@ -39,7 +39,7 @@ const rootRoute = createRootRouteWithContext<RouterContext>()({
       <Outlet />
       {process.env.NODE_ENV === "development" && TanStackRouterDevtools && (
         <Suspense fallback={null}>
-          <TanStackRouterDevtools position="bottom-left" />
+          <TanStackRouterDevtools position="bottom-right" />
         </Suspense>
       )}
     </Suspense>

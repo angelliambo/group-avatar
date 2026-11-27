@@ -55,7 +55,7 @@ export const mudanzas = {
   ctaButton: 'Pedir Presupuesto Easy-Pack por WhatsApp',
 
   // Guided Tour específico de Mudanzas
-  guidedTourBadge: 'Tour Mudanzas',
+  guidedTourBadge: 'Visita Guiada',
   guidedTourStep1Text: 'Bienvenido a la División Mudanzas de Avatar Group. Nuestro sistema certificado Easy-Pack está diseñado para eliminar el estrés en mudanzas particulares, corporativas e industriales.',
   guidedTourStep2Text: 'Ofrecemos cuatro modalidades adaptadas a cada necesidad: Easy-Pack Mini para volúmenes reducidos, Estándar con kit ecológico previo, Clásica con embalaje fino de vajilla y placares portátiles, y Premium llave en mano.',
   guidedTourStep3Text: 'Nuestro protocolo inicia con una visita técnica y presupuesto sin cargo, continúa con la entrega anticipada de materiales, el embalaje por supervisores y finaliza con el armado y retiro de rezagos.',
