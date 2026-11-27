@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Link } from "@tanstack/react-router";
-import Button from '@design-sys/atoms/Button';
-import { Container } from '@design-sys/atoms/Container';
+import Button from "@design-sys/atoms/Button";
+import { Container } from "@design-sys/atoms/Container";
 
 export const LayoutRoot = styled.div`
   min-height: 100vh;
@@ -17,7 +17,7 @@ export const TopBar = styled.header`
   justify-content: flex-end;
   align-items: center;
   gap: ${({ theme }) => theme.spacing.sm};
-  padding: ${({ theme }) => theme.spacing.xs} ${({ theme }) => theme.spacing.lg};
+  padding: ${({ theme }) => `${theme.spacing.xs} ${theme.spacing.lg}`};
   background: ${({ theme }) => theme.colors.background.secondary};
   border-bottom: 1px solid ${({ theme }) => theme.colors.border.light};
   position: fixed;
@@ -28,7 +28,7 @@ export const TopBar = styled.header`
   transition: background ${({ theme }) => theme.transitions.normal};
 
   @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
-    padding: ${({ theme }) => theme.spacing.xs} ${({ theme }) => theme.spacing.md};
+    padding: ${({ theme }) => `${theme.spacing.xs} ${theme.spacing.md}`};
   }
 `;
 
@@ -38,7 +38,7 @@ export const AccessBtn = styled(Button)<{ $isMobile?: boolean }>`
   border: none;
   font-weight: ${({ theme }) => theme.typography.fontWeight.semibold};
   ${({ $isMobile }) => $isMobile && `width: 100%;`}
-  
+
   &:hover {
     opacity: 0.9;
     transform: translateY(-1px);
@@ -53,16 +53,20 @@ export const UserBadge = styled(Link)<{ $isMobile?: boolean }>`
   font-weight: ${({ theme }) => theme.typography.fontWeight.semibold};
   color: ${({ theme }) => theme.colors.text.primary};
   text-decoration: none;
-  padding: 6px 14px;
+  padding: ${({ theme }) => `${theme.spacing.xs} ${theme.spacing.md}`};
   border-radius: ${({ theme }) => theme.borderRadius.md};
   background: ${({ theme }) => theme.colors.primary[50]};
   transition: background ${({ theme }) => theme.transitions.fast};
-  ${({ $isMobile }) => $isMobile && `
+  ${({ $isMobile }) =>
+    $isMobile &&
+    `
     margin: 0;
     flex-grow: 1;
   `}
 
-  &:hover { background: ${({ theme }) => theme.colors.primary[100]}; }
+  &:hover {
+    background: ${({ theme }) => theme.colors.primary[100]};
+  }
 `;
 
 export const LogoutBtn = styled.button<{ $isMobile?: boolean }>`
@@ -71,18 +75,21 @@ export const LogoutBtn = styled.button<{ $isMobile?: boolean }>`
   color: ${({ theme }) => theme.colors.text.secondary};
   font-size: ${({ theme }) => theme.typography.fontSize.md};
   cursor: pointer;
-  padding: 6px;
+  padding: ${({ theme }) => theme.spacing.xs};
   display: inline-flex;
   align-items: center;
   justify-content: center;
   border-radius: ${({ theme }) => theme.borderRadius.sm};
-  transition: color ${({ theme }) => theme.transitions.fast}, background-color ${({ theme }) => theme.transitions.fast};
-  ${({ $isMobile }) => $isMobile && `
-    background: rgba(0,0,0,0.05);
-    padding: 10px;
-    border-radius: 8px;
+  transition: color ${({ theme }) => theme.transitions.fast},
+    background-color ${({ theme }) => theme.transitions.fast};
+  ${({ $isMobile, theme }) =>
+    $isMobile &&
+    `
+    background: ${theme.colors.background.tertiary};
+    padding: ${theme.spacing.sm};
+    border-radius: ${theme.borderRadius.md};
   `}
-  
+
   &:hover {
     color: ${({ theme }) => theme.colors.error[500]};
     background: ${({ theme }) => theme.colors.background.tertiary};
@@ -116,7 +123,7 @@ export const HamburgerButton = styled.button`
   color: ${({ theme }) => theme.colors.text.primary};
   font-size: ${({ theme }) => theme.typography.fontSize.lg};
   cursor: pointer;
-  padding: 6px;
+  padding: ${({ theme }) => theme.spacing.xs};
   align-items: center;
   justify-content: center;
   border-radius: ${({ theme }) => theme.borderRadius.sm};
@@ -137,7 +144,7 @@ export const MobileSidebar = styled.div<{ $open: boolean }>`
   right: 0;
   bottom: 0;
   width: 280px;
-  max-width: calc(100vw - 48px);
+  max-width: calc(100vw - ${({ theme }) => theme.spacing.xxl});
   background: ${({ theme }) => theme.colors.background.secondary};
   border-left: 1px solid ${({ theme }) => theme.colors.border.light};
   box-shadow: ${({ theme }) => theme.shadows.heavy};
@@ -156,9 +163,9 @@ export const SidebarOverlay = styled.div<{ $open: boolean }>`
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.35);
+  background: ${({ theme }) => theme.colors.neutral[50]};
   z-index: ${({ theme }) => theme.zIndex.modal};
-  opacity: ${({ $open }) => ($open ? 1 : 0)};
+  opacity: ${({ $open }) => ($open ? 0.65 : 0)};
   pointer-events: ${({ $open }) => ($open ? "auto" : "none")};
   transition: opacity ${({ theme }) => theme.transitions.normal};
 `;
@@ -177,12 +184,13 @@ export const CloseButton = styled.button`
   color: ${({ theme }) => theme.colors.text.secondary};
   font-size: ${({ theme }) => theme.typography.fontSize.md};
   cursor: pointer;
-  padding: 6px;
+  padding: ${({ theme }) => theme.spacing.xs};
   display: inline-flex;
   align-items: center;
   justify-content: center;
   border-radius: ${({ theme }) => theme.borderRadius.sm};
-  transition: background-color ${({ theme }) => theme.transitions.fast}, color ${({ theme }) => theme.transitions.fast};
+  transition: background-color ${({ theme }) => theme.transitions.fast},
+    color ${({ theme }) => theme.transitions.fast};
 
   &:hover {
     color: ${({ theme }) => theme.colors.text.primary};
@@ -198,12 +206,14 @@ export const SidebarNav = styled.nav`
 
 export const SidebarNavLink = styled(Link)<{ $active?: boolean }>`
   font-size: ${({ theme }) => theme.typography.fontSize.sm};
-  font-weight: ${({ theme }) => theme.typography.fontWeight.medium};
-  color: ${({ $active, theme }) => ($active ? theme.colors.primary[500] : theme.colors.text.secondary)};
+  font-weight: ${({ theme }) => theme.typography.fontWeight.semibold};
+  color: ${({ $active, theme }) =>
+    $active ? theme.colors.primary[600] : theme.colors.text.secondary};
   text-decoration: none;
-  padding: 8px 12px;
+  padding: ${({ theme }) => `${theme.spacing.sm} ${theme.spacing.md}`};
   border-radius: ${({ theme }) => theme.borderRadius.sm};
-  transition: color ${({ theme }) => theme.transitions.fast}, background ${({ theme }) => theme.transitions.fast};
+  transition: color ${({ theme }) => theme.transitions.fast},
+    background ${({ theme }) => theme.transitions.fast};
 
   &:hover {
     color: ${({ theme }) => theme.colors.text.primary};
@@ -212,33 +222,46 @@ export const SidebarNavLink = styled(Link)<{ $active?: boolean }>`
 `;
 
 export const NavLink = styled(Link)<{ $active?: boolean }>`
-  font-size: ${({ theme }) => theme.typography.fontSize.xs};
-  font-weight: ${({ theme }) => theme.typography.fontWeight.medium};
-  color: ${({ $active, theme }) => ($active ? theme.colors.primary[400] : theme.colors.text.secondary)};
+  font-size: ${({ theme }) => theme.typography.fontSize.sm};
+  font-weight: ${({ theme }) => theme.typography.fontWeight.semibold};
+  color: ${({ $active, theme }) =>
+    $active ? theme.colors.primary[600] : theme.colors.text.secondary};
   text-decoration: none;
-  padding: 4px 10px;
+  padding: ${({ theme }) => `${theme.spacing.xs} ${theme.spacing.md}`};
   border-radius: ${({ theme }) => theme.borderRadius.sm};
   display: inline-flex;
   align-items: center;
-  gap: 4px;
-  transition: color ${({ theme }) => theme.transitions.fast}, background ${({ theme }) => theme.transitions.fast};
-  &:hover { 
-    color: ${({ theme }) => theme.colors.text.primary}; 
-    background: ${({ theme }) => theme.colors.background.tertiary}; 
+  gap: ${({ theme }) => theme.spacing.xs};
+  transition: color ${({ theme }) => theme.transitions.fast},
+    background ${({ theme }) => theme.transitions.fast};
+
+  &:hover {
+    color: ${({ theme }) => theme.colors.text.primary};
+    background: ${({ theme }) => theme.colors.background.tertiary};
   }
 `;
 
 export const LogoLink = styled(Link)`
-  font-size: ${({ theme }) => theme.typography.fontSize.md};
-  font-weight: ${({ theme }) => theme.typography.fontWeight.bold};
-  color: ${({ theme }) => theme.colors.text.inverse};
+  display: inline-flex;
+  align-items: center;
+  gap: ${({ theme }) => theme.spacing.sm};
   text-decoration: none;
   margin-right: auto;
-  letter-spacing: 0.5px;
-  background: ${({ theme }) => theme.gradients.brand};
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+`;
+
+export const BrandLogoImg = styled.img`
+  height: 36px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+`;
+
+export const BrandLogoText = styled.span`
+  font-size: ${({ theme }) => theme.typography.fontSize.md};
+  font-weight: ${({ theme }) => theme.typography.fontWeight.bold};
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: ${({ theme }) => theme.colors.text.primary};
 `;
 
 export const MainContent = styled.main`

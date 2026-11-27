@@ -43,42 +43,32 @@ const STORAGE_KEY = "portal_user_theme";
 const THEMES_KEY = "portal_custom_themes";
 
 function loadConfig(): ThemeConfig {
-  let initialTheme: Theme = "dark";
   let customColors: CustomColors | undefined = undefined;
 
-  // Cargar configuración de Tenant inyectada
-  if (typeof window !== "undefined" && window.__INITIAL_STATE__?.tenant) {
-    const tenant = window.__INITIAL_STATE__.tenant;
-    if (tenant.theme) {
-      initialTheme = tenant.theme.darkMode ? "dark" : "light";
+  if (typeof window !== "undefined" && window.__INITIAL_STATE__?.tenant?.theme) {
+    const tenantTheme = window.__INITIAL_STATE__.tenant.theme;
+    if (tenantTheme.primaryColor || tenantTheme.secondaryColor) {
       customColors = {
-        primary: tenant.theme.primaryColor,
-        secondary: tenant.theme.secondaryColor,
+        primary: tenantTheme.primaryColor,
+        secondary: tenantTheme.secondaryColor,
       };
     }
   }
 
+  const forcedDarkConfig: ThemeConfig = {
+    theme: "dark",
+    accessibility: "default",
+    autoDetect: false,
+    customColors,
+  };
+
   try {
-    const saved = localStorage.getItem(STORAGE_KEY);
-    if (saved) {
-      const parsed = JSON.parse(saved) as ThemeConfig;
-      if (parsed && (parsed.theme === "light" || parsed.theme === "dark")) {
-        return { 
-          ...parsed, 
-          autoDetect: false,
-          customColors: customColors || parsed.customColors
-        };
-      }
-    }
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(forcedDarkConfig));
   } catch {
     /* ignore */
   }
-  return { 
-    theme: initialTheme, 
-    accessibility: "default", 
-    autoDetect: false, 
-    customColors 
-  };
+
+  return forcedDarkConfig;
 }
 
 function saveConfig(config: ThemeConfig) {
@@ -116,14 +106,13 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
     });
   }, []);
 
-  const setTheme = useCallback((theme: Theme) => {
-    updateConfig({ theme, autoDetect: false });
+  const setTheme = useCallback((_theme: Theme) => {
+    updateConfig({ theme: "dark", autoDetect: false });
   }, [updateConfig]);
 
   const toggleTheme = useCallback(() => {
-    const newTheme: Theme = themeConfig.theme === "light" ? "dark" : "light";
-    updateConfig({ theme: newTheme, autoDetect: false });
-  }, [themeConfig.theme, updateConfig]);
+    updateConfig({ theme: "dark", autoDetect: false });
+  }, [updateConfig]);
 
   const setAccessibility = useCallback((accessibility: AccessibilityTheme) => {
     updateConfig({ accessibility });

@@ -51,7 +51,7 @@ export const logistica = {
   ctaButton: 'Cotizar Operación Logística por WhatsApp',
 
   // Guided Tour específico de Logística
-  guidedTourBadge: 'Tour Logística',
+  guidedTourBadge: 'Visita Guiada',
   guidedTourStep1Text: 'Estás en la División Logística de Avatar Group. Funcionamos como el apéndice logístico de tu empresa para cargas generales y distribución en CABA, GBA y hasta 1.600 kilómetros.',
   guidedTourStep2Text: 'Nuestras soluciones se dividen en Transportes Programados con dotación de operarios, Repartos Asistidos puerta a puerta con control de remitos, e ingresos habilitados a parques industriales, bancos y hospitales.',
   guidedTourStep3Text: 'Trabajamos en cuatro etapas: relevamiento de rutas y volúmenes, asignación de flota dedicada, ejecución con monitoreo satelital y rendición documental en tiempo y forma.',

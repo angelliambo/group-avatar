@@ -18,6 +18,7 @@ export const home = {
   heroTitle: 'Avatar Group',
   heroTitleAccent: 'Infraestructura en Logística y Mudanzas',
   heroSubtitle: 'Somos una organización argentina especializada en operaciones de transporte, logística corporativa y mudanzas de alta complejidad. Desde nuestra base en Buenos Aires articulamos flotas monitoreadas en CABA, Gran Buenos Aires y un radio nacional de hasta 1.600 km.',
+  heroBannerAlt: 'Sede operativa y flota de Avatar Group — Soluciones Logísticas en CABA, AMBA e Interior del País y Mudanzas Sistema Easy-Packs',
   heroExploreButton: 'Explorar Unidades de Negocio',
   whatsappContactButton: 'Hablar con un Asesor por WhatsApp',
   whatsappFloatingBadge: 'WhatsApp Directo',
@@ -116,7 +117,9 @@ export const home = {
   guidedTourStep2Text: 'Aquí puedes acceder a nuestras dos divisiones especializadas: la División Logística para empresas y la División Mudanzas bajo normas certificadas Easy-Pack.',
   guidedTourStep3Text: 'Nuestra estructura corporativa garantiza unidades con monitoreo satelital, personal propio asegurado y habilitaciones para parques industriales, bancos, hospitales y organismos oficiales.',
   guidedTourStep4Text: 'Nuestros números nos respaldan: más de cinco décadas en el mercado, cobertura de media y larga distancia, y cumplimiento normativo total en cada ingreso.',
-  guidedTourStep5Text: 'Desde nuestra base operativa en Mataderos coordinamos cada flota. Puedes contactarnos en cualquier momento desde el botón de WhatsApp para recibir atención inmediata.',
+  guidedTourStep5Text: 'Empresas industriales, oficinas corporativas y plantas productivas avalan nuestra puntualidad, cuidado operativo y prolijidad documental.',
+  guidedTourStep6Text: 'Desde nuestro centro operativo en Mataderos, Ciudad de Buenos Aires, coordinamos el despacho diario de unidades y flotas dedicadas.',
+  guidedTourStep7Text: '¿Listo para coordinar tu próxima operación? Comunícate ahora mismo con nuestra mesa operativa por WhatsApp para recibir asesoramiento inmediato.',
 };
 
 export default home;

@@ -33,14 +33,14 @@ export const NeonBadge = styled.span<{ $featured?: boolean }>`
   font-weight: ${({ theme }) => theme.typography.fontWeight.bold};
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  background: ${({ theme }) => theme.effects.glassBackground};
+  background: ${({ theme }) => theme.colors.background.card};
   color: ${({ $featured, theme }) =>
-    $featured ? theme.colors.tertiary[500] : theme.colors.secondary[500]};
+    $featured ? theme.colors.primary[700] : theme.colors.secondary[500]};
   border: 1px solid
     ${({ $featured, theme }) =>
-      $featured ? theme.colors.tertiary[400] : theme.colors.secondary[400]};
+      $featured ? theme.colors.primary[400] : theme.colors.border.dark};
   box-shadow: ${({ $featured, theme }) =>
-    $featured ? theme.effects.glow.premium : theme.effects.glow.success};
+    $featured ? theme.effects.glow.primary : theme.shadows.light};
 `;
 
 export const HeroHeading = styled.h1`
@@ -49,7 +49,6 @@ export const HeroHeading = styled.h1`
   line-height: 1.15;
   margin: 0;
   color: ${({ theme }) => theme.colors.text.primary};
-  text-shadow: 0 0 22px ${({ theme }) => `${theme.colors.secondary[500]}55`};
 
   @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
     font-size: 32px;
@@ -77,42 +76,46 @@ export const ActionsGroup = styled.div`
 `;
 
 export const NeonSuccessButton = styled(Button)`
-  background: ${({ theme }) => theme.colors.secondary[500]};
+  background: ${({ theme }) => theme.colors.primary[500]};
   color: ${({ theme }) => theme.colors.text.inverse};
-  border: 1px solid ${({ theme }) => theme.colors.secondary[400]};
+  border: 1px solid ${({ theme }) => theme.colors.primary[400]};
   border-radius: ${({ theme }) => theme.borderRadius.lg};
   padding: ${({ theme }) => `${theme.spacing.md} ${theme.spacing.xl}`};
   font-size: ${({ theme }) => theme.typography.fontSize.md};
   font-weight: ${({ theme }) => theme.typography.fontWeight.bold};
-  box-shadow: ${({ theme }) => theme.effects.glow.success};
+  box-shadow: ${({ theme }) => theme.effects.glow.primary};
   min-width: 240px;
   cursor: pointer;
   transition: transform ${({ theme }) => theme.transitions.normal},
-    box-shadow ${({ theme }) => theme.transitions.normal};
+    box-shadow ${({ theme }) => theme.transitions.normal},
+    background ${({ theme }) => theme.transitions.normal};
 
   &:hover {
+    background: ${({ theme }) => theme.colors.primary[600]};
     transform: translateY(-2px);
     box-shadow: ${({ theme }) => theme.effects.glow.premium};
   }
 `;
 
 export const NeonOutlineButton = styled(Button)`
-  background: ${({ theme }) => theme.effects.glassBackground};
+  background: ${({ theme }) => theme.colors.background.surface};
   color: ${({ theme }) => theme.colors.text.primary};
-  border: 1px solid ${({ theme }) => theme.colors.primary[400]};
+  border: 1px solid ${({ theme }) => theme.colors.border.dark};
   border-radius: ${({ theme }) => theme.borderRadius.lg};
   padding: ${({ theme }) => `${theme.spacing.md} ${theme.spacing.xl}`};
   font-size: ${({ theme }) => theme.typography.fontSize.md};
   font-weight: ${({ theme }) => theme.typography.fontWeight.semibold};
-  box-shadow: ${({ theme }) => theme.effects.glow.primary};
+  box-shadow: ${({ theme }) => theme.shadows.light};
   display: inline-flex;
   align-items: center;
   gap: ${({ theme }) => theme.spacing.sm};
   cursor: pointer;
-  transition: transform ${({ theme }) => theme.transitions.normal};
+  transition: transform ${({ theme }) => theme.transitions.normal},
+    border-color ${({ theme }) => theme.transitions.normal};
 
   &:hover {
     transform: translateY(-2px);
+    border-color: ${({ theme }) => theme.colors.primary[400]};
   }
 `;
 
@@ -153,18 +156,20 @@ export const TierCard = styled.article<{ $featured?: boolean }>`
   background: ${({ theme }) => theme.colors.background.card};
   border: ${({ $featured }) => ($featured ? "2px" : "1px")} solid
     ${({ $featured, theme }) =>
-      $featured ? theme.colors.tertiary[400] : theme.colors.secondary[400]};
+      $featured ? theme.colors.primary[500] : theme.colors.border.normal};
   border-radius: ${({ theme }) => theme.borderRadius.xl};
   padding: ${({ theme }) => theme.spacing.xl};
   display: flex;
   flex-direction: column;
   gap: ${({ theme }) => theme.spacing.md};
   box-shadow: ${({ $featured, theme }) =>
-    $featured ? theme.effects.glow.premium : theme.effects.glow.success};
-  transition: transform ${({ theme }) => theme.transitions.normal};
+    $featured ? theme.effects.glow.primary : theme.shadows.medium};
+  transition: transform ${({ theme }) => theme.transitions.normal},
+    border-color ${({ theme }) => theme.transitions.normal};
 
   &:hover {
     transform: translateY(-4px);
+    border-color: ${({ theme }) => theme.colors.primary[500]};
   }
 `;
 
@@ -193,7 +198,7 @@ export const TierList = styled.ul`
 
 export const TierListItem = styled.li`
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: ${({ theme }) => theme.spacing.sm};
   font-size: ${({ theme }) => theme.typography.fontSize.sm};
   color: ${({ theme }) => theme.colors.text.primary};
@@ -202,9 +207,9 @@ export const TierListItem = styled.li`
 
 export const CheckIconSpan = styled.span<{ $featured?: boolean }>`
   color: ${({ $featured, theme }) =>
-    $featured ? theme.colors.tertiary[500] : theme.colors.secondary[500]};
+    $featured ? theme.colors.primary[700] : theme.colors.secondary[500]};
   display: inline-flex;
-  margin-top: 2px;
+  flex-shrink: 0;
 `;
 
 export const ProcessFlex = styled.div`
@@ -230,7 +235,7 @@ export const ProcessCard = styled.div`
 export const ProcessStepTitle = styled.h3`
   font-size: ${({ theme }) => theme.typography.fontSize.lg};
   font-weight: ${({ theme }) => theme.typography.fontWeight.bold};
-  color: ${({ theme }) => theme.colors.secondary[500]};
+  color: ${({ theme }) => theme.colors.primary[600]};
   margin: 0;
 `;
 
@@ -245,10 +250,10 @@ export const CtaBox = styled.div`
   max-width: 780px;
   margin: 0 auto;
   background: ${({ theme }) => theme.colors.background.card};
-  border: 1px solid ${({ theme }) => theme.colors.secondary[400]};
+  border: 1px solid ${({ theme }) => theme.colors.primary[400]};
   border-radius: ${({ theme }) => theme.borderRadius.xl};
   padding: ${({ theme }) => theme.spacing.xxl};
-  box-shadow: ${({ theme }) => theme.effects.glow.success};
+  box-shadow: ${({ theme }) => theme.effects.glow.primary};
   text-align: center;
   display: flex;
   flex-direction: column;

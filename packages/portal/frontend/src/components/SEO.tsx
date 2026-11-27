@@ -158,8 +158,8 @@ const SEO: React.FC<SEOProps> = ({
       )}
 
       {/* Meta tags adicionales para SEO */}
-      <meta name="theme-color" content="#0f0f2d" />
-      <meta name="msapplication-TileColor" content="#0f0f2d" />
+      <meta name="theme-color" content="#09090b" />
+      <meta name="msapplication-TileColor" content="#09090b" />
       <meta name="apple-mobile-web-app-capable" content="yes" />
       <meta name="apple-mobile-web-app-status-bar-style" content="default" />
       <meta

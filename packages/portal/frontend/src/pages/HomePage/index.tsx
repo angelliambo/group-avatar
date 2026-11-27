@@ -22,6 +22,9 @@ import {
   HeroSubtitle,
   HeroActions,
   HeroPrimaryButton,
+  HeroBannerFrame,
+  HeroBannerPicture,
+  HeroBannerImage,
   CtaButtonContent,
   ScrollNav,
   ScrollDotWrapper,
@@ -92,33 +95,63 @@ const HomePage: React.FC = () => {
   useEffect(() => {
     if (typeof window === "undefined") return;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && entry.target.id) {
-            setActiveSectionId(entry.target.id);
-            if (entry.target.id === "testimonials") {
-              setTestimonialsInViewport(true);
-            }
-          }
-        });
-      },
-      {
-        threshold: 0.35,
-        rootMargin: "-70px 0px -30% 0px",
-      }
-    );
+    let rafId: number | null = null;
 
-    const timer = setTimeout(() => {
-      sections.forEach((sec) => {
+    const updateActiveSectionFromScroll = () => {
+      rafId = null;
+      const scrollY = window.scrollY || window.pageYOffset;
+
+      if (scrollY <= 80) {
+        setActiveSectionId("hero");
+        return;
+      }
+
+      const viewportHeight = window.innerHeight;
+      const docHeight = document.documentElement.scrollHeight;
+      if (scrollY + viewportHeight >= docHeight - 48 && sections.length > 0) {
+        const lastSection = sections[sections.length - 1];
+        if (lastSection) {
+          setActiveSectionId(lastSection.id);
+          return;
+        }
+      }
+
+      const probeLine = Math.max(120, viewportHeight * 0.42);
+      let matchedId = sections[0]?.id || "hero";
+
+      for (const sec of sections) {
         const el = document.getElementById(sec.id);
-        if (el) observer.observe(el);
-      });
-    }, 150);
+        if (!el) continue;
+        const rect = el.getBoundingClientRect();
+        if (rect.top <= probeLine) {
+          matchedId = sec.id;
+          if (sec.id === "testimonials") {
+            setTestimonialsInViewport(true);
+          }
+        } else {
+          break;
+        }
+      }
+
+      setActiveSectionId(matchedId);
+    };
+
+    const onScroll = () => {
+      if (rafId === null) {
+        rafId = window.requestAnimationFrame(updateActiveSectionFromScroll);
+      }
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll, { passive: true });
+    updateActiveSectionFromScroll();
 
     return () => {
-      clearTimeout(timer);
-      observer.disconnect();
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+      if (rafId !== null) {
+        window.cancelAnimationFrame(rafId);
+      }
     };
   }, [sections]);
 
@@ -191,8 +224,8 @@ const HomePage: React.FC = () => {
             <Logo
               src={BRAND_CONFIG.logoUrl}
               alt={BRAND_CONFIG.siteName}
-              width={104}
-              height={104}
+              width={240}
+              height={179}
               loading="eager"
               fetchPriority="high"
             />
@@ -225,6 +258,23 @@ const HomePage: React.FC = () => {
               </HeroPrimaryButton>
             </TrackedClick>
           </HeroActions>
+
+          <HeroBannerFrame>
+            <HeroBannerPicture>
+              <source
+                media="(max-width: 768px)"
+                srcSet="/assets/images/hero-banner-mobile.webp"
+                type="image/webp"
+              />
+              <HeroBannerImage
+                src="/assets/images/hero-banner.webp"
+                alt={t("pages.home.heroBannerAlt")}
+                width={1024}
+                height={576}
+                loading="eager"
+              />
+            </HeroBannerPicture>
+          </HeroBannerFrame>
         </HeroContent>
       </VhSection>
 

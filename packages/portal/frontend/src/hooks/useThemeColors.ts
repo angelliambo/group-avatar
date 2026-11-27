@@ -2,17 +2,17 @@ import React from "react";
 import { DefaultTheme } from "styled-components";
 import { useTheme } from "../styles/ThemeProvider";
 import { useAccessibilityRedux } from "./useAccessibilityRedux";
-import { getCombinedTheme, lightTheme } from "../styles/themes";
+import { getCombinedTheme, darkTheme } from "../styles/themes";
 
 const createFallbackTheme = (): DefaultTheme => {
   try {
-    return getCombinedTheme("light", "default");
+    return getCombinedTheme("dark", "default");
   } catch (error) {
     console.warn(
-      "[useThemeColors] No se pudo cargar el tema combinado, usando lightTheme.",
+      "[useThemeColors] No se pudo cargar el tema combinado, usando darkTheme.",
       error
     );
-    return lightTheme;
+    return darkTheme;
   }
 };
 

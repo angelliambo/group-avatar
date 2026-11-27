@@ -411,6 +411,7 @@ export const HomeBelowFold: React.FC<HomeBelowFoldProps> = ({
                   $mapImageUrl={BRAND_CONFIG.mapImageUrl}
                   $mapMobileImageUrl={BRAND_CONFIG.mapMobileImageUrl}
                   $mapLinkUrl={BRAND_CONFIG.mapLinkUrl}
+                  $showOverlayPin={false}
                 />
               </React.Suspense>
             </MapContainer>

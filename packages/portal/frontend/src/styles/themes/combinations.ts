@@ -276,7 +276,7 @@ export function getCombinedTheme(
 
     const safeBaseTheme = validBaseThemes.includes(baseTheme)
       ? baseTheme
-      : "light";
+      : "dark";
     const safeAccessibilityTheme = validAccessibilityThemes.includes(
       accessibilityTheme
     )
@@ -308,6 +308,7 @@ export function getCombinedTheme(
         }
         break;
       case "dark":
+      default:
         switch (safeAccessibilityTheme) {
           case "default":
             theme = darkTheme;
@@ -328,8 +329,6 @@ export function getCombinedTheme(
             theme = darkTheme;
         }
         break;
-      default:
-        theme = lightTheme;
     }
 
     if (
@@ -339,8 +338,8 @@ export function getCombinedTheme(
       !theme.colors.primary ||
       !theme.colors.background
     ) {
-      console.error("Tema generado es inválido, usando lightTheme como fallback");
-      return lightTheme;
+      console.error("Tema generado es inválido, usando darkTheme como fallback");
+      return darkTheme;
     }
 
     // Aplicar colores personalizados dinámicos si están definidos
