@@ -1,15 +1,6 @@
 # avatar-group - Logística Empresarial, Transportes y Mudanzas\n
 avatar-group is a high-performance MERN (MongoDB, Express, React, Node.js) web application boilerplate. It provides a modular foundation to quickly launch your startup or software-as-a-service application, with built-in modules for authentication, user dashboards, administration panels, support ticketing, and payment gateway integration.
 
----
-
-## Key Product Offerings
-
-- **Unified Authentication**: Secured login flow using standard email/code validation or Google OAuth integration.
-- **Smart Control Panel**: Fully functional dashboard containing user administration, metrics graphs, role assignment, and customization capabilities.
-- **Lemon Squeezy Billing Integration**: Flexible pricing plan modules connected directly with Lemon Squeezy payment checkout links and automated backend status synchronization via secure webhooks.
-- **Support & Ticketing System**: Optional direct communication and help-desk ticket management system built natively into the app layout.
-- **Feature Flags / Config**: Dynamically toggle backend services and frontend components from unified configuration and environment variables.
 
 ---
 
@@ -32,7 +23,6 @@ avatar-group is structured as a monorepo containing two core packages:
 ---
 
 ## Primary Resources & Links
-- [Official Website](https://avatar-group.fly.dev)
-- [Pricing and License Plans](https://avatar-group.fly.dev/pricing)
-- [Terms and Conditions](https://avatar-group.fly.dev/legal/terms)
-- [Privacy Policy & Data Security](https://avatar-group.fly.dev/legal/privacy)
+- [Official Website](https://avatargroup.com.ar)
+- [Terms and Conditions](https://avatargroup.com.ar/legal/terms)
+- [Privacy Policy & Data Security](https://avatargroup.com.ar/legal/privacy)

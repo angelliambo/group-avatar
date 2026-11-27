@@ -1,5 +1,5 @@
 const APP_NAME = 'avatar-group';
-const DOMAIN = 'avatar-group.fly.dev';
+const DOMAIN = 'avatargroup.com.ar';
 
 export const BRAND_CONFIG = {
   appName: APP_NAME,

@@ -77,4 +77,4 @@ Allow: /logo512.png
 Allow: /og-image.png
 
 # Sitemaps
-Sitemap: https://avatar-group.fly.dev/sitemap.xml
+Sitemap: https://avatargroup.com.ar/sitemap.xml
