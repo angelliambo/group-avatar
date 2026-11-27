@@ -111,7 +111,7 @@ function generateStructuredData(route: PrerenderRoute) {
     "description": route.description,
     "url": route.canonicalUrl,
     "logo": `https://${BRAND_CONFIG.domain}${BRAND_CONFIG.logoUrl}`,
-    "image": `https://${BRAND_CONFIG.domain}/og-image.jpg`,
+    "image": `https://${BRAND_CONFIG.domain}/og-image.jpg?v=${BRAND_CONFIG.ogImageVersion}`,
     "email": BRAND_CONFIG.supportEmail,
     "address": {
       "@type": "PostalAddress",

@@ -25,7 +25,7 @@ const SEO: React.FC<SEOProps> = ({
   description,
   keywords,
   canonicalUrl,
-  ogImage = "/og-image.jpg",
+  ogImage = `/og-image.jpg?v=${BRAND_CONFIG.ogImageVersion}`,
   ogType = "website",
   twitterCard = "summary_large_image",
   twitterSite = "@avatargroup",
@@ -124,7 +124,7 @@ const SEO: React.FC<SEOProps> = ({
       <meta property="og:type" content={ogType} />
       <meta property="og:url" content={currentUrl} />
       <meta property="og:image" content={absoluteOgImage} />
-      <meta property="og:image:type" content={ogImage.endsWith(".png") ? "image/png" : "image/jpeg"} />
+      <meta property="og:image:type" content={ogImage.split("?")[0].endsWith(".png") ? "image/png" : "image/jpeg"} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
       <meta property="og:image:alt" content={finalTitle} />

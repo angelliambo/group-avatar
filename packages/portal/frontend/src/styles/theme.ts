@@ -1,62 +1,317 @@
 import { DefaultTheme } from "styled-components";
-import "@design-sys/theme/types";
+
+// Extender el tema de styled-components
+declare module "styled-components" {
+  export interface DefaultTheme {
+    colors: {
+      // Colores primarios
+      primary: {
+        50: string;
+        100: string;
+        200: string;
+        300: string;
+        400: string;
+        500: string;
+        600: string;
+        700: string;
+        800: string;
+        900: string;
+      };
+      // Colores secundarios
+      secondary: {
+        50: string;
+        100: string;
+        200: string;
+        300: string;
+        400: string;
+        500: string;
+        600: string;
+        700: string;
+        800: string;
+        900: string;
+      };
+      // Colores terciarios
+      tertiary: {
+        50: string;
+        100: string;
+        200: string;
+        300: string;
+        400: string;
+        500: string;
+        600: string;
+        700: string;
+        800: string;
+        900: string;
+      };
+      // Colores neutros
+      neutral: {
+        50: string;
+        100: string;
+        200: string;
+        300: string;
+        400: string;
+        500: string;
+        600: string;
+        700: string;
+        800: string;
+        900: string;
+      };
+      // Colores semánticos
+      success: {
+        50: string;
+        500: string;
+        600: string;
+        700: string;
+      };
+      warning: {
+        50: string;
+        500: string;
+        600: string;
+        700: string;
+      };
+      error: {
+        50: string;
+        500: string;
+        600: string;
+        700: string;
+      };
+      info: {
+        50: string;
+        500: string;
+        600: string;
+        700: string;
+      };
+      // Colores de aplicación
+      background: {
+        primary: string;
+        secondary: string;
+        tertiary: string;
+        surface: string;
+        card: string;
+      };
+      text: {
+        primary: string;
+        secondary: string;
+        tertiary: string;
+        inverse: string;
+      };
+      border: {
+        light: string;
+        normal: string;
+        dark: string;
+      };
+    };
+    spacing: {
+      // Desktop por defecto (valores Fibonacci)
+      xs: string;
+      sm: string;
+      md: string;
+      lg: string;
+      xl: string;
+      xxl: string;
+      // Responsive spacing
+      mobile?: {
+        xs: string;
+        sm: string;
+        md: string;
+        lg: string;
+        xl: string;
+        xxl: string;
+      };
+      tablet?: {
+        xs: string;
+        sm: string;
+        md: string;
+        lg: string;
+        xl: string;
+        xxl: string;
+      };
+    };
+    borderRadius: {
+      sm: string;
+      md: string;
+      lg: string;
+      xl: string;
+    };
+    shadows: {
+      light: string;
+      medium: string;
+      heavy: string;
+    };
+    breakpoints: {
+      xs: string;
+      sm: string;
+      md: string;
+      lg: string;
+      xl: string;
+    };
+    typography: {
+      fontFamily: {
+        primary: string;
+        secondary: string;
+        mono: string;
+      };
+      fontSize: {
+        xs: string;
+        sm: string;
+        md: string;
+        lg: string;
+        xl: string;
+        xxl: string;
+        xxxl: string;
+      };
+      fontWeight: {
+        light: number;
+        normal: number;
+        medium: number;
+        semibold: number;
+        bold: number;
+      };
+      lineHeight: {
+        tight: number;
+        normal: number;
+        relaxed: number;
+      };
+      fontScale: {
+        normal: number;
+        medium: number;
+        large: number;
+      };
+    };
+    zIndex: {
+      dropdown: number;
+      sticky: number;
+      fixed: number;
+      modal: number;
+      popover: number;
+      tooltip: number;
+    };
+    transitions: {
+      fast: string;
+      normal: string;
+      slow: string;
+    };
+    highlight: {
+      main: string;
+      light: string;
+      glow: string;
+    };
+    brand: {
+      purple400: string;
+      pink500: string;
+      indigo500: string;
+      indigo400: string;
+    };
+    effects: {
+      glassBackground: string;
+      glassBorder: string;
+      glassShadow: string;
+      blur: {
+        subtle: string;
+        glass: string;
+        heavy: string;
+        extreme: string;
+      };
+      glow: {
+        primary: string;
+        premium: string;
+        success: string;
+      };
+    };
+    gradients: {
+      brand: string;
+      premium: string;
+      highlight: string;
+      glass: string;
+    };
+    animations: {
+      duration: {
+        instant: string;
+        fast: string;
+        normal: string;
+        slow: string;
+        slower: string;
+        slowest: string;
+      };
+      easing: {
+        default: string;
+        smooth: string;
+        spring: string;
+        bounce: string;
+      };
+    };
+    animatedBackground: {
+      darkGradient1: string;
+      darkGradient2: string;
+      darkGradient3: string;
+      starColor: string;
+      starColorAlpha80: string;
+      starColorAlpha90: string;
+      starColorAlpha70: string;
+      starColorAlpha60: string;
+      auroraIndigo: string;
+      auroraTertiary: string;
+      auroraCyan: string;
+    };
+  }
+}
 
 // Tema claro
 export const lightTheme: DefaultTheme = {
   colors: {
     primary: {
-      50: "#fef2f2",
-      100: "#fee2e2",
-      200: "#fecaca",
-      300: "#fca5a5",
-      400: "#ef4444",
-      500: "#dc2626",
-      600: "#b91c1c",
-      700: "#991b1b",
-      800: "#7f1d1d",
-      900: "#450a0a",
+      50: "#f0f9ff",
+      100: "#e0f2fe",
+      200: "#bae6fd",
+      300: "#7dd3fc",
+      400: "#38bdf8",
+      500: "#0284c7",
+      600: "#0369a1",
+      700: "#075985",
+      800: "#0c4a6e",
+      900: "#082f49",
     },
     secondary: {
-      50: "#fafafa",
-      100: "#f4f4f5",
-      200: "#e4e4e7",
-      300: "#d4d4d8",
-      400: "#52525b",
-      500: "#27272a",
-      600: "#18181b",
-      700: "#09090b",
-      800: "#09090b",
-      900: "#09090b",
+      50: "#ecfdf5",
+      100: "#d1fae5",
+      200: "#a7f3d0",
+      300: "#6ee7b7",
+      400: "#34d399",
+      500: "#059669",
+      600: "#047857",
+      700: "#065f46",
+      800: "#064e3b",
+      900: "#022c22",
     },
     tertiary: {
-      50: "#fef2f2",
-      100: "#fee2e2",
-      200: "#fecaca",
-      300: "#fca5a5",
-      400: "#ef4444",
-      500: "#b91c1c",
-      600: "#991b1b",
-      700: "#7f1d1d",
-      800: "#450a0a",
-      900: "#450a0a",
+      50: "#fffbeb",
+      100: "#fef3c7",
+      200: "#fde68a",
+      300: "#fcd34d",
+      400: "#fbbf24",
+      500: "#d97706",
+      600: "#b45309",
+      700: "#92400e",
+      800: "#78350f",
+      900: "#451a03",
     },
     neutral: {
-      50: "#ffffff",
-      100: "#fafafa",
-      200: "#f4f4f5",
-      300: "#e4e4e7",
-      400: "#d4d4d8",
-      500: "#71717a",
-      600: "#52525b",
-      700: "#3f3f46",
-      800: "#18181b",
-      900: "#09090b",
+      50: "#f8fafc",
+      100: "#f1f5f9",
+      200: "#e2e8f0",
+      300: "#cbd5e1",
+      400: "#94a3b8",
+      500: "#64748b",
+      600: "#475569",
+      700: "#334155",
+      800: "#1e293b",
+      900: "#0f172a",
     },
     success: {
-      50: "#052e16",
-      500: "#25d366",
-      600: "#4ade80",
-      700: "#0f8a43",
+      50: "#ecfdf5",
+      500: "#059669",
+      600: "#047857",
+      700: "#065f46",
     },
     warning: {
       50: "#fffbeb",
@@ -71,28 +326,28 @@ export const lightTheme: DefaultTheme = {
       700: "#991b1b",
     },
     info: {
-      50: "#f4f4f5",
-      500: "#3f3f46",
-      600: "#27272a",
-      700: "#18181b",
+      50: "#f0f9ff",
+      500: "#0284c7",
+      600: "#0369a1",
+      700: "#075985",
     },
     background: {
-      primary: "#f4f4f5",
-      secondary: "#e4e4e7",
-      tertiary: "#d4d4d8",
-      surface: "#ffffff",
+      primary: "#f1f5f9",
+      secondary: "#e2e8f0",
+      tertiary: "#cbd5e1",
+      surface: "#f8fafc",
       card: "#ffffff",
     },
     text: {
-      primary: "#09090b",
-      secondary: "#3f3f46",
-      tertiary: "#71717a",
-      inverse: "#ffffff",
+      primary: "#0f172a",
+      secondary: "#334155",
+      tertiary: "#64748b",
+      inverse: "#f8fafc",
     },
     border: {
-      light: "#e4e4e7",
-      normal: "#d4d4d8",
-      dark: "#a1a1aa",
+      light: "#e2e8f0",
+      normal: "#cbd5e1",
+      dark: "#94a3b8",
     },
   },
   spacing: {
@@ -110,9 +365,9 @@ export const lightTheme: DefaultTheme = {
     xl: "16px",
   },
   shadows: {
-    light: "0 2px 6px rgba(9, 9, 11, 0.06)",
-    medium: "0 6px 16px rgba(9, 9, 11, 0.1)",
-    heavy: "0 14px 28px rgba(9, 9, 11, 0.14)",
+    light: "0 1px 3px rgba(0, 0, 0, 0.1)",
+    medium: "0 4px 6px rgba(0, 0, 0, 0.1)",
+    heavy: "0 10px 15px rgba(0, 0, 0, 0.1)",
   },
   breakpoints: {
     xs: "0px",
@@ -150,9 +405,9 @@ export const lightTheme: DefaultTheme = {
       relaxed: 1.75,
     },
     fontScale: {
-      normal: 0,
-      medium: 3,
-      large: 6,
+      normal: 0, // Tamaño base
+      medium: 3, // +3px del tamaño base
+      large: 6, // +6px del tamaño base
     },
   },
   zIndex: {
@@ -169,20 +424,20 @@ export const lightTheme: DefaultTheme = {
     slow: "0.3s ease",
   },
   highlight: {
-    main: "#dc2626",
-    light: "#ef4444",
-    glow: "rgba(220, 38, 38, 0.25)",
+    main: "#0284c7",
+    light: "#38bdf8",
+    glow: "rgba(2, 132, 199, 0.35)",
   },
   brand: {
-    purple400: "#52525b",
-    pink500: "#dc2626",
-    indigo500: "#b91c1c",
-    indigo400: "#3f3f46",
+    purple400: "#38bdf8",
+    pink500: "#059669",
+    indigo500: "#0284c7",
+    indigo400: "#0ea5e9",
   },
   effects: {
-    glassBackground: "rgba(255, 255, 255, 0.92)",
-    glassBorder: "rgba(63, 63, 70, 0.2)",
-    glassShadow: "0 10px 28px 0 rgba(9, 9, 11, 0.08), 0 0 12px rgba(220, 38, 38, 0.08)",
+    glassBackground: "rgba(255, 255, 255, 0.85)",
+    glassBorder: "rgba(2, 132, 199, 0.22)",
+    glassShadow: "0 8px 28px 0 rgba(15, 23, 42, 0.08), 0 0 14px rgba(2, 132, 199, 0.12)",
     blur: {
       subtle: "4px",
       glass: "12px",
@@ -190,16 +445,16 @@ export const lightTheme: DefaultTheme = {
       extreme: "60px",
     },
     glow: {
-      primary: "0 0 16px rgba(220, 38, 38, 0.22), 0 4px 12px rgba(9, 9, 11, 0.08)",
-      premium: "0 0 20px rgba(220, 38, 38, 0.28), 0 4px 14px rgba(9, 9, 11, 0.1)",
-      success: "0 0 14px rgba(39, 39, 42, 0.16), 0 4px 12px rgba(9, 9, 11, 0.08)",
+      primary: "0 0 18px rgba(2, 132, 199, 0.28), 0 4px 12px rgba(14, 165, 233, 0.2)",
+      premium: "0 0 20px rgba(2, 132, 199, 0.26), 0 4px 14px rgba(5, 150, 105, 0.22)",
+      success: "0 0 18px rgba(5, 150, 105, 0.3), 0 4px 12px rgba(16, 185, 129, 0.22)",
     },
   },
   gradients: {
-    brand: "linear-gradient(135deg, #09090b 0%, #3f3f46 55%, #dc2626 100%)",
-    premium: "linear-gradient(135deg, #dc2626 0%, #991b1b 100%)",
-    highlight: "linear-gradient(135deg, #ef4444 0%, #dc2626 100%)",
-    glass: "linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(244, 244, 245, 0.6) 100%)",
+    brand: "linear-gradient(135deg, #0284c7 0%, #059669 55%, #d97706 100%)",
+    premium: "linear-gradient(135deg, #0369a1 0%, #0284c7 50%, #059669 100%)",
+    highlight: "linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%)",
+    glass: "linear-gradient(180deg, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0.2) 100%)",
   },
   animations: {
     duration: {
@@ -218,17 +473,17 @@ export const lightTheme: DefaultTheme = {
     },
   },
   animatedBackground: {
-    darkGradient1: "#f4f4f5",
-    darkGradient2: "#e4e4e7",
-    darkGradient3: "#f4f4f5",
-    starColor: "#dc2626",
-    starColorAlpha80: "rgba(220, 38, 38, 0.8)",
-    starColorAlpha90: "rgba(220, 38, 38, 0.9)",
-    starColorAlpha70: "rgba(220, 38, 38, 0.7)",
-    starColorAlpha60: "rgba(220, 38, 38, 0.6)",
-    auroraIndigo: "rgba(220, 38, 38, 0.08)",
-    auroraTertiary: "rgba(82, 82, 91, 0.08)",
-    auroraCyan: "rgba(185, 28, 28, 0.06)",
+    darkGradient1: "#f0f9ff",
+    darkGradient2: "#e0f2fe",
+    darkGradient3: "#ecfdf5",
+    starColor: "#0284c7",
+    starColorAlpha80: "rgba(2, 132, 199, 0.8)",
+    starColorAlpha90: "rgba(2, 132, 199, 0.9)",
+    starColorAlpha70: "rgba(2, 132, 199, 0.7)",
+    starColorAlpha60: "rgba(2, 132, 199, 0.6)",
+    auroraIndigo: "rgba(14, 165, 233, 0.1)",
+    auroraTertiary: "rgba(16, 185, 129, 0.08)",
+    auroraCyan: "rgba(245, 158, 11, 0.05)",
   },
 };
 
@@ -238,98 +493,86 @@ export const darkTheme: DefaultTheme = {
   colors: {
     ...lightTheme.colors,
     primary: {
-      50: "#450a0a",
-      100: "#7f1d1d",
-      200: "#991b1b",
-      300: "#b91c1c",
-      400: "#dc2626",
-      500: "#dc2626",
-      600: "#ef4444",
-      700: "#f87171",
-      800: "#fca5a5",
-      900: "#fee2e2",
+      50: "#082f49",
+      100: "#0c4a6e",
+      200: "#075985",
+      300: "#0369a1",
+      400: "#0ea5e9",
+      500: "#38bdf8",
+      600: "#7dd3fc",
+      700: "#bae6fd",
+      800: "#e0f2fe",
+      900: "#f0f9ff",
     },
     secondary: {
-      50: "#18181b",
-      100: "#27272a",
-      200: "#3f3f46",
-      300: "#52525b",
-      400: "#a1a1aa",
-      500: "#d4d4d8",
-      600: "#e4e4e7",
-      700: "#f4f4f5",
-      800: "#fafafa",
-      900: "#ffffff",
+      50: "#022c22",
+      100: "#064e3b",
+      200: "#065f46",
+      300: "#047857",
+      400: "#10b981",
+      500: "#34d399",
+      600: "#6ee7b7",
+      700: "#a7f3d0",
+      800: "#d1fae5",
+      900: "#ecfdf5",
     },
     tertiary: {
-      50: "#450a0a",
-      100: "#7f1d1d",
-      200: "#991b1b",
-      300: "#b91c1c",
-      400: "#dc2626",
-      500: "#ff1e2d",
-      600: "#ff5c67",
-      700: "#fca5a5",
-      800: "#fecaca",
-      900: "#fee2e2",
-    },
-    neutral: {
-      50: "#09090b",
-      100: "#121216",
-      200: "#1f1f26",
-      300: "#27272a",
-      400: "#3f3f46",
-      500: "#71717a",
-      600: "#a1a1aa",
-      700: "#d4d4d8",
-      800: "#e4e4e7",
-      900: "#fafafa",
+      50: "#451a03",
+      100: "#78350f",
+      200: "#92400e",
+      300: "#b45309",
+      400: "#f59e0b",
+      500: "#fbbf24",
+      600: "#fcd34d",
+      700: "#fde68a",
+      800: "#fef3c7",
+      900: "#fffbeb",
     },
     background: {
-      primary: "#070709",
-      secondary: "#0e0e12",
-      tertiary: "#18181f",
-      surface: "#121217",
-      card: "#14141a",
+      primary: "#0b0f19",
+      secondary: "#111827",
+      tertiary: "#1e293b",
+      surface: "#0f172a",
+      card: "#131c2e",
     },
     text: {
-      primary: "#fafafa",
-      secondary: "#d4d4d8",
-      tertiary: "#a1a1aa",
-      inverse: "#ffffff",
+      primary: "#f8fafc",
+      secondary: "#cbd5e1",
+      tertiary: "#94a3b8",
+      inverse: "#0f172a",
     },
     border: {
-      light: "#24242c",
-      normal: "#343440",
-      dark: "#4b4b59",
+      light: "#1e293b",
+      normal: "#334155",
+      dark: "#475569",
     },
   },
   shadows: {
-    light: "0 2px 6px rgba(0, 0, 0, 0.5)",
-    medium: "0 6px 16px rgba(0, 0, 0, 0.6)",
-    heavy: "0 14px 32px rgba(0, 0, 0, 0.75)",
+    light: "0 1px 3px rgba(0, 0, 0, 0.4)",
+    medium: "0 4px 12px rgba(0, 0, 0, 0.45)",
+    heavy: "0 10px 24px rgba(0, 0, 0, 0.55)",
   },
   highlight: {
-    main: "#ef4444",
-    light: "#f87171",
-    glow: "rgba(220, 38, 38, 0.4)",
+    main: "#38bdf8",
+    light: "#7dd3fc",
+    glow: "rgba(56, 189, 248, 0.45)",
   },
   effects: {
     ...lightTheme.effects,
-    glassBackground: "rgba(22, 22, 27, 0.88)",
-    glassBorder: "rgba(212, 212, 216, 0.18)",
-    glassShadow: "0 12px 32px 0 rgba(0, 0, 0, 0.72), 0 0 18px rgba(220, 38, 38, 0.12)",
+    glassBackground: "rgba(19, 28, 46, 0.78)",
+    glassBorder: "rgba(56, 189, 248, 0.28)",
+    glassShadow: "0 8px 32px 0 rgba(2, 6, 23, 0.6), 0 0 18px rgba(56, 189, 248, 0.14)",
     glow: {
-      primary: "0 0 20px rgba(220, 38, 38, 0.36), 0 4px 14px rgba(0, 0, 0, 0.55)",
-      premium: "0 0 24px rgba(239, 68, 68, 0.42), 0 0 8px rgba(212, 212, 216, 0.18)",
-      success: "0 0 18px rgba(212, 212, 216, 0.2), 0 4px 14px rgba(0, 0, 0, 0.55)",
+      primary: "0 0 22px rgba(56, 189, 248, 0.38), 0 0 4px rgba(56, 189, 248, 0.55)",
+      premium: "0 0 24px rgba(56, 189, 248, 0.35), 0 0 12px rgba(52, 211, 153, 0.28)",
+      success: "0 0 22px rgba(52, 211, 153, 0.38), 0 0 4px rgba(52, 211, 153, 0.55)",
     },
   },
   gradients: {
-    brand: "linear-gradient(135deg, #ffffff 0%, #d4d4d8 55%, #ef4444 100%)",
-    premium: "linear-gradient(135deg, #dc2626 0%, #b91c1c 100%)",
-    highlight: "linear-gradient(135deg, #ef4444 0%, #dc2626 100%)",
-    glass: "linear-gradient(180deg, rgba(255, 255, 255, 0.06) 0%, rgba(22, 22, 27, 0.3) 100%)",
+    brand: "linear-gradient(135deg, #38bdf8 0%, #34d399 55%, #fbbf24 100%)",
+    premium: "linear-gradient(135deg, #0284c7 0%, #0ea5e9 50%, #10b981 100%)",
+    highlight: "linear-gradient(135deg, #38bdf8 0%, #0ea5e9 100%)",
+    glass: "linear-gradient(180deg, rgba(56, 189, 248, 0.08) 0%, rgba(19, 28, 46, 0) 100%)",
   },
 };
 
