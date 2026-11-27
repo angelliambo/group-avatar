@@ -84,7 +84,7 @@ export async function serveReactWithSEO(req: Request, res: Response, next: NextF
     const seoDescription = tenant?.seo?.description || BRAND_CONFIG.seoDescription;
     const seoKeywords = tenant?.seo?.keywords || BRAND_CONFIG.seoKeywords;
     const protocol = req.secure || req.headers["x-forwarded-proto"] === "https" ? "https" : "http";
-    const seoImage = tenant?.seo?.image || `${protocol}://${host}/og-image.jpg`;
+    const seoImage = tenant?.seo?.image || `${protocol}://${host}/og-image.jpg?v=${BRAND_CONFIG.ogImageVersion}`;
     const themeColor = tenant?.theme?.primaryColor || "#09090b";
 
     // Determinar si es una ruta pública o privada/inexistente para indexación
@@ -106,6 +106,8 @@ export async function serveReactWithSEO(req: Request, res: Response, next: NextF
       .replace(/<meta\s+property="og:title"\s+content=".*?"\s*\/?>/i, `<meta property="og:title" content="${seoTitle}" />`)
       .replace(/<meta\s+property="og:description"\s+content=".*?"\s*\/?>/i, `<meta property="og:description" content="${seoDescription}" />`)
       .replace(/<meta\s+property="og:image"\s+content=".*?"\s*\/?>/i, `<meta property="og:image" content="${seoImage}" />`)
+      .replace(/<meta\s+property="og:image:secure_url"\s+content=".*?"\s*\/?>/i, `<meta property="og:image:secure_url" content="${seoImage}" />`)
+      .replace(/<meta\s+property="twitter:image"\s+content=".*?"\s*\/?>/i, `<meta property="twitter:image" content="${seoImage}" />`)
       .replace(/<meta\s+name="theme-color"\s+content=".*?"\s*\/?>/i, `<meta name="theme-color" content="${themeColor}" />`);
 
     // Actualizar/inyectar etiqueta de robots
