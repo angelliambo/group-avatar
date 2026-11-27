@@ -3,12 +3,13 @@ export interface MapProps {
   $latitude?: number;
   $longitude?: number;
   $zoom?: number;
-  $provider?: 'google-iframe' | 'leaflet' | 'google-js' | 'static-image';
+  $provider?: "google-iframe" | "leaflet" | "google-js" | "static-image";
   $markerIconUrl?: string;
   $apiKey?: string;
   $mapId?: string;
   $mapImageUrl?: string;
   $mapMobileImageUrl?: string;
   $mapLinkUrl?: string;
+  $showOverlayPin?: boolean;
   className?: string;
 }

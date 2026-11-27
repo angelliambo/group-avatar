@@ -16,116 +16,97 @@ export const MapWrapper = styled.div`
   box-shadow: ${({ theme }) => theme.shadows.light};
   background-color: ${({ theme }) => theme.colors.background.card};
   border: 1px solid ${({ theme }) => theme.colors.border.normal};
-  
-  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
-    max-width: 350px;
-    height: 600px;
-    margin: 0 auto;
-  }
 `;
 
 export const StyledIframe = styled.iframe`
   width: 100%;
-  height: 100%;
+  aspect-ratio: 16 / 9;
   border: 0;
+  display: block;
 `;
 
 export const LeafletContainer = styled.div`
   width: 100%;
-  height: 100%;
-  
-  .leaflet-container {
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-  }
+  aspect-ratio: 16 / 9;
 `;
 
 export const CustomPinImage = styled.img`
   width: 42px;
   height: 42px;
   border-radius: 50%;
-  border: 2px solid #ffffff;
+  border: 2px solid ${({ theme }) => theme.colors.text.inverse};
   box-shadow: ${({ theme }) => theme.shadows.medium};
   display: block;
 `;
 
 export const DefaultPin = styled.div`
   background-color: ${({ theme }) => theme.colors.primary[600]};
-  color: #ffffff;
-  padding: 8px;
+  color: ${({ theme }) => theme.colors.text.inverse};
+  padding: ${({ theme }) => theme.spacing.sm};
   border-radius: 50%;
   box-shadow: ${({ theme }) => theme.shadows.medium};
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 16px;
+  font-size: ${({ theme }) => theme.typography.fontSize.md};
 `;
 
 export const MapErrorFallback = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100%;
   width: 100%;
-  padding: 20px;
+  padding: ${({ theme }) => theme.spacing.lg};
   text-align: center;
   background-color: ${({ theme }) => theme.colors.background.secondary};
   color: ${({ theme }) => theme.colors.text.secondary};
   font-family: ${({ theme }) => theme.typography.fontFamily.primary};
-  font-size: 14px;
+  font-size: ${({ theme }) => theme.typography.fontSize.sm};
 `;
 
 export const StaticMapLink = styled.a`
   display: block;
   width: 100%;
-  height: 100%;
   position: relative;
   cursor: pointer;
   overflow: hidden;
-  
+
   &::after {
-    content: "Ver en Google Maps ↗";
+    content: "Ver en Google Maps";
     position: absolute;
-    bottom: 16px;
-    right: 16px;
-    background-color: rgba(0, 0, 0, 0.75);
-    color: #ffffff;
-    padding: 8px 16px;
-    border-radius: 20px;
-    font-size: 13px;
+    bottom: ${({ theme }) => theme.spacing.md};
+    right: ${({ theme }) => theme.spacing.md};
+    background-color: ${({ theme }) => theme.colors.background.card};
+    color: ${({ theme }) => theme.colors.text.primary};
+    border: 1px solid ${({ theme }) => theme.colors.border.normal};
+    padding: ${({ theme }) => `${theme.spacing.sm} ${theme.spacing.md}`};
+    border-radius: ${({ theme }) => theme.borderRadius.xl};
+    font-size: ${({ theme }) => theme.typography.fontSize.xs};
     font-family: inherit;
-    font-weight: 500;
-    opacity: 0;
-    transform: translateY(8px);
-    transition: opacity 0.3s ease, transform 0.3s ease;
+    font-weight: ${({ theme }) => theme.typography.fontWeight.semibold};
+    box-shadow: ${({ theme }) => theme.shadows.medium};
+    opacity: 0.92;
+    transition: opacity ${({ theme }) => theme.transitions.normal},
+      transform ${({ theme }) => theme.transitions.normal};
     pointer-events: none;
     z-index: 2;
   }
-  
+
   &:hover::after {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(-2px);
   }
 `;
 
 export const StaticMapImage = styled.img`
   width: 100%;
+  height: auto;
   display: block;
-  transition: transform 0.5s ease;
+  object-fit: cover;
+  transition: transform ${({ theme }) => theme.transitions.slow};
 
-  @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
-    height: auto;
-    object-fit: cover;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
-    height: 100%;
-    object-fit: cover;
-  }
-  
   ${StaticMapLink}:hover & {
-    transform: scale(1.03);
+    transform: scale(1.02);
   }
 `;
 
@@ -135,11 +116,8 @@ export const StaticMapPin = styled.div`
   left: 50%;
   transform: translate(-50%, -100%);
   z-index: 2;
-  font-size: 38px;
+  font-size: ${({ theme }) => theme.typography.fontSize.xxxl};
   color: ${({ theme }) => theme.colors.primary[500]};
   pointer-events: none;
   animation: ${pinBounce} 2.4s ease-in-out infinite;
 `;
-
-
-

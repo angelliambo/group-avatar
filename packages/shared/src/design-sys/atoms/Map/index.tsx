@@ -3,34 +3,30 @@ import { EnvironmentFilled } from "@ant-design/icons";
 import { ZnIcon } from "../ZnIcon";
 import { MapProps } from "./Map.types";
 import { useResponsive } from "../../hooks/useResponsive";
-import { 
-  MapWrapper, 
-  StyledIframe, 
+import {
+  MapWrapper,
+  StyledIframe,
   LeafletContainer,
-  CustomPinImage,
-  DefaultPin,
-  MapErrorFallback,
   StaticMapLink,
   StaticMapImage,
   StaticMapPin,
 } from "./Map.styles";
 
 export const Map: React.FC<MapProps> = ({
-  $address = "Obelisco, Av. 9 de Julio s/n, C1043 Buenos Aires, Argentina",
-  $latitude = -34.6037389,
-  $longitude = -58.3815704,
+  $address = "Araujo 1508, Mataderos, CABA, Argentina",
+  $latitude = -34.6512,
+  $longitude = -58.5024,
   $zoom = 15,
   $provider = "static-image",
   $markerIconUrl,
-  $apiKey,
-  $mapId = "DEMO_MAP_ID",
   $mapImageUrl = "/assets/images/map.webp",
   $mapMobileImageUrl = "/assets/images/map-mobile.webp",
-  $mapLinkUrl = "https://www.google.com/maps/search/?api=1&query=-34.6037389,-58.3815704",
+  $mapLinkUrl = "https://www.google.com/maps/search/?api=1&query=Araujo+1508,+Mataderos,+Buenos+Aires,+Argentina",
+  $showOverlayPin = true,
   className,
 }) => {
   const mapRef = useRef<HTMLDivElement>(null);
-  const leafletMapInstance = useRef<any>(null);
+  const leafletMapInstance = useRef<{ remove: () => void } | null>(null);
   const { isMobile } = useResponsive();
 
   const finalImageUrl = isMobile && $mapMobileImageUrl ? $mapMobileImageUrl : $mapImageUrl;
@@ -43,11 +39,13 @@ export const Map: React.FC<MapProps> = ({
     const initLeaflet = async () => {
       try {
         const L = await import("leaflet");
-        
+
         try {
           require("leaflet/dist/leaflet.css");
-        } catch (cssErr) {
-          console.warn("Leaflet CSS could not be loaded via require, ensure it is imported in the application.");
+        } catch {
+          console.warn(
+            "Leaflet CSS could not be loaded via require, ensure it is imported in the application."
+          );
         }
 
         if (!isMounted || !mapRef.current) return;
@@ -62,11 +60,12 @@ export const Map: React.FC<MapProps> = ({
         L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
           attribution:
             '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
-          subdomains: 'abcd',
-          maxZoom: 20
+          subdomains: "abcd",
+          maxZoom: 20,
         }).addTo(map);
 
-        const iconUrl = $markerIconUrl || "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png";
+        const iconUrl =
+          $markerIconUrl || "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png";
         const shadowUrl = "https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png";
 
         const customIcon = L.icon({
@@ -79,7 +78,7 @@ export const Map: React.FC<MapProps> = ({
         });
 
         const marker = L.marker([$latitude, $longitude], { icon: customIcon }).addTo(map);
-        
+
         if ($address) {
           marker.bindPopup(`<b>${$address}</b>`).openPopup();
         }
@@ -99,21 +98,21 @@ export const Map: React.FC<MapProps> = ({
     };
   }, [$provider, $latitude, $longitude, $zoom, $markerIconUrl, $address]);
 
-  // Si el proveedor es una imagen estática (100% gratis de por vida e ilimitado)
   if ($provider === "static-image") {
     return (
       <MapWrapper className={className}>
         <StaticMapLink href={$mapLinkUrl} target="_blank" rel="noopener noreferrer">
           <StaticMapImage src={finalImageUrl} alt={$address} loading="lazy" />
-          <StaticMapPin>
-            <ZnIcon icon={EnvironmentFilled} />
-          </StaticMapPin>
+          {$showOverlayPin && (
+            <StaticMapPin>
+              <ZnIcon icon={EnvironmentFilled} />
+            </StaticMapPin>
+          )}
         </StaticMapLink>
       </MapWrapper>
     );
   }
 
-  // Si el proveedor es Leaflet
   if ($provider === "leaflet") {
     return (
       <MapWrapper className={className}>
@@ -122,26 +121,6 @@ export const Map: React.FC<MapProps> = ({
     );
   }
 
-  // Si el proveedor es Google Maps JS API (caer al iframe estándar para optimizar dependencias)
-  if ($provider === "google-js") {
-    const embedUrl = `https://maps.google.com/maps?q=${encodeURIComponent(
-      $address
-    )}&t=&z=${$zoom}&ie=UTF8&iwloc=&output=embed`;
-
-    return (
-      <MapWrapper className={className}>
-        <StyledIframe
-          title="Ubicación"
-          src={embedUrl}
-          allowFullScreen
-          loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
-        />
-      </MapWrapper>
-    );
-  }
-
-  // Google Maps Iframe por defecto (antiguo)
   const embedUrl = `https://maps.google.com/maps?q=${encodeURIComponent(
     $address
   )}&t=&z=${$zoom}&ie=UTF8&iwloc=&output=embed`;
