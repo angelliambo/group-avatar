@@ -402,17 +402,7 @@ export const HomeBelowFold: React.FC<HomeBelowFoldProps> = ({
             <SectionSubtitle>{t("pages.home.locationSubtitle")}</SectionSubtitle>
             <MapContainer>
               <React.Suspense fallback={<MapFallback />}>
-                <Map
-                  $address={BRAND_CONFIG.address}
-                  $latitude={BRAND_CONFIG.latitude}
-                  $longitude={BRAND_CONFIG.longitude}
-                  $zoom={BRAND_CONFIG.mapZoom}
-                  $provider="static-image"
-                  $mapImageUrl={BRAND_CONFIG.mapImageUrl}
-                  $mapMobileImageUrl={BRAND_CONFIG.mapMobileImageUrl}
-                  $mapLinkUrl={BRAND_CONFIG.mapLinkUrl}
-                  $showOverlayPin={false}
-                />
+                <Map $provider="static-image" $showOverlayPin={false} />
               </React.Suspense>
             </MapContainer>
           </Container>

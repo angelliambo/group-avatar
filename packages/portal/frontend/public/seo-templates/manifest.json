@@ -1,7 +1,7 @@
 {
-  "short_name": "__BRAND_NAME__",
-  "name": "__BRAND_NAME__ - Tu Plataforma Lista para Despegar",
-  "description": "La estructura modular de alto rendimiento para tu negocio o startup con paneles de administración, facturación y soporte.",
+  "short_name": "Avatar Group",
+  "name": "Avatar Group — Logística Empresarial, Transportes y Mudanzas Easy-Pack",
+  "description": "Más de 55 años en logística empresarial, transportes programados, repartos asistidos y mudanzas certificadas Easy-Pack en CABA, GBA y hasta 1.600 km.",
   "icons": [
     {
       "src": "favicon.ico",
@@ -23,13 +23,13 @@
   ],
   "start_url": "/",
   "display": "standalone",
-  "theme_color": "#09090b",
-  "background_color": "#09090b",
+  "theme_color": "#070709",
+  "background_color": "#070709",
   "orientation": "portrait-primary",
   "scope": "/",
-  "lang": "es",
+  "lang": "es-AR",
   "dir": "ltr",
-  "categories": ["business", "developer"],
+  "categories": ["business", "logistics", "transportation"],
   "related_applications": [],
   "prefer_related_applications": false
 }

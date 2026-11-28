@@ -1,10 +1,16 @@
 import { useMemo } from 'react';
 import { useLocation } from '@tanstack/react-router';
-import { SHOW_SOCIAL_LINKS, SOCIAL_X_URL, SOCIAL_INSTAGRAM_URL } from '@shared/config/urls';
+import {
+  SHOW_SOCIAL_LINKS,
+  SOCIAL_FACEBOOK_URL,
+  SOCIAL_INSTAGRAM_URL,
+  SOCIAL_TIKTOK_URL,
+  SOCIAL_X_URL,
+} from '@shared/config/urls';
 import { BRAND_CONFIG } from '@factory/shared/config/brand';
 
 export interface StructuredDataConfig {
-  type: 'WebSite' | 'WebPage' | 'SoftwareApplication' | 'Organization' | 'BreadcrumbList' | 'FAQPage';
+  type: 'WebSite' | 'WebPage' | 'Service' | 'Organization' | 'BreadcrumbList' | 'FAQPage';
   name?: string;
   description?: string;
   url?: string;
@@ -14,20 +20,21 @@ export interface StructuredDataConfig {
   dateModified?: string;
   breadcrumbs?: Array<{ name: string; url: string }>;
   faqs?: Array<{ question: string; answer: string }>;
-  appData?: {
-    platform?: string;
-    operatingSystem?: string;
-    applicationCategory?: string;
-  };
+  serviceType?: string;
 }
 
 export const useStructuredData = (config: StructuredDataConfig) => {
   const location = useLocation();
-  const baseUrl = typeof window !== 'undefined' ? window.location.origin : '';
+  const baseUrl = `https://${BRAND_CONFIG.domain}`;
 
   const structuredData = useMemo(() => {
-    const currentUrl = `${baseUrl}${location.pathname}`;
+    const currentUrl = config.url || `${baseUrl}${location.pathname === '/' ? '/' : location.pathname}`;
     const currentDate = new Date().toISOString();
+    const ogImageUrl = `${baseUrl}/og-image.jpg?v=${BRAND_CONFIG.ogImageVersion}`;
+    const logoImageUrl = `${baseUrl}${BRAND_CONFIG.logoUrl}`;
+    const sameAs = SHOW_SOCIAL_LINKS
+      ? [SOCIAL_INSTAGRAM_URL, SOCIAL_FACEBOOK_URL, SOCIAL_TIKTOK_URL, SOCIAL_X_URL].filter(Boolean)
+      : [];
 
     switch (config.type) {
       case 'WebSite':
@@ -35,22 +42,15 @@ export const useStructuredData = (config: StructuredDataConfig) => {
           "@context": "https://schema.org",
           "@type": "WebSite",
           "name": config.name || BRAND_CONFIG.siteName,
-          "description": config.description || "Comunicación en su punto máximo. Dictado por voz, texto a voz y herramientas de accesibilidad para la web.",
-          "url": baseUrl,
-          "potentialAction": {
-            "@type": "SearchAction",
-            "target": {
-              "@type": "EntryPoint",
-              "urlTemplate": `${baseUrl}/search?q={search_term_string}`
-            },
-            "query-input": "required name=search_term_string"
-          },
+          "description": config.description || BRAND_CONFIG.seoDescription,
+          "url": `${baseUrl}/`,
+          "inLanguage": "es-AR",
           "publisher": {
             "@type": "Organization",
             "name": BRAND_CONFIG.siteName,
             "logo": {
               "@type": "ImageObject",
-              "url": `${baseUrl}/logo.png`
+              "url": logoImageUrl
             }
           }
         };
@@ -59,9 +59,10 @@ export const useStructuredData = (config: StructuredDataConfig) => {
         return {
           "@context": "https://schema.org",
           "@type": "WebPage",
-          "name": config.name || BRAND_CONFIG.siteName,
-          "description": config.description,
+          "name": config.name || BRAND_CONFIG.seoTitle,
+          "description": config.description || BRAND_CONFIG.seoDescription,
           "url": currentUrl,
+          "inLanguage": "es-AR",
           "datePublished": config.datePublished || currentDate,
           "dateModified": config.dateModified || currentDate,
           "author": {
@@ -73,49 +74,52 @@ export const useStructuredData = (config: StructuredDataConfig) => {
             "name": BRAND_CONFIG.siteName,
             "logo": {
               "@type": "ImageObject",
-              "url": `${baseUrl}/logo.png`
+              "url": logoImageUrl
             }
           },
           "mainEntity": {
-            "@type": "Organization",
+            "@type": "MovingCompany",
             "name": BRAND_CONFIG.siteName,
-            "description": BRAND_CONFIG.seoDescription || "Estructura modular de alto rendimiento para tu negocio o startup con paneles de administración, facturación y soporte."
+            "description": BRAND_CONFIG.seoDescription
           }
         };
 
-      case 'SoftwareApplication':
+      case 'Service':
         return {
           "@context": "https://schema.org",
-          "@type": "SoftwareApplication",
-          "name": config.name || `${BRAND_CONFIG.siteName} Portal`,
-          "description": config.description || BRAND_CONFIG.seoDescription || "Estructura modular de alto rendimiento para tu negocio o startup con paneles de administración, facturación y soporte.",
+          "@type": "Service",
+          "name": config.name || BRAND_CONFIG.seoTitle,
+          "serviceType": config.serviceType || "Logística empresarial y mudanzas integrales",
+          "description": config.description || BRAND_CONFIG.seoDescription,
           "url": currentUrl,
-          "image": config.image || `${baseUrl}/og-image.jpg?v=3`,
-          "applicationCategory": config.appData?.applicationCategory || "BusinessApplication",
-          "operatingSystem": config.appData?.operatingSystem || "All",
-          "offers": {
-            "@type": "Offer",
-            "price": "0",
-            "priceCurrency": "USD"
-          },
-          "author": {
-            "@type": "Organization",
-            "name": config.author || BRAND_CONFIG.siteName
+          "image": config.image || ogImageUrl,
+          "areaServed": "Argentina",
+          "provider": {
+            "@type": "MovingCompany",
+            "name": BRAND_CONFIG.siteName,
+            "telephone": BRAND_CONFIG.phoneE164,
+            "email": BRAND_CONFIG.supportEmail
           }
         };
 
       case 'Organization':
         return {
           "@context": "https://schema.org",
-          "@type": "Organization",
+          "@type": ["MovingCompany", "Organization"],
           "name": BRAND_CONFIG.siteName,
-          "description": BRAND_CONFIG.seoDescription || "Plataforma SaaS premium modular con paneles de administración, facturación y soporte.",
-          "url": baseUrl,
-          "logo": `${baseUrl}/logo.png`,
-          "image": `${baseUrl}/og-image.jpg?v=3`,
+          "description": BRAND_CONFIG.seoDescription,
+          "url": `${baseUrl}/`,
+          "logo": logoImageUrl,
+          "image": ogImageUrl,
+          "telephone": BRAND_CONFIG.phoneE164,
+          "email": BRAND_CONFIG.supportEmail,
+          "hasMap": BRAND_CONFIG.mapLinkUrl,
           "address": {
             "@type": "PostalAddress",
-            "streetAddress": BRAND_CONFIG.address,
+            "streetAddress": "Alfredo Lorenzo Palacios 2963",
+            "addressLocality": "Lomas del Mirador",
+            "addressRegion": "Provincia de Buenos Aires",
+            "postalCode": "B1752BNS",
             "addressCountry": "AR"
           },
           "geo": {
@@ -125,10 +129,13 @@ export const useStructuredData = (config: StructuredDataConfig) => {
           },
           "contactPoint": {
             "@type": "ContactPoint",
+            "telephone": BRAND_CONFIG.phoneE164,
+            "email": BRAND_CONFIG.supportEmail,
             "contactType": "customer service",
+            "areaServed": "AR",
             "availableLanguage": "Spanish"
           },
-          "sameAs": SHOW_SOCIAL_LINKS ? [SOCIAL_X_URL, SOCIAL_INSTAGRAM_URL] : []
+          ...(sameAs.length > 0 ? { sameAs } : {})
         };
 
       case 'BreadcrumbList':
@@ -167,21 +174,15 @@ export const useStructuredData = (config: StructuredDataConfig) => {
   return structuredData;
 };
 
-// Hook específico para páginas de la aplicación
-export const useAppStructuredData = (appName: string, appDescription: string, appImage?: string) => {
+export const useServiceStructuredData = (serviceName: string, serviceDescription: string, serviceType?: string) => {
   return useStructuredData({
-    type: 'SoftwareApplication',
-    name: appName,
-    description: appDescription,
-    image: appImage,
-    appData: {
-      applicationCategory: 'BusinessApplication',
-      operatingSystem: 'Chrome'
-    }
+    type: 'Service',
+    name: serviceName,
+    description: serviceDescription,
+    serviceType,
   });
 };
 
-// Hook específico para breadcrumbs
 export const useBreadcrumbStructuredData = (breadcrumbs: Array<{ name: string; url: string }>) => {
   return useStructuredData({
     type: 'BreadcrumbList',
@@ -189,7 +190,6 @@ export const useBreadcrumbStructuredData = (breadcrumbs: Array<{ name: string; u
   });
 };
 
-// Hook específico para FAQ
 export const useFAQStructuredData = (faqs: Array<{ question: string; answer: string }>) => {
   return useStructuredData({
     type: 'FAQPage',

@@ -1,39 +1,26 @@
-# __BRAND_NAME__ - Tu Plataforma Lista para Despegar
+# Avatar-Group
 
-__BRAND_NAME__ is a high-performance MERN (MongoDB, Express, React, Node.js) web application boilerplate. It provides a modular foundation to quickly launch your startup or software-as-a-service application, with built-in modules for authentication, user dashboards, administration panels, support ticketing, and payment gateway integration.
+> Avatar-Group es una organización argentina con más de 55 años de trayectoria especializada en logística empresarial B2B, transportes programados de cargas generales, repartos asistidos puerta a puerta con monitoreo satelital y mudanzas integrales bajo normas certificadas «Easy-Pack». Opera desde su base en Lomas del Mirador (Provincia de Buenos Aires) con despliegue diario en CABA y Gran Buenos Aires (AMBA) y viajes programados en un radio nacional de hasta 1.600 km.
 
----
+## Datos Institucionales y Operativos Verificados
 
-## Key Product Offerings
+- **Nombre comercial:** Avatar-Group
+- **Actividad principal:** Logística corporativa B2B, transportes programados de cargas generales, distribución puerta a puerta asistida y mudanzas particulares, corporativas, industriales y de organismos oficiales.
+- **Trayectoria:** Más de 55 años de operación ininterrumpida en Argentina.
+- **Centro operativo:** __ADDRESS__ (Coordenadas GPS: `-34.663444, -58.529614`).
+- **Área de cobertura:** Operación diaria en Ciudad Autónoma de Buenos Aires (CABA) y Gran Buenos Aires (GBA / AMBA), más corredores nacionales programados en un radio de hasta 1.600 km.
+- **Cumplimiento y habilitaciones:** Personal propio supervisado, ART, seguros de carga y requisitos de seguridad e higiene en regla para ingresos certificados a parques industriales, entidades bancarias, hospitales, laboratorios, consorcios y organismos públicos.
+- **Canales oficiales de atención y cotización:**
+  - WhatsApp Operativo Directo: __WHATSAPP_URL__ (`__PHONE_DISPLAY__`)
+  - Correo electrónico institucional: `mailto:__SUPPORT_EMAIL__`
+  - Ubicación en Google Maps: __MAP_LINK_URL__
 
-- **Unified Authentication**: Secured login flow using standard email/code validation or Google OAuth integration.
-- **Smart Control Panel**: Fully functional dashboard containing user administration, metrics graphs, role assignment, and customization capabilities.
-- **Lemon Squeezy Billing Integration**: Flexible pricing plan modules connected directly with Lemon Squeezy payment checkout links and automated backend status synchronization via secure webhooks.
-- **Support & Ticketing System**: Optional direct communication and help-desk ticket management system built natively into the app layout.
-- **Feature Flags / Config**: Dynamically toggle backend services and frontend components from unified configuration and environment variables.
+## Unidades de Negocio y Páginas Principales
 
----
+- [Portal Institucional — Avatar-Group](https://avatargroup.com.ar/): Presentación corporativa, pilares operativos, indicadores de trayectoria, cobertura geográfica y canales de contacto inmediato.
+- [División Logística Empresarial y Transportes B2B](https://avatargroup.com.ar/logistica): Transportes programados de cargas generales como extensión logística de empresas, dotación de supervisores y operarios propios, repartos asistidos puerta a puerta con monitoreo satelital, control de remitos y rendición documental.
+- [División Mudanzas Sistema Certificado «Easy-Pack»](https://avatargroup.com.ar/mudanzas): Mudanzas residenciales, de oficinas, comercios, plantas industriales y entes oficiales en cuatro modalidades escalables (`Easy-Pack Mini`, `Easy-Pack Estándar`, `Easy-Pack Clásica` y `Easy-Pack Premium`), con visita técnica sin cargo, kit ecológico descartable, placares portátiles e izajes.
 
-## Technical Architecture & Design
+## Documentación Expandida para Modelos de Lenguaje (LLMs)
 
-__BRAND_NAME__ is structured as a monorepo containing two core packages:
-- **`packages/portal`**: A MERN web application. The frontend uses Create React App (CRA) configured with `react-app-rewired` for style-system path mapping. The backend serves client authentication, license keys validation, support tickets, and account subscription state.
-- **`packages/shared`**: Shared styling system (`styled-components` design tokens, light/dark themes, Atoms/Organisms), pricing config (plans, limits), and TypeScript common types.
-
-### Backend Tech Stack
-1. **Express & Node.js**: Modular routers, custom middlewares for auth validation, plan limits, and global error handlers.
-2. **MongoDB & Mongoose**: Structured schemas for Users, Licenses, Tickets, and Configurations with automatic reconnection retries.
-3. **Email Notification Service**: MailSender provider implementation using styled email templates.
-
-### Frontend Tech Stack
-1. **React**: Single Page Application structure with Redux for state management, context providers, and customized hooks.
-2. **Design System**: Fully responsive mobile-first custom components using styled-components.
-3. **i18n & Translations**: Dynamic localization and multi-language support (English/Spanish base locales).
-
----
-
-## Primary Resources & Links
-- [Official Website](https://__DOMAIN_NAME__)
-- [Pricing and License Plans](https://__DOMAIN_NAME__/pricing)
-- [Terms and Conditions](https://__DOMAIN_NAME__/legal/terms)
-- [Privacy Policy & Data Security](https://__DOMAIN_NAME__/legal/privacy)
+- [Documentación Completa para IA — llms-full.txt](https://avatargroup.com.ar/llms-full.txt): Especificación exhaustiva de servicios B2B, cuadro detallado de las 4 modalidades Easy-Pack, protocolos operativos paso a paso, habilitaciones de seguridad y preguntas frecuentes verificadas.

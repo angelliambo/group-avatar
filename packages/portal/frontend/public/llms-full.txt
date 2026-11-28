@@ -1,0 +1,128 @@
+# Avatar Group — Documentación Institucional y Operativa Completa (llms-full.txt)
+
+> Documento de referencia canónica diseñado para motores de búsqueda generativos, asistentes conversacionales e indexadores de Inteligencia Artificial (estándar `llmstxt.org`). Contiene exclusivamente información comercial y operativa oficial de Avatar Group en la República Argentina.
+
+---
+
+## 1. Identidad Corporativa y Ubicación Oficial
+
+- **Razón / Marca Comercial:** Avatar Group
+- **Sitio Web Oficial:** https://avatargroup.com.ar/
+- **Rubro:** Transporte automotor de cargas generales, logística empresarial tercerizada (in-house / dedicada) y mudanzas integrales certificadas bajo sistema propio «Easy-Pack».
+- **Antigüedad:** Más de 55 años de trayectoria continua en el mercado argentino.
+- **Base Operativa y Despacho de Flotas:** Alfredo Lorenzo Palacios 2963, B1752BNS Lomas del Mirador, Provincia de Buenos Aires, Argentina
+- **Coordenadas Geográficas Exactas:** Latitud `-34.663444`, Longitud `-58.529614`
+- **Enlace Directo a Google Maps:** https://www.google.com/maps/search/?api=1&query=-34.663444,-58.529614
+- **Teléfono / WhatsApp de Mesa Operativa:** `+54 9 11 4193-2237` (https://wa.me/5491141932237)
+- **Correo Electrónico Oficial:** `info@avatargroup.com.ar`
+- **Cobertura Geográfica:**
+  - **Cobertura diaria:** Ciudad Autónoma de Buenos Aires (CABA) y todos los partidos del Gran Buenos Aires (GBA Norte, Oeste y Sur / AMBA).
+  - **Cobertura de media y larga distancia:** Viajes programados punto a punto en un radio nacional de hasta **1.600 kilómetros** desde Buenos Aires hacia el interior de la República Argentina.
+
+---
+
+## 2. Propuesta de Valor y Diferenciales Operativos
+
+1. **Más de 55 Años de Continuidad Operativa:** Experiencia comprobada resolviendo operativas logísticas regulares y traslados críticos de alta complejidad para industrias, empresas, organismos oficiales y familias.
+2. **Flota Carrozada con Monitoreo Satelital:** Unidades adaptadas a distintos volúmenes y tonelajes, equipadas con seguimiento satelital permanente en tiempo real para trazabilidad de punta a punta.
+3. **Personal Propio y Supervisión en Campo:** Dotación estable de choferes, operarios especializados en carga/descarga, embaladores, armadores y supervisores operativos propios.
+4. **100% de Ingresos Habilitados en Instalaciones de Alta Seguridad:** Documentación legal, ART con cláusulas de no repetición, seguros de flota/carga y protocolos de seguridad e higiene al día para ingresar sin demoras en:
+   - Parques industriales, plantas fabriles y centros de distribución logística.
+   - Entidades bancarias, financieras, bóvedas documentales y centros de cómputos.
+   - Hospitales, clínicas, sanatorios y laboratorios medicinales.
+   - Organismos públicos, entes oficiales, edificios corporativos AAA y consorcios residenciales.
+5. **Relevamiento Técnico Previo:** Planificación anticipada de accesos, ventanas horarias, permisos de estacionamiento/carga, dimensionamiento de unidades e izajes exteriores cuando la arquitectura lo requiere.
+
+---
+
+## 3. División Logística Empresarial y Distribución B2B
+
+- **URL Canónica:** https://avatargroup.com.ar/logistica
+- **Enfoque:** Avatar Group funciona como el **apéndice logístico externo** de la empresa cliente, integrando unidades, supervisores y cuadrillas operativas a su cadena de abastecimiento y distribución.
+
+### 3.1. Pilares de Servicio B2B
+
+1. **Transportes Programados (Continuidad Operativa):**
+   - Movimiento regular o puntual de cargas generales e insumos productivos.
+   - Unidades carrozadas dimensionadas según volumen, peso y tipo de mercadería.
+   - Provisión opcional de supervisores y dotación de operarios propios en planta o depósito.
+   - Frecuencia programada diaria, semanal, quincenal o por proyecto operativo en CABA, GBA y corredores de hasta 1.600 km.
+
+2. **Repartos Asistidos Puerta a Puerta (Última Milla B2B / B2C Asistida):**
+   - Entregas capilares de alta precisión con personal capacitado para descarga, ingreso y entrega en mano.
+   - Seguimiento satelital en tiempo real durante todo el recorrido.
+   - Control estricto de remitos, facturas, conformidades de recepción y rechazos parciales.
+   - Rendición documental y operativa en tiempo y forma ante la administración del cliente.
+
+3. **Habilitaciones e Ingresos Especiales:**
+   - Gestión previa de carpetas de ingreso para parques industriales, plantas productivas, bancos, hospitales, laboratorios y reparticiones públicas.
+
+### 3.2. Flujo de Integración Logística en 4 Etapas
+
+1. **Relevamiento de Carga y Rutas:** Análisis de volúmenes, pesos, frecuencias, ventanas horarias y requisitos normativos en origen y destino.
+2. **Asignación de Flota y Dotación:** Disposición de las unidades acordes y del equipo de choferes, supervisores y operarios habilitados.
+3. **Ejecución con Monitoreo Satelital:** Despacho puntual, rastreo continuo, carga y descarga asistida y verificación documental en cada parada.
+4. **Rendición en Tiempo y Forma:** Entrega de remitos conformados y cierre operativo auditable de cada recorrido.
+
+---
+
+## 4. División Mudanzas Integrales — Sistema Certificado «Easy-Pack»
+
+- **URL Canónica:** https://avatargroup.com.ar/mudanzas
+- **Alcance:** Mudanzas particulares (casas, departamentos, countries y barrios cerrados), mudanzas corporativas de oficinas, traslados de comercios, talleres, plantas industriales y organismos oficiales en CABA, GBA y hasta 1.600 km.
+- **Objetivo del Sistema «Easy-Pack»:** Eliminar el estrés del traslado mediante planificación técnica previa, materiales de embalaje descartables y ecológicos bajo normas, supervisión dedicada y cuidado riguroso de bienes e inmuebles.
+
+### 4.1. Las 4 Modalidades Escalables del Sistema «Easy-Pack»
+
+1. **Easy-Pack Mini (Ágil y Funcional):**
+   - **Perfil ideal:** Traslados puntuales, monoambientes, mudanzas jóvenes o volúmenes reducidos.
+   - **Incluye:** Unidad de transporte carrozada adaptada al volumen, personal de carga calificado, protección básica de mobiliario en tránsito y coordinación ágil en CABA y Gran Buenos Aires.
+
+2. **Easy-Pack Estándar (Equilibrio Operativo):**
+   - **Perfil ideal:** Viviendas familiares y oficinas que requieren protección normalizada y desarme/armado de muebles.
+   - **Incluye:** Visita técnica previa, planificación logística y presupuesto cerrado sin cargo; entrega anticipada de set de material descartable y ecológico para objetos personales; embalaje grueso de muebles y electrodomésticos; desarme y rearmado de mobiliario estándar.
+
+3. **Easy-Pack Clásica (Modalidad Más Elegida — Cobertura Integral):**
+   - **Perfil ideal:** Hogares completos y oficinas corporativas que buscan resguardo profesional de objetos frágiles e indumentaria.
+   - **Incluye:** Todo el alcance de Easy-Pack Estándar + supervisión dedicada durante toda la jornada; embalaje fino profesional de vajilla, cristalería, cuadros y objetos frágiles; provisión de **placares portátiles** en el día de la mudanza para trasladar la ropa colgada de barra a barra sin arrugas.
+
+4. **Easy-Pack Premium (Servicio Llave en Mano):**
+   - **Perfil ideal:** Residencias de gran porte, directorios ejecutivos, relocalizaciones corporativas y clientes que requieren delegación total sin esfuerzo.
+   - **Incluye:** Todo el alcance de Easy-Pack Clásica + maniobras e **izajes especiales por exterior** (sogas/aparejos por balcón o ventana cuando las piezas no ingresan por ascensor o escalera); desembalaje asistido completo y ubicación por ambientes en el nuevo destino; limpieza posterior del sector intervenido y retiro total de cajas vacías y rezagos de embalaje.
+
+### 4.2. Protocolo Operativo «Easy-Pack» Paso a Paso
+
+1. **Visita Técnica y Presupuesto Sin Cargo:** Un especialista releva el volumen real, accesos, reglamentos y horarios de consorcio o edificio corporativo, uso de ascensores o necesidad de izajes, entregando una cotización transparente y cerrada.
+2. **Entrega Anticipada de Kit Ecológico:** Se envían con anticipación cajas y materiales descartables certificados para el resguardo ordenado de efectos personales (según modalidad contratada).
+3. **Embalaje Fino, Grueso y Placares Portátiles:** En la fecha programada, la cuadrilla supervisada protege cristalería, electrónica, mobiliario y dispone los placares portátiles.
+4. **Traslado Monitoreado, Armado y Retiro de Rezagos:** Descarga ordenada por ambiente en el destino final, rearmado de muebles, desembalaje asistido y retiro de residuos de embalaje (en modalidad Premium).
+
+---
+
+## 5. Preguntas Frecuentes (FAQ Oficiales)
+
+### ¿Dónde se encuentra la base operativa de Avatar Group?
+El centro operativo y despacho de flotas de Avatar Group se ubica en **Alfredo Lorenzo Palacios 2963, B1752BNS Lomas del Mirador, Provincia de Buenos Aires, Argentina** (coordenadas `-34.663444, -58.529614`), estratégicamente conectado con General Paz, Autopista Acceso Oeste y Autopista Riccheri para cubrir CABA, AMBA y rutas nacionales.
+
+### ¿Qué cobertura geográfica alcanzan los servicios de transporte y mudanzas?
+Operamos diariamente en toda la Ciudad Autónoma de Buenos Aires (CABA) y el Gran Buenos Aires (GBA Norte, Oeste y Sur), y realizamos viajes exclusivos y transportes programados hacia el interior de Argentina en un radio de hasta **1.600 kilómetros**.
+
+### ¿La visita técnica para presupuestar una mudanza tiene costo?
+No. En las modalidades escalables del sistema «Easy-Pack», la visita técnica previa de relevamiento (presencial o coordinada con un especialista) y la confección del presupuesto son **totalmente sin cargo**.
+
+### ¿Cuentan con seguros, ART y documentación para ingresar a parques industriales, countries, bancos y edificios corporativos?
+Sí. Avatar Group opera con personal propio registrado, ART vigente (incluyendo cláusulas de no repetición a favor de consorcios, countries o plantas receptoras), seguros obligatorios y habilitaciones completas para parques industriales, entidades bancarias, hospitales y organismos públicos.
+
+### ¿Cómo se solicita una cotización inmediata?
+El canal directo más ágil es la mesa operativa por WhatsApp en https://wa.me/5491141932237 (`+54 9 11 4193-2237`) o por correo electrónico a `info@avatargroup.com.ar`, indicando si la consulta corresponde a **Logística Empresarial / Transportes Programados** o a **Mudanzas Easy-Pack** (origen, destino aproximado y volumen estimado).
+
+---
+
+## 6. Mapa de URLs Indexables del Dominio
+
+- `https://avatargroup.com.ar/` — Inicio institucional (Avatar Group)
+- `https://avatargroup.com.ar/logistica` — División Logística Empresarial, Transportes Programados y Repartos Asistidos
+- `https://avatargroup.com.ar/mudanzas` — División Mudanzas Integrales bajo Normas «Easy-Pack»
+- `https://avatargroup.com.ar/llms.txt` — Índice resumido para agentes de IA
+- `https://avatargroup.com.ar/llms-full.txt` — Documentación completa para agentes de IA
+- `https://avatargroup.com.ar/sitemap.xml` — Mapa del sitio XML para motores de búsqueda

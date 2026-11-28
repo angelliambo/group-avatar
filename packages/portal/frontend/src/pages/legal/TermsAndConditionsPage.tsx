@@ -1,5 +1,7 @@
 import React from "react";
+import { BRAND_CONFIG } from "@factory/shared/config/brand";
 import { useTranslation } from "../../i18n/I18nProvider";
+import SEO from "../../components/SEO";
 import {
   PageWrapper,
   Container,
@@ -24,6 +26,13 @@ const TermsAndConditionsPage: React.FC = () => {
 
   return (
     <PageWrapper>
+      <SEO
+        title={t('pages.home.footerTerminos')}
+        description={BRAND_CONFIG.seoDescription}
+        canonicalUrl={`https://${BRAND_CONFIG.domain}/legal/terms`}
+        noIndex={true}
+        noFollow={true}
+      />
       <Container>
         <StyledMainTitle level={1}>{t('pages.legal.titulo')}</StyledMainTitle>
         <StyledSubtitle>{t('pages.legal.ultimaActualizacion')}</StyledSubtitle>

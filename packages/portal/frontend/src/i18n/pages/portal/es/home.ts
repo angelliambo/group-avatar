@@ -17,7 +17,7 @@ export const home = {
   heroBadge: 'Más de 55 Años en Movimiento',
   heroTitle: 'Avatar Group',
   heroTitleAccent: 'Infraestructura en Logística y Mudanzas',
-  heroSubtitle: 'Somos una organización argentina especializada en operaciones de transporte, logística corporativa y mudanzas de alta complejidad. Desde nuestra base en Buenos Aires articulamos flotas monitoreadas en CABA, Gran Buenos Aires y un radio nacional de hasta 1.600 km.',
+  heroSubtitle: 'Somos una organización argentina especializada en operaciones de transporte, logística corporativa y mudanzas de alta complejidad. Desde nuestra base en Buenos Aires articulamos flotas monitoreadas en CABA, Gran Buenos Aires en un radio nacional de hasta 1.600 km.',
   heroBannerAlt: 'Sede operativa y flota de Avatar Group — Soluciones Logísticas en CABA, AMBA e Interior del País y Mudanzas Sistema Easy-Packs',
   heroExploreButton: 'Explorar Unidades de Negocio',
   whatsappContactButton: 'Hablar con un Asesor por WhatsApp',
@@ -74,7 +74,7 @@ export const home = {
 
   // Location Section (#location)
   locationTitle: 'Centro Operativo en Buenos Aires',
-  locationSubtitle: 'Desde nuestra base en Mataderos (CABA) coordinamos la salida de unidades, acopio de materiales y despacho de flotas.',
+  locationSubtitle: 'Desde nuestra base en Lomas del Mirador (Provincia de Buenos Aires) coordinamos la salida de unidades, acopio de materiales y despacho de flotas.',
 
   // Testimonials Section (#testimonials)
   testimonialsTitle: 'La Confianza de Nuestros Clientes',
@@ -113,12 +113,12 @@ export const home = {
   guidedTourNext: 'Siguiente',
   guidedTourMute: 'Silenciar voz',
   guidedTourUnmute: 'Activar voz',
-  guidedTourStep1Text: 'Bienvenido a Avatar Group. Somos una organización con más de 55 años de trayectoria en transporte, logística corporativa y mudanzas en Buenos Aires y un radio de 1.600 kilómetros.',
+  guidedTourStep1Text: 'Bienvenido a Avatar Group. Somos una organización con más de 55 años de trayectoria en transporte, logística corporativa y mudanzas en Buenos Aires en un radio de 1.600 kilómetros.',
   guidedTourStep2Text: 'Aquí puedes acceder a nuestras dos divisiones especializadas: la División Logística para empresas y la División Mudanzas bajo normas certificadas Easy-Pack.',
   guidedTourStep3Text: 'Nuestra estructura corporativa garantiza unidades con monitoreo satelital, personal propio asegurado y habilitaciones para parques industriales, bancos, hospitales y organismos oficiales.',
   guidedTourStep4Text: 'Nuestros números nos respaldan: más de cinco décadas en el mercado, cobertura de media y larga distancia, y cumplimiento normativo total en cada ingreso.',
   guidedTourStep5Text: 'Empresas industriales, oficinas corporativas y plantas productivas avalan nuestra puntualidad, cuidado operativo y prolijidad documental.',
-  guidedTourStep6Text: 'Desde nuestro centro operativo en Mataderos, Ciudad de Buenos Aires, coordinamos el despacho diario de unidades y flotas dedicadas.',
+  guidedTourStep6Text: 'Desde nuestro centro operativo en Lomas del Mirador, Provincia de Buenos Aires, coordinamos el despacho diario de unidades y flotas dedicadas.',
   guidedTourStep7Text: '¿Listo para coordinar tu próxima operación? Comunícate ahora mismo con nuestra mesa operativa por WhatsApp para recibir asesoramiento inmediato.',
 };
 
