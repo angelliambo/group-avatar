@@ -1,28 +1,37 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useLocation } from "@tanstack/react-router";
 import { initGA, trackPageView } from "../services/analytics";
 
 /**
  * Hook personalizado para inicializar Google Analytics (GA4) y realizar
- * el tracking automático de vistas de página (pageviews) ante cambios de ruta.
+ * el tracking automático de navegaciones SPA sin duplicar el page_view inicial de <head>.
  */
 export const usePageTracking = (): void => {
   const location = useLocation();
+  const isInitialLoadRef = useRef(true);
 
-  // Inicializar GA4 al montar la aplicación
   useEffect(() => {
     initGA();
   }, []);
 
-  // Trackear pageviews al cambiar de ruta
   useEffect(() => {
-    // Un pequeño delay de 100ms permite que componentes como <SEO> o react-helmet
-    // actualicen el document.title antes de que enviemos el evento a GA4.
+    const fullPath = location.pathname + (location.searchStr || "");
+
+    // En la carga inicial, el snippet nativo gtag('config', ID) en <head> ya envía el primer page_view.
+    // Solo si por algún motivo no estaba presente en <head>, disparamos fallback manual.
+    if (isInitialLoadRef.current) {
+      isInitialLoadRef.current = false;
+      if (typeof document !== "undefined" && document.getElementById("ga4-gtag-script")) {
+        return;
+      }
+    }
+
     const timer = setTimeout(() => {
-      trackPageView(location.pathname + (location.searchStr || ""));
+      trackPageView(fullPath);
     }, 100);
 
     return () => clearTimeout(timer);
-  }, [location]);
+  }, [location.pathname, location.searchStr]);
 };
+
 export default usePageTracking;
