@@ -1,30 +1,31 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-AR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Limpiar Service Worker - SaaS Boilerplate Portal</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Mantenimiento de Caché — Avatar Group</title>
   <style>
-    body { font-family: sans-serif; text-align: center; padding: 40px; background: #0b091a; color: #fff; }
-    pre { background: #1a1a3e; padding: 16px; border-radius: 8px; display: inline-block; text-align: left; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; text-align: center; padding: 48px 24px; background: #070709; color: #fafafa; margin: 0; }
+    pre { background: #14141a; border: 1px solid #27272a; padding: 16px; border-radius: 8px; display: inline-block; text-align: left; color: #d4d4d8; }
   </style>
 </head>
 <body>
-  <h1>🧹 Limpiando Service Worker...</h1>
+  <h1>Actualizando caché local...</h1>
   <pre id="log"></pre>
   <script>
     const log = document.getElementById("log");
-    function logMsg(msg) { log.textContent += msg + "\\n"; }
+    function logMsg(msg) { log.textContent += msg + "\n"; }
     (async () => {
-      logMsg("Eliminando caches...");
+      logMsg("Eliminando cachés locales...");
       const keys = await caches.keys();
       await Promise.all(keys.map(k => caches.delete(k)));
-      logMsg("Caches eliminados: " + keys.length);
-      logMsg("Deregistrando service workers...");
+      logMsg("Cachés eliminados: " + keys.length);
+      logMsg("Desregistrando service workers...");
       const regs = await navigator.serviceWorker.getRegistrations();
       await Promise.all(regs.map(r => r.unregister()));
-      logMsg("SW deregistrados: " + regs.length);
-      logMsg("✅ Listo. Recargando...");
+      logMsg("Service workers desregistrados: " + regs.length);
+      logMsg("Listo. Recargando...");
       setTimeout(() => location.reload(), 1500);
     })();
   </script>

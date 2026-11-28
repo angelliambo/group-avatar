@@ -33,6 +33,9 @@ export default defineConfig(({ mode }) => {
       'process.env.NODE_ENV': JSON.stringify(mode || 'production'),
       ...processEnvDefine,
     },
+    optimizeDeps: {
+      exclude: ['@factory/shared'],
+    },
     server: {
       port: 3000,
       open: true,

@@ -1,80 +1,115 @@
-# Robots.txt for avatar-group Portal
-# https://www.robotstxt.org/robotstxt.html
+# Robots.txt — Avatar Group (https://avatargroup.com.ar)
+# Optimizado para motores de búsqueda (Google, Bing) y agentes de IA (OpenAI, Anthropic, Perplexity, Google AI, Meta)
+# Índice estructurado para LLMs: https://avatargroup.com.ar/llms.txt
+# Documentación completa para LLMs: https://avatargroup.com.ar/llms-full.txt
 
-# Allow all search engine bots and AI crawlers
 User-agent: *
 Allow: /
+Allow: /assets/
+Allow: /llms.txt
+Allow: /llms-full.txt
+Allow: /sitemap.xml
+Allow: /manifest.json
+Allow: /og-image.jpg
+Allow: /favicon.ico
+Allow: /favicon-16x16.png
+Allow: /favicon-32x32.png
+Allow: /apple-touch-icon.png
+Allow: /logo192.png
+Allow: /logo512.png
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+Disallow: /offline.html
+Disallow: /clear-sw.html
+Disallow: /.env
+Disallow: /.git/
+Disallow: /*.map$
 
-# Specifically invite and optimize for AI web crawlers
+# Buscadores principales (sin Crawl-delay para máxima velocidad de renderizado JS/CSS)
+User-agent: Googlebot
+Allow: /
+Disallow: /api/
+Disallow: /offline.html
+Disallow: /clear-sw.html
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: AdsBot-Google
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+Disallow: /api/
+Disallow: /offline.html
+Disallow: /clear-sw.html
+
+# Agentes y buscadores de Inteligencia Artificial
 User-agent: GPTBot
 Allow: /
-Crawl-delay: 1
+Allow: /llms.txt
+Allow: /llms-full.txt
+Disallow: /api/
+
+User-agent: OAI-SearchBot
+Allow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
+Disallow: /api/
 
 User-agent: ChatGPT-User
 Allow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
+Disallow: /api/
 
 User-agent: ClaudeBot
 Allow: /
-Crawl-delay: 1
+Allow: /llms.txt
+Allow: /llms-full.txt
+Disallow: /api/
+
+User-agent: Claude-Web
+Allow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
+Disallow: /api/
 
 User-agent: PerplexityBot
 Allow: /
-Crawl-delay: 1
+Allow: /llms.txt
+Allow: /llms-full.txt
+Disallow: /api/
+
+User-agent: Perplexity-User
+Allow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
+Disallow: /api/
 
 User-agent: Google-Extended
+Allow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
+
+User-agent: GoogleOther
 Allow: /
 
 User-agent: Applebot-Extended
 Allow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
 
-# Allow standard search engine crawlers
-User-agent: Googlebot
+User-agent: Meta-ExternalAgent
 Allow: /
-Crawl-delay: 1
+Allow: /llms.txt
+Allow: /llms-full.txt
 
-User-agent: Bingbot
+User-agent: Amazonbot
 Allow: /
-Crawl-delay: 1
+Allow: /llms.txt
+Allow: /llms-full.txt
 
-# Block access to private routes and API endpoints
-Disallow: /api/
-Disallow: /admin/
-Disallow: /private/
-Disallow: /_next/
-Disallow: /static/
-Disallow: /node_modules/
-Disallow: /src/
-Disallow: /build/
-Disallow: /.env
-Disallow: /.git/
-Disallow: /package.json
-Disallow: /package-lock.json
-Disallow: /yarn.lock
-Disallow: /tsconfig.json
-Disallow: /README.md
-Disallow: /CHANGELOG.md
-Disallow: /LICENSE
-
-# Block code/metadata extensions from indexation
-Disallow: /*.json$
-Disallow: /*.js$
-Disallow: /*.css$
-Disallow: /*.map$
-Disallow: /*.ts$
-Disallow: /*.tsx$
-Disallow: /*.md$
-
-# Allow access to static assets and public routes
-Allow: /favicon.ico
-Allow: /robots.txt
-Allow: /sitemap.xml
-Allow: /manifest.json
-Allow: /apple-touch-icon.png
-Allow: /favicon-16x16.png
-Allow: /favicon-32x32.png
-Allow: /logo192.png
-Allow: /logo512.png
-Allow: /og-image.png
-
-# Sitemaps
+# Sitemap oficial
 Sitemap: https://avatargroup.com.ar/sitemap.xml

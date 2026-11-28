@@ -1,5 +1,7 @@
 import React from "react";
+import { BRAND_CONFIG } from "@factory/shared/config/brand";
 import { useTranslation } from "../../i18n/I18nProvider";
+import SEO from "../../components/SEO";
 import {
   PageWrapper,
   Container,
@@ -18,6 +20,13 @@ const PrivacyPolicyPage: React.FC = () => {
 
   return (
     <PageWrapper>
+      <SEO
+        title={t('pages.home.footerPrivacidad')}
+        description={BRAND_CONFIG.seoDescription}
+        canonicalUrl={`https://${BRAND_CONFIG.domain}/legal/privacy`}
+        noIndex={true}
+        noFollow={true}
+      />
       <Container>
         <StyledMainTitle level={1}>{t('pages.privacy.titulo')}</StyledMainTitle>
         <StyledSubtitle>{t('pages.privacy.ultimaActualizacion')}</StyledSubtitle>

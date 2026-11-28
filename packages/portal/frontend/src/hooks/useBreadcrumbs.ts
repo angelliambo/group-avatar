@@ -9,59 +9,43 @@ export interface BreadcrumbItem {
   icon?: string;
 }
 
-// Configuración de rutas para breadcrumbs
-const ROUTE_CONFIG: Record<
-  string,
-  { name: string; icon: string; parent?: string }
-> = {
-  dashboard: { name: "Dashboard", icon: "📊" },
-  support: { name: "Soporte", icon: "💬" },
-  admin: { name: "Administración", icon: "🛡️" },
-  wellcome: { name: "Bienvenida", icon: "👋" },
-  legal: { name: "Legal", icon: "📄" },
-  terms: { name: "Términos y Condiciones", icon: "⚖️", parent: "legal" },
-  privacy: { name: "Política de Privacidad", icon: "🔒", parent: "legal" },
+const ROUTE_CONFIG: Record<string, { name: string; parent?: string }> = {
+  logistica: { name: "Logística y Transportes" },
+  mudanzas: { name: "Mudanzas Easy-Pack" },
+  legal: { name: "Legal" },
+  terms: { name: "Términos y Condiciones", parent: "legal" },
+  privacy: { name: "Política de Privacidad", parent: "legal" },
 };
 
 export const useBreadcrumbs = () => {
   const location = useLocation();
+  const canonicalOrigin = `https://${BRAND_CONFIG.domain}`;
 
   const breadcrumbs = useMemo(() => {
     const pathSegments = location.pathname.split("/").filter(Boolean);
-    const breadcrumbItems: BreadcrumbItem[] = [];
+    const breadcrumbItems: BreadcrumbItem[] = [
+      {
+        name: "Inicio",
+        url: "/",
+      },
+    ];
 
-    // Siempre agregar "Inicio" como primer elemento
-    breadcrumbItems.push({
-      name: "Inicio",
-      url: "/",
-      icon: "🏠",
-    });
-
-    // Construir breadcrumbs basado en la ruta actual
     let currentPath = "";
-    pathSegments.forEach((segment, index) => {
+    pathSegments.forEach((segment) => {
       currentPath += `/${segment}`;
       const routeInfo = ROUTE_CONFIG[segment];
 
-      if (routeInfo) {
-        breadcrumbItems.push({
-          name: routeInfo.name,
-          url: currentPath,
-          icon: routeInfo.icon,
-        });
-      } else {
-        // Si no hay configuración específica, usar el segmento como nombre
-        breadcrumbItems.push({
-          name: segment.charAt(0).toUpperCase() + segment.slice(1),
-          url: currentPath,
-        });
-      }
+      breadcrumbItems.push({
+        name: routeInfo
+          ? routeInfo.name
+          : segment.charAt(0).toUpperCase() + segment.slice(1),
+        url: currentPath,
+      });
     });
 
     return breadcrumbItems;
   }, [location.pathname]);
 
-  // Generar structured data para breadcrumbs
   const structuredData = useMemo(() => {
     return {
       "@context": "https://schema.org",
@@ -70,20 +54,18 @@ export const useBreadcrumbs = () => {
         "@type": "ListItem",
         position: index + 1,
         name: item.name,
-        item: `${window.location.origin}${item.url}`,
+        item: `${canonicalOrigin}${item.url}`,
       })),
     };
-  }, [breadcrumbs]);
+  }, [breadcrumbs, canonicalOrigin]);
 
   return {
     breadcrumbs,
     structuredData,
-    currentPage:
-      breadcrumbs[breadcrumbs.length - 1]?.name || "Home",
+    currentPage: breadcrumbs[breadcrumbs.length - 1]?.name || "Inicio",
   };
 };
 
-// Hook para obtener información SEO específica de la página actual
 export const usePageSEO = () => {
   const { breadcrumbs, currentPage } = useBreadcrumbs();
   const location = useLocation();
@@ -93,7 +75,6 @@ export const usePageSEO = () => {
     const pathSegments = location.pathname.split("/").filter(Boolean);
     const currentSegment = pathSegments[pathSegments.length - 1] || "";
 
-    // Mapear segmentos especiales a sus llaves de traducción correctas
     let pageKey = currentSegment;
     if (!pageKey) {
       pageKey = "home";
@@ -101,31 +82,44 @@ export const usePageSEO = () => {
       pageKey = "legal";
     } else if (pageKey === "privacy" || pageKey === "privacidad") {
       pageKey = "privacy";
-    } else if (pageKey === "welcome") {
-      pageKey = "wellcome";
     }
 
     const routeInfo = ROUTE_CONFIG[currentSegment];
+    const isLegalPage = location.pathname.startsWith("/legal/");
 
-    // Obtener valores traducidos
-    const translatedTitle = t(`pages.${pageKey}.seoTitle`);
-    const translatedDescription = t(`pages.${pageKey}.seoDescription`);
-    const translatedKeywords = t(`pages.${pageKey}.seoKeywords`);
+    const translatedTitle = !isLegalPage ? t(`pages.${pageKey}.seoTitle`) : "";
+    const translatedDescription = !isLegalPage ? t(`pages.${pageKey}.seoDescription`) : "";
+    const translatedKeywords = !isLegalPage ? t(`pages.${pageKey}.seoKeywords`) : "";
 
-    const title = translatedTitle || (routeInfo ? `${routeInfo.name} | ${BRAND_CONFIG.siteName}` : `${BRAND_CONFIG.siteName} - Tu Plataforma Lista para Despegar`);
-    const description = translatedDescription || BRAND_CONFIG.seoDescription || "La estructura modular de alto rendimiento para tu negocio o startup con paneles de administración, facturación y soporte.";
-    const keywords = translatedKeywords
-      ? translatedKeywords.split(",").map(k => k.trim())
-      : (BRAND_CONFIG.seoKeywords ? BRAND_CONFIG.seoKeywords.split(",").map(k => k.trim()) : ["portal saas", "boilerplate", "panel de control web", "base para startup", "desarrollo modular", "login google", "soporte integrado"]);
+    const title =
+      translatedTitle && !translatedTitle.startsWith("pages.")
+        ? translatedTitle
+        : routeInfo
+          ? `${routeInfo.name} | ${BRAND_CONFIG.siteName}`
+          : BRAND_CONFIG.seoTitle;
+
+    const description =
+      translatedDescription && !translatedDescription.startsWith("pages.")
+        ? translatedDescription
+        : BRAND_CONFIG.seoDescription;
+
+    const keywords =
+      translatedKeywords && !translatedKeywords.startsWith("pages.")
+        ? translatedKeywords.split(",").map((k) => k.trim())
+        : BRAND_CONFIG.seoKeywords.split(",").map((k) => k.trim());
+
+    const canonicalPath = location.pathname === "/" ? "/" : location.pathname;
 
     return {
       title,
       description,
       keywords,
-      canonicalUrl: `${window.location.origin}${location.pathname}`,
-      ogImage: `/og-image.jpg?v=3`,
+      canonicalUrl: `https://${BRAND_CONFIG.domain}${canonicalPath}`,
+      ogImage: `/og-image.jpg?v=${BRAND_CONFIG.ogImageVersion}`,
+      noIndex: isLegalPage,
+      noFollow: isLegalPage,
     };
-  }, [location.pathname, currentPage, t]);
+  }, [location.pathname, t]);
 
   return {
     ...seoData,

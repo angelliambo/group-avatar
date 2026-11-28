@@ -85,7 +85,7 @@ function loadLang(): string {
       } catch { }
     }
   } catch (err) {
-    console.error('[SaaS Boilerplate] Fallo al inicializar la detección de idioma.', err);
+    console.error(`[${BRAND_CONFIG.siteName}] Fallo al inicializar la detección de idioma.`, err);
   }
 
   return DEFAULT_LANG;

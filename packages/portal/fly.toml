@@ -6,6 +6,7 @@ app = "avatar-group"
   [build.args]
     VITE_API_URL = "https://avatargroup.com.ar/api"
     VITE_GOOGLE_CLIENT_ID = "<google-client-id>"
+    VITE_GA_MEASUREMENT_ID = "G-D4N52KG455"
     VITE_ADS_ENABLED = "false"
 primary_region = "gru"
 

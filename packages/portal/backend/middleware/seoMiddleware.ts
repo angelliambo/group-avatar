@@ -8,6 +8,9 @@ const PUBLIC_INDEXABLE_PATHS = new Set([
   "/",
   "/logistica",
   "/mudanzas",
+]);
+
+const NOINDEX_NOFOLLOW_PATHS = new Set([
   "/legal/terms",
   "/legal/privacy",
 ]);
@@ -16,8 +19,13 @@ const PUBLIC_INDEXABLE_PATHS = new Set([
  * Middleware para servir el index.html de React inyectando dinámicamente el SEO y estado de Tenant.
  */
 export async function serveReactWithSEO(req: Request, res: Response, next: NextFunction) {
-  // Servir archivos de texto plano esenciales (ads.txt, robots.txt, llms.txt) directamente desde Express
-  if (req.path === "/ads.txt" || req.path === "/robots.txt" || req.path === "/llms.txt") {
+  // Servir archivos de texto plano esenciales (robots.txt, llms.txt, llms-full.txt, ads.txt) directamente desde Express
+  if (
+    req.path === "/ads.txt" ||
+    req.path === "/robots.txt" ||
+    req.path === "/llms.txt" ||
+    req.path === "/llms-full.txt"
+  ) {
     const fileName = req.path.substring(1);
     let filePath = "/usr/share/nginx/html/" + fileName;
     if (!fs.existsSync(filePath)) {
@@ -85,17 +93,24 @@ export async function serveReactWithSEO(req: Request, res: Response, next: NextF
     const seoKeywords = tenant?.seo?.keywords || BRAND_CONFIG.seoKeywords;
     const protocol = req.secure || req.headers["x-forwarded-proto"] === "https" ? "https" : "http";
     const seoImage = tenant?.seo?.image || `${protocol}://${host}/og-image.jpg?v=${BRAND_CONFIG.ogImageVersion}`;
-    const themeColor = tenant?.theme?.primaryColor || "#09090b";
+    const themeColor = tenant?.theme?.primaryColor || "#070709";
 
-    // Determinar si es una ruta pública o privada/inexistente para indexación
-    const isPublicRoute = PUBLIC_INDEXABLE_PATHS.has(req.path);
+    // Determinar política de indexación por ruta (legales excluidas con noindex, nofollow)
+    const normalizedPath = req.path.length > 1 && req.path.endsWith("/")
+      ? req.path.slice(0, -1)
+      : req.path;
+    const isPublicRoute = PUBLIC_INDEXABLE_PATHS.has(normalizedPath);
+    const isNoFollowRoute = NOINDEX_NOFOLLOW_PATHS.has(normalizedPath) || normalizedPath.startsWith("/legal/");
     const robotsTag = isPublicRoute
       ? `<meta name="robots" content="index, follow" />`
-      : `<meta name="robots" content="noindex, follow" />`;
+      : isNoFollowRoute
+        ? `<meta name="robots" content="noindex, nofollow" />`
+        : `<meta name="robots" content="noindex, follow" />`;
 
-    // Normalizar URL canónica
-    const cleanPath = req.path === "/" ? "" : req.path;
-    const canonicalUrl = `https://${BRAND_CONFIG.domain}${cleanPath}`;
+    // Normalizar URL canónica (raíz con barra final, subrutas sin barra final)
+    const canonicalUrl = normalizedPath === "/"
+      ? `https://${BRAND_CONFIG.domain}/`
+      : `https://${BRAND_CONFIG.domain}${normalizedPath}`;
     const canonicalTag = `<link rel="canonical" href="${canonicalUrl}" />`;
 
     // Reemplazar title y metas usando expresiones regulares robustas
