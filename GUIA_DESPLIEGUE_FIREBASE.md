@@ -10,8 +10,8 @@ Antes de realizar el despliegue, debes configurar tus propios datos y credencial
 
 | Placeholder | Descripción | Ejemplo de Reemplazo |
 |-------------|-------------|----------------------|
-| `__BRAND_NAME__` | El nombre comercial de tu plataforma. | `SpartaForge` |
-| `__DOMAIN_NAME__` | El dominio web donde correrá el portal. | `spartaforge.com` |
+| `Avatar-Group` | El nombre comercial de tu plataforma. | `SpartaForge` |
+| `avatargroup.com.ar` | El dominio web donde correrá el portal. | `spartaforge.com` |
 | `__FIREBASE_PROJECT_ID__` | El ID de tu proyecto de Firebase. | `spartaforge` |
 | `__BACKEND_SERVICE_NAME__` | El nombre del servicio de Cloud Run para el backend. | `spartaforge-backend` |
 | `__INSTAGRAM_USERNAME__` | Usuario por defecto para el feed de Instagram. | `spartaforge_ok` |
@@ -83,7 +83,7 @@ El backend Express corre dentro de un contenedor Docker optimizado que expone el
      --region=us-central1 \
      --allow-unauthenticated \
      --port=5000 \
-     --set-env-vars="MONGODB_URI=tu_conexion_mongodb,JWT_SECRET=tu_jwt_secret,NODE_ENV=production,FRONTEND_URL=https://__DOMAIN_NAME__"
+     --set-env-vars="MONGODB_URI=tu_conexion_mongodb,JWT_SECRET=tu_jwt_secret,NODE_ENV=production,FRONTEND_URL=https://avatargroup.com.ar"
    ```
 
 2. Al terminar, la terminal te dará una Service URL de Cloud Run (ej: `https://__BACKEND_SERVICE_NAME__-xyz.a.run.app`). **Guarda esta URL**, es la URL directa de tu API.
@@ -98,8 +98,8 @@ Firebase Hosting servirá los archivos estáticos de tu SPA y redirigirá de man
 Crea tu archivo `.env.production` en `packages/portal/frontend/.env.production` (o pídele al administrador que defina estas variables en tu entorno de integración continua) con las credenciales correspondientes:
 
 ```env
-# URL de la API (debe apuntar al dominio final de Firebase/Producción, ej: https://__DOMAIN_NAME__)
-REACT_APP_API_URL=https://__DOMAIN_NAME__/api
+# URL de la API (debe apuntar al dominio final de Firebase/Producción, ej: https://avatargroup.com.ar)
+REACT_APP_API_URL=https://avatargroup.com.ar/api
 
 # Credenciales de Google OAuth (GIS)
 REACT_APP_GOOGLE_CLIENT_ID=tu_google_client_id
@@ -127,4 +127,4 @@ Desde la raíz del monorepo, ejecuta los comandos del pipeline:
    yarn firebase:deploy
    ```
 
-Una vez finalizado, tu sitio estará disponible en `https://__FIREBASE_PROJECT_ID__.web.app` y `https://__DOMAIN_NAME__`. Firebase Hosting rutea internamente `/api/*` a Cloud Run sin problemas de CORS.
+Una vez finalizado, tu sitio estará disponible en `https://__FIREBASE_PROJECT_ID__.web.app` y `https://avatargroup.com.ar`. Firebase Hosting rutea internamente `/api/*` a Cloud Run sin problemas de CORS.
